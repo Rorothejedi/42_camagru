@@ -10,6 +10,8 @@ $router = new model\router\Router($_GET['url']);
 
 // Router get
 $router->get('/', "Public#displayGallery");
+$router->get('/inscription', "Public#displayRegister");
+$router->get('/connexion', "Public#displayConnection");
 
 // Router post
 

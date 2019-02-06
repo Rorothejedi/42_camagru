@@ -1,0 +1,92 @@
+:root {
+	--pink-color  : #CD4BAC;
+	--gold-color  : #EEFC76;
+	--cyan-color  : #66DDB3;
+	--main-color  : #2F3A44; /*Background dark*/
+	--second-color: #2A313C; /*Navbar*/
+}
+
+/*--------------------------------   Common   -------------------------------------*/
+
+::-moz-selection {
+    background: var(--cyan-color);
+    color: white;
+}
+::selection {
+    background: var(--cyan-color);
+    color: white;
+}
+
+@font-face {
+	font-family: "Quick";
+	src: url('../fonts/Quick.ttf') format("truetype");
+	font-weight: normal;
+	font-style : normal;
+}
+
+body {
+	background-color: var(--main-color);
+}
+
+/*----------   Button style   --------*/
+
+.style-button {
+	border: 3px solid;
+	padding: 5px 10px;
+	border-radius: 20px;
+	transition: 0.2s all;
+}
+.style-button:hover {
+	text-decoration: none;
+	transition: 0.2s all;
+}
+
+/*---------  Navbar  -----------*/
+
+.navbar-brand {
+	color: var(--cyan-color) !important;
+	font-family: Quick, sans-serif;
+	font-size: 2.2rem;
+}
+.navbar {
+	background-color: var(--second-color) !important;
+}
+
+/* Navbar buttons  */
+.button-color-first {
+	color: var(--gold-color);
+	border-color: var(--gold-color);
+}
+.button-color-first:hover {
+	background-color: var(--gold-color);
+	color: var(--second-color);
+}
+.button-color-second {
+	color: var(--cyan-color);
+	border-color: var(--cyan-color);
+}
+.button-color-second:hover {
+	background-color: var(--cyan-color);
+	color: var(--second-color);
+}
+
+/* -------  Gallery page ------- */
+
+.title {
+	font-family: 'Montserrat', sans-serif;
+	color: white;
+	font-weight: 200;
+	font-size: 2rem;
+	margin: 50px auto 40px auto;
+}
+
+/* ------ Register page -------*/
+
+.details {
+	font-family: 'Montserrat', sans-serif;
+	font-style: italic;
+	font-size: 0.8rem;
+	margin-top: -30px;
+	padding-left: 25px;
+	color: white;
+}

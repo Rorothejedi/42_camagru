@@ -6,7 +6,7 @@
 <html lang="fr">
 
 	<head>
-		<title>yolo</title>
+		<title>Instagru | Galerie</title>
 		<?= $meta ?>
 
 		<!-- Tags Open Graph -->
@@ -33,18 +33,33 @@
 		<?php 
 			echo $cdnBootstrap;
 			echo $cdnFontAwesome;
+			echo $cdnGoogleFont;
 			echo $stylesheet;
 			echo $favicon;
 		?>
 	</head>
 
 	<body>
-		<!-- Mettre navbar ici !! -->
-		<p>template Public OK</p>
-
-		<?php 
-			echo $content;
-		?>
+		<header>
+			<nav class="navbar">
+				<div class="container">
+					<a class="navbar-brand" href="./" title="Instagru">Instagru</a>
+					<div>
+						<a href="connexion" class="style-button button-color-first">Connexion</a>
+						<a href="inscription" class="style-button button-color-second">Inscription</a>	
+					</div>
+					<!-- <a href="#" title="Déconnexion">
+						<i class="fas fa-power-off fa-lg"></i>
+					</a> -->
+				</div>
+			</nav>
+		</header>
+		
+		<section>
+			<?php 
+				echo $content;
+			?>
+		</section>
 	</body>
 
 </html>

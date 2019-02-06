@@ -14,4 +14,20 @@ class ControllerPublic
 	{
 		require('./view/viewPublic/viewGallery.php');
 	}
+
+	/**
+	 * Méthode d'affichage de la page d'inscription.
+	 */
+	public function displayRegister()
+	{
+		require('./view/viewPublic/viewRegister.php');
+	}
+
+	/**
+	 * Méthode d'affichage de la page de connexion.
+	 */
+	public function displayConnection()
+	{
+		require('./view/viewPublic/viewConnection.php');
+	}
 }

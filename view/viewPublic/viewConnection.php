@@ -1,12 +1,12 @@
 <?php 
-	$title = 'Instagru | Galerie';
+	$title = 'Instagru | Connexion';
 	ob_start();
 ?>
 
 <div class="container">
-	<h1 class="title">Dernières photos postées</h1>
+	<h1 class="title">Connectez-vous</h1>
 	<hr>
-	<p>Ici les ptites photos !!!</p>
+	<p>Ici la petite connexion !!</p>
 </div>
 
 
