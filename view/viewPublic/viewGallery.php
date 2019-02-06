@@ -1,5 +1,5 @@
 <?php 
-	$title = 'Instagru | Galerie';
+	$title = 'Galerie';
 	ob_start();
 ?>
 

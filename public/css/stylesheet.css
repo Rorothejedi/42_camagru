@@ -16,6 +16,9 @@
     background: var(--cyan-color);
     color: white;
 }
+a, a:hover {
+	color: var(--cyan-color);
+}
 
 @font-face {
 	font-family: "Quick";
@@ -26,6 +29,8 @@
 
 body {
 	background-color: var(--main-color);
+	font-family: 'Montserrat', sans-serif;
+	color: white;
 }
 
 /*----------   Button style   --------*/
@@ -34,11 +39,11 @@ body {
 	border: 3px solid;
 	padding: 5px 10px;
 	border-radius: 20px;
-	transition: 0.2s all;
+	transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 .style-button:hover {
 	text-decoration: none;
-	transition: 0.2s all;
+	transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 
 /*---------  Navbar  -----------*/
@@ -47,6 +52,11 @@ body {
 	color: var(--cyan-color) !important;
 	font-family: Quick, sans-serif;
 	font-size: 2.2rem;
+	transition: 0.2s color;
+}
+.navbar-brand:hover {
+	color: var(--pink-color) !important;
+	transition: 0.2s color;
 }
 .navbar {
 	background-color: var(--second-color) !important;
@@ -73,20 +83,30 @@ body {
 /* -------  Gallery page ------- */
 
 .title {
-	font-family: 'Montserrat', sans-serif;
 	color: white;
 	font-weight: 200;
 	font-size: 2rem;
-	margin: 50px auto 40px auto;
+	margin: 40px auto 40px auto;
 }
 
 /* ------ Register page -------*/
 
 .details {
-	font-family: 'Montserrat', sans-serif;
 	font-style: italic;
 	font-size: 0.8rem;
 	margin-top: -30px;
 	padding-left: 25px;
+	color: white;
+}
+
+.button-color-submit {
+	cursor: pointer;
+	color: var(--cyan-color);
+	border-color: var(--cyan-color);
+	background-color: var(--main-color);
+}
+.button-color-submit:hover {
+	border-color: var(--pink-color);
+	background-color: var(--pink-color);
 	color: white;
 }

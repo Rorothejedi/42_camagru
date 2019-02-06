@@ -6,7 +6,7 @@
 <html lang="fr">
 
 	<head>
-		<title>Instagru | Galerie</title>
+		<title>Instagru | <?= $title ?></title>
 		<?= $meta ?>
 
 		<!-- Tags Open Graph -->
