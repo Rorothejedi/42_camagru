@@ -7,34 +7,11 @@ namespace App\model;
  */
 class App
 {
-	/**
-	 * Constante contenant le nom de la base de données.
-	 */
 	const DB_NAME = 'camagru';
-
-	/**
-	 * Constante contenant le nom d'utilisateur pour effectuer la connexion à la base de données.
-	 */
 	const DB_USER = 'root';
-
-	/**
-	 * Constante contenant le mot de passe pour effectuer la connexion à la base de données.
-	 */
 	const DB_PASS = '';
-
-	/**
-	 * Constante contenant l'hôte de connexion.
-	 */
 	const DB_HOST = 'localhost';
-
-	/**
-	 * Constante contenant le chemin d'accès par défaut du site.
-	 */
 	const DOMAIN_NAME = '/camagru';
-
-	/**
-	 * Connexion à la base de données.
-	 */
 	private static $database;
 
 	/**

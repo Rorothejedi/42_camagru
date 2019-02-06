@@ -24,10 +24,26 @@ class ControllerPublic
 	}
 
 	/**
+	 * Méthode d'affichage de la page de confirmation de l'inscription.
+	 */
+	public function displayRegisterConfirm()
+	{
+		require('./view/viewPublic/viewRegisterConfirm.php');
+	}
+
+	/**
 	 * Méthode d'affichage de la page de connexion.
 	 */
 	public function displayConnection()
 	{
 		require('./view/viewPublic/viewConnection.php');
+	}
+
+	/**
+	 * Méthode d'affichage de la page des mentions légales.
+	 */
+	public function displayLegal()
+	{
+		require('./view/viewPublic/viewLegal.php');
 	}
 }

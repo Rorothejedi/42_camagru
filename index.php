@@ -11,7 +11,11 @@ $router = new model\router\Router($_GET['url']);
 // Router get
 $router->get('/', "Public#displayGallery");
 $router->get('/inscription', "Public#displayRegister");
+$router->get('/confirmation_inscription', "Public#displayRegisterConfirm");
 $router->get('/connexion', "Public#displayConnection");
+
+$router->get('/mentions_legales', "Public#displayLegal");
+
 
 // Router post
 

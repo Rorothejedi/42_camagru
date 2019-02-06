@@ -53,9 +53,7 @@
 			</div>
 		</div>
 	</form>
-
 </div>
-
 
 <?php 
 	$content = ob_get_clean();

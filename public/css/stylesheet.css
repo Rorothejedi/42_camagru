@@ -51,8 +51,10 @@ body {
 .navbar-brand {
 	color: var(--cyan-color) !important;
 	font-family: Quick, sans-serif;
-	font-size: 2.2rem;
+	font-size: 2.6rem;
 	transition: 0.2s color;
+	padding-top: 0px;
+	padding-bottom: 0px;
 }
 .navbar-brand:hover {
 	color: var(--pink-color) !important;
@@ -83,7 +85,6 @@ body {
 /* -------  Gallery page ------- */
 
 .title {
-	color: white;
 	font-weight: 200;
 	font-size: 2rem;
 	margin: 40px auto 40px auto;
@@ -109,4 +110,32 @@ body {
 	border-color: var(--pink-color);
 	background-color: var(--pink-color);
 	color: white;
+}
+
+/* ------- Legals ---------*/
+
+.subtitle {
+	margin: 25px auto 15px auto;
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+
+/*---------- 404 ---------*/
+
+.error-body {
+	background-color: var(--second-color);
+}
+
+.error-title {
+	font-family: Quick, sans-serif;
+	font-size: 6rem;
+}
+.error-link {
+	text-decoration: none !important;
+}
+#countdown {
+	color: var(--cyan-color);
+	margin: auto 7px;
+	font-size: 1.1rem;
 }

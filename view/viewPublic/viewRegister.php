@@ -65,8 +65,10 @@
 
 		<div class="row">
 			<div class="col-md-10 ml-4">
-				<input type="checkbox" name="consent" class="form-check-input" required>
+				<input type="checkbox" name="consent" id="consent" class="form-check-input" required>
+				<label for="consent">
 					J'ai lu et j'accepte la <a href="mentions_legales">politique d'utilisation des données</a>
+				</label>
 			</div>
 		</div>
 
