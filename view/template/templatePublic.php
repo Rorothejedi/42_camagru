@@ -1,5 +1,5 @@
-<?php 
-	require_once('./view/init/initRessources.php');
+<?php
+	require_once('./config/initRessources.php');
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,9 @@
 		<!-- Tags Google -->
 		<meta name="description" content="<?= $title ?>">
 		<meta name="keywords" content="<?= $keywords ?>">
-		
+
 		<!-- CSS Bootstrap / Icons FontAwesome / Stylesheet / Favicon -->
-		<?php 
+		<?php
 			echo $cdnBootstrap;
 			echo $cdnFontAwesome;
 			echo $cdnGoogleFont;
@@ -46,7 +46,7 @@
 					<a class="navbar-brand" href="./" title="Instagru">Instagru</a>
 					<div>
 						<a href="connexion" class="style-button button-color-first">Connexion</a>
-						<a href="inscription" class="style-button button-color-second">Inscription</a>	
+						<a href="inscription" class="style-button button-color-second">Inscription</a>
 					</div>
 					<!-- <a href="#" title="Déconnexion">
 						<i class="fas fa-power-off fa-lg"></i>
@@ -54,9 +54,10 @@
 				</div>
 			</nav>
 		</header>
-		
+
 		<section>
-			<?php 
+			<?php
+				include('alerts.php');
 				echo $content;
 			?>
 		</section>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$title = 'Confirmation d\'inscription';
 	ob_start();
 ?>
@@ -10,11 +10,12 @@
 			<hr>
 			<div class="pt-5">
 				<p class="font-italic">
-					Votre inscription a bien été prise en compte. 
+					Votre inscription a bien été prise en compte.
 				</p>
 				<br>
 				<p>
-					Un mail viens de vous être envoyé à l'adresse que vous avez renseignée, il est possible que celui-ci soit considéré comme un spam donc vérifiez vos courriers indésirables. 
+					Un mail viens de vous être envoyé à l'adresse que vous avez renseignée.<br>
+					Il est possible que celui-ci soit considéré comme un spam donc vérifiez vos courriers indésirables.
 				</p>
 				<p>
 					Pour valider votre inscription, cliquez sur le bouton dédié présent dans cet e-mail.
@@ -24,7 +25,7 @@
 	</div>
 </div>
 
-<?php 
+<?php
 	$content = ob_get_clean();
 	require('./view/template/templatePublic.php');
 ?>

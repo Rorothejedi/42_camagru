@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$title = 'Inscription';
 	ob_start();
 ?>
@@ -8,7 +8,7 @@
 	<p class="details">... pour prendre vos propres photos, faire vos propres montages et les partager avec les autres utilisateurs ! <br>Vous pourrez également liker et commenter leurs photos !</p>
 	<hr>
 
-	<form class="form-horizontal pt-5 pb-5">
+	<form class="form-horizontal pt-5 pb-5" action="processRegistration" method="POST">
 		<div class="row">
 			<div class="col-md-4 field-label-responsive">
 				<label for="username">Nom d'utilisateur</label>
@@ -16,7 +16,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="text" name="username" class="form-control" placeholder="ex: toto" id="username" required autofocus>
+						<input type="text" name="username" class="form-control" placeholder="ex: toto" id="username" value="<?php if(isset($_SESSION['save_username'])){ echo $_SESSION['save_username']; } ?>" required autofocus>
 					</div>
 				</div>
 			</div>
@@ -24,12 +24,12 @@
 
 		<div class="row">
 			<div class="col-md-4 field-label-responsive">
-				<label for="mail">Adresse e-mail</label>
+				<label for="email">Adresse e-mail</label>
 			</div>
 			<div class="col-md-8">
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="email" name="mail" id="mail" class="form-control" placeholder="ex: toto@exemple.com" required>
+						<input type="email" name="email" id="email" class="form-control" placeholder="ex: toto@exemple.com" value="<?php if(isset($_SESSION['save_email'])){ echo $_SESSION['save_email']; } ?>" required>
 					</div>
 				</div>
 			</div>
@@ -82,7 +82,7 @@
 	</form>
 </div>
 
-<?php 
+<?php
 	$content = ob_get_clean();
 	require('./view/template/templatePublic.php');
 ?>

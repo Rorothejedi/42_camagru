@@ -1,5 +1,5 @@
-<?php 
-	require_once('./view/init/initRessources.php');
+<?php
+	require_once('./config/initRessources.php');
 ?>
 
 <!DOCTYPE html>
@@ -7,9 +7,9 @@
 
 	<head>
 		<title>Instagru | 404</title>
-		<?php 
+		<?php
 			echo $meta;
-			echo $cdnBootstrap; 
+			echo $cdnBootstrap;
 			echo $cdnFontAwesome;
 			echo $cdnGoogleFont;
 			echo $stylesheet;
@@ -27,7 +27,7 @@
 			<hr>
 			<div class="pt-5">
 				<h2 class="pt-3 pb-5 d-flex justify-content-center">Erreur 404 - Page introuvable</h2>
-				<p class="d-flex justify-content-center">Vous allez être redirigé vers la galerie dans <span id="countdown">8</span> secondes</p>	
+				<p class="d-flex justify-content-center">Vous allez être redirigé vers la galerie dans <span id="countdown">8</span> secondes</p>
 			</div>
 		</div>
 		<script src="./public/js/countdown.js"></script>

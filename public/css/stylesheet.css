@@ -6,7 +6,7 @@
 	--second-color: #2A313C; /*Navbar*/
 }
 
-/*--------------------------------   Common   -------------------------------------*/
+/*------------------------------   Common   ----------------------------------*/
 
 ::-moz-selection {
     background: var(--cyan-color);
@@ -33,7 +33,14 @@ body {
 	color: white;
 }
 
-/*----------   Button style   --------*/
+/* -------------------------------  Alerts  ----------------------------------*/
+
+#alert {
+	/*position: fixed;
+	margin-top: -40px;*/
+}
+
+/*-----------------------------   Button style   -----------------------------*/
 
 .style-button {
 	border: 3px solid;
@@ -46,7 +53,7 @@ body {
 	transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 
-/*---------  Navbar  -----------*/
+/*--------------------------------  Navbar  ----------------------------------*/
 
 .navbar-brand {
 	color: var(--cyan-color) !important;
@@ -82,7 +89,7 @@ body {
 	color: var(--second-color);
 }
 
-/* -------  Gallery page ------- */
+/* ------------------------------  Gallery page ----------------------------- */
 
 .title {
 	font-weight: 200;
@@ -90,7 +97,7 @@ body {
 	margin: 40px auto 40px auto;
 }
 
-/* ------ Register page -------*/
+/* ------------------------------- Register page -----------------------------*/
 
 .details {
 	font-style: italic;
@@ -112,7 +119,7 @@ body {
 	color: white;
 }
 
-/* ------- Legals ---------*/
+/* --------------------------------- Legals ----------------------------------*/
 
 .subtitle {
 	margin: 25px auto 15px auto;
@@ -121,7 +128,7 @@ body {
 }
 
 
-/*---------- 404 ---------*/
+/*----------------------------------- 404 ------------------------------------*/
 
 .error-body {
 	background-color: var(--second-color);
