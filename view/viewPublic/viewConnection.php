@@ -37,8 +37,8 @@
 
 		<div class="row">
 			<div class="col-md-10 ml-4">
-				<input type="checkbox" name="remember" class="form-check-input">
-					Se souvenir de moi ?
+				<input type="checkbox" name="remember" id="remember" class="form-check-input">
+				<label for="remember">Se souvenir de moi ?</label>
 			</div>
 		</div>
 
