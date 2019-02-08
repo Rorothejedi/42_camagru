@@ -4,6 +4,7 @@
 ?>
 
 <div class="container">
+	<div id="alertNone"></div>
 	<h1 class="title">Inscrivez-vous...</h1>
 	<p class="details">... pour prendre vos propres photos, faire vos propres montages et les partager avec les autres utilisateurs ! <br>Vous pourrez également liker et commenter leurs photos !</p>
 	<hr>
