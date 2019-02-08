@@ -4,9 +4,10 @@
 ?>
 
 <div class="container">
+	<div id="alertNone"></div>
 	<h1 class="title">Connectez-vous</h1>
 	<hr>
-	<form class="form-horizontal pt-5 pb-5">
+	<form class="form-horizontal pt-5 pb-5" action="processConnection" method="POST">
 		<div class="row">
 			<div class="col-md-4 field-label-responsive">
 				<label for="username">Nom d'utilisateur <span class="text-secondary">(ou e-mail)</span></label>
@@ -14,7 +15,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="text" name="username" class="form-control" id="username" required autofocus>
+						<input type="text" name="username" class="form-control" id="username" value="<?php if(isset($_SESSION['save_username'])) { echo $_SESSION['save_username']; } ?>" required autofocus>
 					</div>
 				</div>
 			</div>

@@ -46,13 +46,22 @@
 			<nav class="navbar">
 				<div class="container">
 					<a class="navbar-brand" href="./" title="Instagru">Instagru</a>
-					<div>
-						<a href="connexion" class="style-button button-color-first">Connexion</a>
-						<a href="inscription" class="style-button button-color-second">Inscription</a>
-					</div>
-					<!-- <a href="#" title="Déconnexion">
-						<i class="fas fa-power-off fa-lg"></i>
-					</a> -->
+					<?php if (isset($_SESSION['user_username'])) { ?>
+						<div>
+							<a href="#" class="style-button studio-button">
+							Studio</a>
+							<a href="#" title="Paramètres">
+								<i class="fas fa-user-alt"></i></a>
+							<a href="disconnect" title="Déconnexion">
+								<i class="fas fa-power-off"></i>
+							</a>
+						</div>
+					<?php } else { ?>
+						<div>
+							<a href="connexion" class="style-button button-color-first">Connexion</a>
+							<a href="inscription" class="style-button button-color-second">Inscription</a>
+						</div>
+					<?php } ?>
 				</div>
 			</nav>
 		</header>
@@ -64,39 +73,7 @@
 			?>
 		</section>
 
-		<script>
-			if (alert = document.getElementById('alert')) {
-				document.getElementById('alertNone').style.display = 'none';
-				var interval = setInterval(function (){ animateOut(alert, 4); }, 1000);
-				alert.onclick = function()
-				{
-					clearInterval(interval);
-					animateOut(alert, 0);
-				};
-			}
-
-			function animateOut(element, delay)
-			{
-				element.classList.remove("slideInDown");
-				element.classList.add("slideOutUp");
-				if (delay != 0)
-				{
-					element.classList.add("delay-4s");
-					setInterval(function () {
-						element.remove();
-						document.getElementById('alertNone').style.display = "block";
-					}, 5000);
-				}
-				else
-				{
-					element.classList.remove("delay-4s");
-					setInterval(function () {
-						element.remove();
-						document.getElementById('alertNone').style.display = "block";
-					}, 1000);
-				}
-			}
-		</script>
+		<script src="./public/js/alert.js"></script>
 	</body>
 
 </html>

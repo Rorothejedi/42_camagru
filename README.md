@@ -16,14 +16,6 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 <hr>
 
-Vendredi 08/09 :
-
- - Mettre en place l'inscription
- - Mettre en place la connexion
- - Mettre en place la deconnexion
- - Mettre en place cookie (se souvenir de moi) et variables de session
- - Envoie de mail, reception et validation du token
-
 Samedi 09/09 :
 
  - Mettre en place l'oublie de mot de passe
@@ -44,7 +36,7 @@ Lundi 11/09 (gestion images):
 
 Mardi 12/09 :
 
- - Design page photo user.(Peut être un filtre pour la page galerie)
+ - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
  - Ajouter toutes les photos sur la galerie.
  - Ajouter les photos dans la sidebar de la page montage.
  - Pagination infini sur la page galerie.
@@ -63,6 +55,4 @@ Jeudi 14/09 :
  - Mise en ligne.
 ( - Si possible valider le projet).
 
-
-
-
+<hr>

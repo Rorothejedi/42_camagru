@@ -4,6 +4,7 @@
 ?>
 
 <div class="container">
+	<div id="alertNone"></div>
 	<h1 class="title">Dernières photos postées</h1>
 	<hr>
 	<p>Ici les ptites photos !!!</p>

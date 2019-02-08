@@ -26,39 +26,29 @@ class Router {
     {
         $route = new Route($path, $callable);
         $this->routes[$method][] = $route;
-        if(is_string($callable) && $name === null)
-        {
+        if (is_string($callable) && $name === null)
             $name = $callable;
-        }
-        if($name)
-        {
+        if ($name)
             $this->namedRoutes[$name] = $route;
-        }
         return $route;
     }
 
     public function run()
     {
-        if(!isset($this->routes[$_SERVER['REQUEST_METHOD']]))
-        {
+        if (!isset($this->routes[$_SERVER['REQUEST_METHOD']]))
             $this->error404();
-        }
-        foreach($this->routes[$_SERVER['REQUEST_METHOD']] as $route)
+        foreach ($this->routes[$_SERVER['REQUEST_METHOD']] as $route)
         {
             if($route->match($this->url))
-            {
                 return $route->call();
-            }
         }
        $this->error404();
     }
 
     public function url($name, $params = [])
     {
-        if(!isset($this->namedRoutes[$name]))
-        {
+        if (!isset($this->namedRoutes[$name]))
             $this->error404();
-        }
         return $this->namedRoutes[$name]->getUrl($params);
     }
 

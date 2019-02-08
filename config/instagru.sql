@@ -13,9 +13,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user` (
- `id_user` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
- `name` varchar(255) NOT NULL,
- `mail` varchar(255) NOT NULL,
+ `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ `username` varchar(30) NOT NULL,
+ `email` varchar(255) NOT NULL,
  `password` varchar(255) NOT NULL,
  `preference` tinyint(1) NOT NULL DEFAULT '1',
  `token` varchar(255) NULL,
@@ -26,7 +26,7 @@ CREATE TABLE `user` (
 -- Structure de la table `image`
 --
 CREATE TABLE `image` (
- `id_image` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
  `name` varchar(255) NOT NULL,
  `date` date NOT NULL
 );
@@ -69,12 +69,12 @@ ALTER TABLE `comment`
 -- Contraintes pour la table `like`
 --
 ALTER TABLE `like`
-  ADD CONSTRAINT `FK_id_user_like` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_id_image_like` FOREIGN KEY (`id_image`) REFERENCES `image` (`id_image`);
+  ADD CONSTRAINT `FK_id_user_like` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_id_image_like` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`);
 
 --
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_id_user_comment` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_id_image_comment` FOREIGN KEY (`id_image`) REFERENCES `image` (`id_image`);
+  ADD CONSTRAINT `FK_id_user_comment` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `FK_id_image_comment` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`);

@@ -3,11 +3,12 @@
 	ob_start();
 ?>
 
-<div class="container pb-5">
+<div class="container">
+	<div id="alertNone"></div>
+	<h1 class="title">Confirmez votre inscription pour accéder à votre compte</h1>
+	<hr>
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="title">Confirmez votre inscription pour accéder à votre compte</h1>
-			<hr>
 			<div class="pt-5">
 				<p class="font-italic">
 					Votre inscription a bien été prise en compte.

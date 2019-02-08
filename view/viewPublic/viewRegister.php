@@ -8,7 +8,6 @@
 	<h1 class="title">Inscrivez-vous...</h1>
 	<p class="details">... pour prendre vos propres photos, faire vos propres montages et les partager avec les autres utilisateurs ! <br>Vous pourrez également liker et commenter leurs photos !</p>
 	<hr>
-
 	<form class="form-horizontal pt-5 pb-5" action="processRegistration" method="POST">
 		<div class="row">
 			<div class="col-md-4 field-label-responsive">
@@ -17,7 +16,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="text" name="username" class="form-control" placeholder="ex: toto" id="username" value="<?php if(isset($_SESSION['save_username'])){ echo $_SESSION['save_username']; } ?>" required autofocus>
+						<input type="text" name="username" class="form-control" placeholder="ex: toto" id="username" pattern=".{2,25}" value="<?php if(isset($_SESSION['save_username'])){ echo $_SESSION['save_username']; } ?>" required autofocus>
 					</div>
 				</div>
 			</div>
@@ -43,7 +42,7 @@
 			<div class="col-md-8">
 				<div class="form-group has-danger">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="password" name="pass" class="form-control" id="pass" required>
+						<input type="password" name="pass" class="form-control" id="pass" pattern=".{8,}" required>
 					</div>
 				</div>
 			</div>
@@ -56,7 +55,7 @@
 			<div class="col-md-8">
 				<div class="form-group">
 					<div class="input-group mb-2 mr-sm-2 mb-sm-0">
-						<input type="password" name="passconfirm" class="form-control" id="passconfirm" required>
+						<input type="password" name="passconfirm" class="form-control" id="passconfirm" pattern=".{8,}" required>
 					</div>
 				</div>
 			</div>

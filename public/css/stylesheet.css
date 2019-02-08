@@ -95,8 +95,28 @@ section {
 	border-color: var(--cyan-color);
 }
 .button-color-second:hover {
-	background-color: var(--cyan-color);
 	color: var(--second-color);
+	background-color: var(--cyan-color);
+}
+.fa-power-off, .fa-user-alt {
+	border-radius: 100%;
+	padding: 7px;
+	border: 3px solid var(--cyan-color);
+	transition: 0.2s color, 0.2s background-color;
+}
+.fa-power-off:hover, .fa-user-alt:hover {
+	color: var(--second-color);
+	background-color: var(--cyan-color);
+	transition: 0.2s color, 0.2s background-color;
+}
+.studio-button {
+	font-weight: 500;
+	color: var(--pink-color);
+	border-color: var(--pink-color);
+}
+.studio-button:hover {
+	color: var(--second-color);
+	background-color: var(--pink-color);
 }
 
 /* ------------------------------  Gallery page ----------------------------- */
