@@ -27,10 +27,28 @@ a, a:hover {
 	font-style : normal;
 }
 
+html {
+	height: 100%;
+}
 body {
+	/*(Height total - (height header + footer))*/
+	height: calc(100% - (120px + 78px));
 	background-color: var(--main-color);
 	font-family: 'Montserrat', sans-serif;
 	color: white;
+}
+section {
+	min-height:100%;
+	z-index: 1;
+}
+
+/* ------------------------------  Footer  -----------------------------------*/
+
+footer {
+	background-color: var(--second-color);
+	margin-top: 80px;
+	width: 100%;
+	height: 40px;
 }
 
 /* -------------------------------  Alerts  ----------------------------------*/
@@ -45,9 +63,6 @@ body {
 }
 .navbar {
 	z-index: 10;
-}
-section {
-	z-index: 1;
 }
 
 /*-----------------------------   Button style   -----------------------------*/
@@ -175,4 +190,17 @@ section {
 	color: var(--cyan-color);
 	margin: auto 7px;
 	font-size: 1.1rem;
+}
+
+/*---------------------------------  Settings  -------------------------------*/
+
+.button-color-settings {
+	color: var(--gold-color);
+	border-color: var(--gold-color);
+	background-color: var(--main-color);
+}
+.button-color-settings:hover {
+		cursor: pointer;
+	color: var(--main-color);
+	background-color: var(--gold-color);
 }

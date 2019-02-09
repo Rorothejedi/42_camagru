@@ -66,6 +66,31 @@ class UserManager
 	}
 
 	/**
+	 * Permet d'éditer les informations d'un utilisateur, pour que celui-ci puisse être identifié, l'objet passé en paramètre doit au moins contenir id ou username ou email.
+	 * @param  User   $user Prend l'objet User en paramètre.
+	 */
+	public function editUser(User $user)
+	{
+		$data = App::getDb()->prepare('
+			UPDATE user 
+			SET 
+				username = :username, 
+				email = :email, 
+				password = :password, 
+				token = :token
+			WHERE 
+				id = :id 
+				OR username = :username 
+				OR email = :email',
+			['id'      => $user->id(),
+			'username' => $user->username(),
+			'email'    => $user->email(),
+			'password' => $user->password(),
+			'token'    => $user->token()],
+		false);
+	}
+
+	/**
 	 * Permet la validation d'un utilisateur en modifiant le contenu du champ 'confirm' dans la base de données. 
 	 * (0: inactif; 1: actif)
 	 * @param  User   $user Classe User contenant au moins le nom d'utilisateur.

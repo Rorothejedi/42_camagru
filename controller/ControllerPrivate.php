@@ -20,6 +20,23 @@ class ControllerPrivate extends Alert
 	}
 
 	/**
+	 * Méthode d'affichage de la page de montage photo (studio).
+	 */
+	public function displayStudio()
+	{
+		require('./view/viewPrivate/viewStudio.php');
+	}
+
+	/**
+	 * Méthode d'affichage de la page de gestion des paramètres et des préférences.
+	 */
+	public function displaySettings()
+	{
+		$userData = $this->callUserData();
+		require('./view/viewPrivate/viewSettings.php');
+	}
+
+	/**
 	 * Permet de déconnecter un utilisateur de la session en cours.
 	 * Supprime la session en cours ainsi que le cookie de session.
 	 */
@@ -29,6 +46,31 @@ class ControllerPrivate extends Alert
 		setcookie('auth', '', time() - 3600, null, null, false, true);
 		header('Location: ./');
 		exit;
+	}
+
+	/**
+	 * Instancie l'objet User avec les données de l'utilisateur en cours.
+	 * @return Object User
+	 */
+	private function initUser()
+	{
+		$user = new \App\model\User([
+			'id'       => $_SESSION['user_id'], 
+			'username' => $_SESSION['user_username']
+		]);
+		return $user;
+	}
+
+	/**
+	 * Permet la récupération des données concernant l'utilisateur actuellement connecté.
+	 * @return array Tableau contenant les données de l'utilisateur connecté.
+	 */
+	private function callUserData()
+	{
+		$user = $this->initUser();
+		$userManager = new \App\model\UserManager();
+		$userData    = $userManager->getUser($user);
+		return $userData;
 	}
 
 

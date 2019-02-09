@@ -40,11 +40,41 @@ class ControllerPublic extends Alert
 	}
 
 	/**
+	 * Méthode d'affichage de la page mot de passe oublié.
+	 */
+	public function displayPassForgotten()
+	{
+		require('./view/viewPublic/viewPassForgotten.php');
+	}
+
+	/**
 	 * Méthode d'affichage de la page des mentions légales.
 	 */
 	public function displayLegal()
 	{
 		require('./view/viewPublic/viewLegal.php');
+	}
+
+	/**
+	 * Méthode d'affichage de la page de réinitialisation du mot de passe utilisateur. Vérification de la validité des informations avant l'accès à la page 'nouveau_mot_de_passe' par un utilisateur.
+	 */
+	public function displayPassNew()
+	{
+		if (isset($_GET['username']) && !empty($_GET['username'])
+			&& isset($_GET['key']) && !empty($_GET['key']))
+		{
+			$username = htmlspecialchars($_GET['username']);
+			$token    = htmlspecialchars($_GET['key']);
+			$user        = new \App\model\User(['username' => $username]);
+			$userManager = new \App\model\UserManager();
+			$currentUser = $userManager->getUser($user);
+			if ($currentUser->token() == $token)
+				require('./view/viewPublic/viewPassNew.php');
+			else
+				$this->alert_failure('Les données transmises ne correspondent pas aux données de l\'utilisateur', 'mot_de_passe_oublie');
+		}
+		else
+			$this->alert_failure('Les données transmises ne sont pas valides', 'mot_de_passe_oublie');
 	}
 
 	/**
@@ -214,5 +244,83 @@ class ControllerPublic extends Alert
 		}
 		else
 			$this->alert_failure('Les données transmises ne sont pas valides', './');
+	}
+
+	/**
+	 * Permet la génération d'un token et l'envoi d'un mail contenant celui-ci à l'adresse mail renseigné pour que l'utilisateur puisse modifier son mot de passe.
+	 */
+	public function processPassForgotten()
+	{
+		if (isset($_POST['email']) && !empty($_POST['email']))  
+		{
+			$email = htmlspecialchars($_POST['email']);
+			$length = 16;
+			$token  = bin2hex(random_bytes($length));
+			$user        = new \App\model\User(['email' => $email]);
+			$userManager = new \App\model\UserManager();
+			$currentUser = $userManager->getUser($user);
+			if ($email == $currentUser->email())
+			{
+				$currentUser->setToken($token);
+				$userManager->editUser($currentUser);
+				$new_mail = new \App\model\Mail($currentUser->email());
+				$new_mail->send_forgot_pass_mail($currentUser->username(), $currentUser->token());
+				$this->alert_success('Un mail viens de vous être envoyé pour que vous puissiez réinitiliser votre mot de passe. Vérifiez vos spam !');
+				header('Location: ./mot_de_passe_oublie');
+				exit();
+			}
+			else
+				$this->alert_failure('Cette adresse email n\'existe pas', 'mot_de_passe_oublie');
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', 'mot_de_passe_oublie');
+	}
+
+	/**
+	 * Permet la création d'un nouveau mot de passe pour l'utilisateur qui en a fait la demande. Récupére les données (GET et POST), vérifie l'authenticité des données et du mot de passe et enregistre ce dernier dans la base de données.
+	 */
+	public function processPassNew()
+	{
+		if (isset($_POST['pass']) && !empty($_POST['pass']) 
+			&& isset($_POST['passconfirm']) && !empty($_POST['passconfirm'])
+			&& isset($_GET['username']) && !empty($_GET['username'])
+			&& isset($_GET['key']) && !empty($_GET['key'])) 
+		{
+			$pass        = htmlspecialchars($_POST['pass']);
+			$passconfirm = htmlspecialchars($_POST['passconfirm']);
+			$username    = htmlspecialchars($_GET['username']);
+			$token       = htmlspecialchars($_GET['key']);
+			if (preg_match('/^\S*(?=\S{8,})(?=\S*[a-z])(?=\S*[A-Z])(?=\S*[\d])\S*$/', $pass)) 
+			{
+				if ($pass === $passconfirm)
+				{
+	    			$pass = password_hash($pass, PASSWORD_DEFAULT);
+	    			$user        = new \App\model\User(['username' => $username]);
+					$userManager = new \App\model\UserManager();
+					$currentUser = $userManager->getUser($user);
+					if ($currentUser->token() == $token) 
+					{
+						$userEdit = new \App\model\User([
+							'username' => $currentUser->username(),
+							'email' => $currentUser->email(),
+							'password' => $pass,
+							'token' => null
+						]);
+						$userManager->editUser($userEdit);
+						$this->alert_success('Votre nouveau mot de passe à bien été enregistré, vous pouvez vous connecter !');
+						header('Location: ./connexion');
+						exit();
+					}
+					else
+				   		$this->alert_failure('Les données transmises ne correspondent pas aux données de l\'utilisateur', 'nouveau_mot_de_passe&username=' . $_GET['username'] . '&key=' . $_GET['key']);
+	    		}
+	    		else
+				   $this->alert_failure('Les mots de passes renseignés doivent être identiques', 'nouveau_mot_de_passe&username=' . $_GET['username'] . '&key=' . $_GET['key']);
+	    	}
+	    	else
+				$this->alert_failure('Le mot de passe doit contenir au moins 8 caractères avec des chiffres et des lettres majuscules et minuscules', 'nouveau_mot_de_passe&username=' . $_GET['username'] . '&key=' . $_GET['key']);
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', 'nouveau_mot_de_passe&username=' . $_GET['username'] . '&key=' . $_GET['key']);
 	}
 }

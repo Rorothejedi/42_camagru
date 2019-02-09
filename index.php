@@ -36,14 +36,20 @@ $router->get('/', "Public#displayGallery");
 $router->get('/inscription', "Public#displayRegister");
 $router->get('/confirmation_inscription', "Public#displayRegisterConfirm");
 $router->get('/connexion', "Public#displayConnection");
+$router->get('/mot_de_passe_oublie', "Public#displayPassForgotten");
+$router->get('/nouveau_mot_de_passe', "Public#displayPassNew");
 $router->get('/mentions_legales', "Public#displayLegal");
 $router->get('/processValidation', "Public#processValidation");
 
+$router->get('/studio', "Private#displayStudio");
+$router->get('/parametres', "Private#displaySettings");
 $router->get('/disconnect', "Private#disconnect");
 
 // -----------------------  Router post -------------------------
 $router->post('/processRegistration', "Public#processRegistration");
 $router->post('/processConnection', "Public#processConnection");
+$router->post('/processPassForgotten', "Public#processPassForgotten");
+$router->post('/processPassNew', "Public#processPassNew");
 
 //Route execution
 $router->run();

@@ -8,13 +8,10 @@ class Mail
 {
 	private $email;
 	private $from = 'no-reply@cabotiau.com';
-	//private $from = 'localhost';
-	private $from_pass = 'RYd6GtzmWkEHmw';
-	private $from_contact = 'ecrire@cabotiau.com';
-	private $from_contact_pass = 'yDxE8kG4jTsS';
-	private $webmaster_mail = 'rodolphe.cabotiau@gmail.com';
-
-
+	//private $from_pass = 'RYd6GtzmWkEHmw';
+	//private $from_contact = 'ecrire@cabotiau.com';
+	//private $from_contact_pass = 'yDxE8kG4jTsS';
+	//private $webmaster_mail = 'rodolphe.cabotiau@gmail.com';
 
 	public function __construct($email)
 	{
@@ -54,27 +51,29 @@ class Mail
 	 * @param  string $email Nom d'utilisateur
 	 * @param  string $key   Token nécessaire pour accéder à la page de réinitialisation de mot de passe
 	 */
-	/*public function send_forgot_pass_mail($username, $key)
+	public function send_forgot_pass_mail($username, $key)
 	{
-		$subject = "ONETODO | Réinitialisation du mot de passe";
-
+		$subject = "Instagru | Réinitialisation du mot de passe";
+		$link = "http://localhost/camagru/nouveau_mot_de_passe".
+				"&username=" . urlencode($username) . 
+				"&key=". urlencode($key);
 		$message = "
 		<html>
-			<head>
-				<title>ONETODO | Réinitialisation du mot de passe</title>
-			</head>
 			<body>
-				<p>Cliquez sur le bouton ci-dessous pour accèder à la page vous permettant de réinitialiser votre mot de passe.</p>
-				<br>
-				<a href='https://rodolphe.cabotiau.com/projet_5_openclassrooms/nouveau_mot_de_passe&username=" . urlencode($username) . "&key=". urlencode($key) ."' style='background-color:#306BA2; padding:7px; border-radius:3px; color:white; text-decoration:none'>Réinitialiser mot de passe</a>
-				<br><br>
-				<small>Cet email est automatique, merci de ne pas y répondre.</small>
+				<center>
+					<h1 style='color:#66DDB3;padding-bottom:30px'>Instagru | Réinitialisation de votre mot de passe</h1>
+					<p>Votre nom d'utilisateur : <strong>" . $username . "</strong></p>
+					<p>Cliquez sur le bouton ci-dessous pour accèder à la page vous permettant de réinitialiser votre mot de passe.</p>
+					<br>
+					<a href='" . $link . "' style='background-color:white; padding: 5px 10px; border: 3px solid #66DDB3; border-radius: 20px; color:#66DDB3; text-decoration:none;margin-top:30px'>Réinitialiser mot de passe</a>
+					<br><br>
+					<small>Cet email est automatique, merci de ne pas y répondre.</small>
+				</center>
 			</body>
-		</html>
-		";
+		</html>";
 		
-		$this->configurationMail($subject, $message, $this->from, $this->from_pass, $this->email);
-	}*/
+		$this->configurationMail($subject, $message);
+	}
 
 	private function configurationMail($subject, $message)
 	{

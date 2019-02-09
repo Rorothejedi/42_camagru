@@ -18,13 +18,12 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Samedi 09/09 :
 
- - Mettre en place l'oublie de mot de passe
- - Design page profil/preference user
+ - Fonctionnement des modif sur la page profil/preference user.
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs
 
 Dimanche 10/09 :
 
- - Fonctionnement des modif et des preferences sur la page profil/preference user
+ - Fonctionnement du light mode ainsi que des autres préférences user.
  - Design page montage.
  - Choisir les stickers (png).
 
@@ -51,6 +50,8 @@ Jeudi 14/09 :
 
  - Vérification W3C de toutes les pages HTML.
  - Minimisation de toutes les scripts JS et les CSS.
+ - Vérification des erreurs de JS dans la console.
+ - Ajouter fichier auteur.
  - Vérification annexes.
  - Mise en ligne.
 ( - Si possible valider le projet).
