@@ -17,9 +17,11 @@ CREATE TABLE `user` (
  `username` varchar(30) NOT NULL,
  `email` varchar(255) NOT NULL,
  `password` varchar(255) NOT NULL,
- `preference` tinyint(1) NOT NULL DEFAULT '1',
  `token` varchar(255) NULL,
- `confirm` tinyint(1) NOT NULL DEFAULT '0'
+ `confirm` tinyint(1) NOT NULL DEFAULT '0',
+ `prefTheme` tinyint(1) NOT NULL DEFAULT '1',
+ `prefComment` tinyint(1) NOT NULL DEFAULT '1',
+ `prefLike` tinyint(1) NOT NULL DEFAULT '0'
 );
 
 --

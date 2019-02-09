@@ -71,13 +71,13 @@
 		</div>
 	</form>
 
-	<h2 class="title">Préférences</h1>
+	<h2 class="title" id="preference">Préférences</h1>
 	<hr>
 	<form class="form-horizontal pt-5 pb-5" action="processEditPreference" method="POST">
 		<div class="row">
 			<div class="col-md-10 ml-4">
-				<input type="checkbox" name="darkMode" id="darkMode" class="form-check-input">
-				<label for="darkMode">
+				<input type="checkbox" name="prefTheme" id="prefTheme" class="form-check-input" <?php if ($userData->prefTheme() == 1) { echo "checked"; } ?> value="1">
+				<label for="prefTheme">
 					Mode nuit (par défaut)
 				</label>
 			</div>
@@ -87,8 +87,8 @@
 
 		<div class="row">
 			<div class="col-md-10 ml-4">
-				<input type="checkbox" name="informCommentMail" id="informCommentMail" class="form-check-input">
-				<label for="informCommentMail">
+				<input type="checkbox" name="prefComment" id="prefComment" class="form-check-input" <?php if ($userData->prefComment() == 1) { echo "checked"; } ?> value="1">
+				<label for="prefComment">
 					Etre informé par email qu'un nouveau commentaire viens d'être posté sur l'un de mes Instashot
 				</label>
 			</div>
@@ -96,8 +96,8 @@
 
 		<div class="row">
 			<div class="col-md-10 ml-4">
-				<input type="checkbox" name="informLikeMail" id="informLikeMail" class="form-check-input">
-				<label for="informLikeMail">
+				<input type="checkbox" name="prefLike" id="prefLike" class="form-check-input" <?php if ($userData->prefLike() == 1) { echo "checked"; } ?> value="1">
+				<label for="prefLike">
 					Etre informé par email qu'un de mes Instashot viens d'être liké par un autre utilisateur
 				</label>
 			</div>
@@ -116,5 +116,5 @@
 
 <?php 
 	$content = ob_get_clean();
-	require('./view/template/templatePublic.php');
+	require('./view/template/template.php');
 ?>

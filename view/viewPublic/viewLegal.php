@@ -6,6 +6,7 @@
 
 <!-- Legal notice generate with Subdelirium.com -->
 <div class="container">
+	<div id="alertNone"></div>
 	<h1 class="title">Mentions légales</h1>
 	<hr>
 	<div class="row pt-3 pb-5">
@@ -89,5 +90,5 @@
 
 <?php 
 	$content = ob_get_clean();
-	require('./view/template/templatePublic.php');
+	require('./view/template/template.php');
 ?>

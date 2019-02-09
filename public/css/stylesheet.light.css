@@ -1,0 +1,11 @@
+/*
+Variable de couleur du theme clair.
+ */
+
+:root {
+	--cyan-color  : #3CCD9A;
+	--gold-color  : #FF7F50;
+	--main-color  : #eeeeee; /*Background*/
+	--second-color: #f7f7f7; /*Navbar*/
+	--text-color  : #262626;
+}

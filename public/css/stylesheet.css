@@ -1,9 +1,5 @@
 :root {
 	--pink-color  : #CD4BAC;
-	--gold-color  : #EEFC76;
-	--cyan-color  : #66DDB3;
-	--main-color  : #2F3A44; /*Background dark*/
-	--second-color: #2A313C; /*Navbar*/
 }
 
 /*------------------------------   Common   ----------------------------------*/
@@ -35,7 +31,7 @@ body {
 	height: calc(100% - (120px + 78px));
 	background-color: var(--main-color);
 	font-family: 'Montserrat', sans-serif;
-	color: white;
+	color: var(--text-color);
 }
 section {
 	min-height:100%;

@@ -1,0 +1,11 @@
+/*
+Variable de couleur du theme nuit.
+ */
+
+:root {
+	--cyan-color  : #66DDB3;
+	--gold-color  : #EEFC76;
+	--main-color  : #2F3A44; /*Background*/
+	--second-color: #2A313C; /*Navbar*/
+	--text-color  : white;
+}

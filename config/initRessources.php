@@ -26,8 +26,14 @@
 	/*---------------------------   Head link   --------------------------------*/
 
 	// Development stylesheet and minify version
-	$stylesheet = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.css" rel="stylesheet">'.
-				  			'<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.min.css" rel="stylesheet">-->';
+	$stylesheet = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.css" rel="stylesheet">'. 
+				'<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.min.css" rel="stylesheet">-->';
+
+	$darkTheme = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.dark.css" rel="stylesheet">'.
+				'<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.dark.min.css" rel="stylesheet">-->';
+
+	$lightTheme = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.light.css" rel="stylesheet">'. 
+				  '<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.light.min.css" rel="stylesheet">-->';
 
 	$favicon = '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-32x32.png" sizes="32x32">' .
 			   		 '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-16x16.png" sizes="16x16">';

@@ -1,12 +1,11 @@
-﻿# Camagru
+﻿# Instagru (Projet Camagru | le 101)
 Réalisation d'un petit site Instagram-like permettant à des utilisateurs de réaliser et partager des photo-montages.
 
 <hr>
 
-A faire :
+<strong>A faire :</strong>
 
  - Mettre images open graph et twitter cards
- - Mettre des titles adapté sur toutes les pages
  - Essayer de mettre en place des filtres CSS pour les photos
 
  - Se renseigner sur l'ajax en MVC
@@ -18,12 +17,11 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Samedi 09/09 :
 
- - Fonctionnement des modif sur la page profil/preference user.
- - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs
+ - Fonctionnement du light mode.
 
 Dimanche 10/09 :
 
- - Fonctionnement du light mode ainsi que des autres préférences user.
+ - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
  - Design page montage.
  - Choisir les stickers (png).
 
@@ -42,9 +40,11 @@ Mardi 12/09 :
 
 Mercredi 13/09 :
 
+ - Mettre en place la page photo unique.
  - Ajouter les likes sur la page galerie.
  - Ajouter les commentaires sur la page galerie.
  - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
+ - Mettre en place mails like et comment (préférences).
 
 Jeudi 14/09 :
 
@@ -52,8 +52,26 @@ Jeudi 14/09 :
  - Minimisation de toutes les scripts JS et les CSS.
  - Vérification des erreurs de JS dans la console.
  - Ajouter fichier auteur.
+ - Virer le fichier et le lien cdn d'animate CSS.
+ - Affiner le responsive.
  - Vérification annexes.
  - Mise en ligne.
 ( - Si possible valider le projet).
 
 <hr>
+
+<strong>Bonus :</strong>
+
+ - Design Néon.
+ - Light / dark theme.
+ - Préférences supplémentaires (mail like).
+ - Boutons pour partager une photo sur Facebook et Twitter.
+ - Balises Google, OpenGraph et Twitter Cards.
+ - Site en ligne.
+ - Mentions légales.
+
+<hr>
+
+<strong>Sujet :</strong>
+
+![camagru.pdf](https://github.com/Rorothejedi/camagru/blob/master/camagru.fr.pdf)

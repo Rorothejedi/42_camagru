@@ -47,5 +47,5 @@
 
 <?php 
 	$content = ob_get_clean();
-	require('./view/template/templatePublic.php');
+	require('./view/template/template.php');
 ?>

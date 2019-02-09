@@ -25,6 +25,7 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['user_id']))
 	{
 		$_SESSION['user_id']       = $user->id;
 		$_SESSION['user_username'] = $user->username;
+		$_SESSION['user_theme']    = $user->prefTheme;
 		setcookie('auth', $user->id . '---' . $key, time() + 3600 * 24 * 365, null, null, false, true);
 	}
 	else
@@ -50,6 +51,9 @@ $router->post('/processRegistration', "Public#processRegistration");
 $router->post('/processConnection', "Public#processConnection");
 $router->post('/processPassForgotten', "Public#processPassForgotten");
 $router->post('/processPassNew', "Public#processPassNew");
+
+$router->post('/processEditUser', "Private#processEditUser");
+$router->post('/processEditPreference', "Private#processEditPreference");
 
 //Route execution
 $router->run();

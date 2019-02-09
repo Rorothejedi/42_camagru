@@ -55,9 +55,9 @@ class UserManager
 			SELECT * 
 			FROM user 
 			WHERE 
-				id = :id 
+				id          = :id 
 				OR username = :username 
-				OR email = :email',
+				OR email    = :email',
 			['id'       => $user->id(),
 			':username' => $user->username(),
 			':email'    => $user->email()],
@@ -75,13 +75,13 @@ class UserManager
 			UPDATE user 
 			SET 
 				username = :username, 
-				email = :email, 
+				email    = :email, 
 				password = :password, 
-				token = :token
+				token    = :token
 			WHERE 
-				id = :id 
+				id          = :id 
 				OR username = :username 
-				OR email = :email',
+				OR email    = :email',
 			['id'      => $user->id(),
 			'username' => $user->username(),
 			'email'    => $user->email(),
@@ -101,10 +101,31 @@ class UserManager
 			UPDATE user 
 			SET 
 				confirm = 1,
-				token = null 
+				token   = null 
 			WHERE
 				username = :username', 
 			[':username' => $user->username()],
+		false);
+	}
+
+	/**
+	 * Permet d'éditer les préférences de l'utilisateur.
+	 * @param  User   $user Classe User contenant au moins l'id de l'utilisateur.
+	 */
+	public function editPreference(User $user)
+	{
+		$data = App::getDb()->prepare('
+			UPDATE user
+			SET
+				prefTheme   = :prefTheme,
+				prefComment = :prefComment,
+				prefLike    = :prefLike
+			WHERE
+				id = :id',
+			['id'         => $user->id(),
+			'prefTheme'   => $user->prefTheme(),
+			'prefComment' => $user->prefComment(),
+			'prefLike'    => $user->prefLike()],
 		false);
 	}
 

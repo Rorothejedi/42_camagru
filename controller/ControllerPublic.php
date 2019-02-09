@@ -189,6 +189,7 @@ class ControllerPublic extends Alert
 						$_SESSION['save_username'] = null;
 						$_SESSION['user_id']       = $connectData->id();
 						$_SESSION['user_username'] = $connectData->username();
+						$_SESSION['user_theme']    = $connectData->prefTheme();
 						// Si l'utilisateur a coché la case "Se souvenir de moi"
 						if (isset($_POST['remember'])) 
 						{
@@ -228,7 +229,7 @@ class ControllerPublic extends Alert
 				{
 					$userManager->validateUser($user);
 					$this->alert_success('Votre compte a bien été validé ! Bienvenue !');
-					header('Location: ./');
+					header('Location: ./connexion');
 				}
 				else
 					$this->alert_failure('Erreur ! Votre compte ne peut pas être activé', './');

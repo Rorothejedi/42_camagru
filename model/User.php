@@ -10,9 +10,11 @@ class User
 	private $_username;
 	private $_email;
 	private $_password;
-	private $_preference;
 	private $_token;
 	private $_confirm;
+	private $_prefTheme;
+	private $_prefComment;
+	private $_prefLike;
 
 	/**
 	 * Permet d'hydrater l'objet dès sa construction.
@@ -44,13 +46,15 @@ class User
 	}
 
 	//Liste des getters
-	public function id() { 				 return $this->_id; }
-	public function username() {    	 return $this->_username; }
-	public function email() { 			 return $this->_email; }
-	public function password() { 		 return $this->_password; }
-	public function preference() { 		 return $this->_preference; }
-	public function token() { 			 return $this->_token; }
-	public function confirm() { 		 return $this->_confirm; }
+	public function id() {				return $this->_id; }
+	public function username() {		return $this->_username; }
+	public function email() {			return $this->_email; }
+	public function password() { 		return $this->_password; }
+	public function token() { 			return $this->_token; }
+	public function confirm() { 		return $this->_confirm; }
+	public function prefTheme() { 		return $this->_prefTheme; }
+	public function prefComment() { 	return $this->_prefComment; }
+	public function prefLike() { 		return $this->_prefLike; }
 
 	//Liste des setters
 	public function setId($id)
@@ -82,14 +86,6 @@ class User
 		}
 	}
 
-	public function setPreference($preference)
-	{
-		if($preference == 0 || $preference == 1)
-		{
-			$this->_preference = (int) $preference;
-		}
-	}
-
 	public function setToken($token)
 	{
 		if(is_string($token))
@@ -103,6 +99,30 @@ class User
 		if($confirm == 0 || $confirm == 1)
 		{
 			$this->_confirm = (int) $confirm;
+		}
+	}
+
+	public function setPrefTheme($prefTheme)
+	{
+		if($prefTheme == 0 || $prefTheme == 1)
+		{
+			$this->_prefTheme = (int) $prefTheme;
+		}
+	}
+
+	public function setPrefComment($prefComment)
+	{
+		if($prefComment == 0 || $prefComment == 1)
+		{
+			$this->_prefComment = (int) $prefComment;
+		}
+	}
+
+	public function setPrefLike($prefLike)
+	{
+		if($prefLike == 0 || $prefLike == 1)
+		{
+			$this->_prefLike = (int) $prefLike;
 		}
 	}
 }

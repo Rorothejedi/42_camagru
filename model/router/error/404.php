@@ -12,6 +12,10 @@
 			echo $cdnBootstrap;
 			echo $cdnFontAwesome;
 			echo $cdnGoogleFont;
+			if (isset($_SESSION['user_theme']) && $_SESSION['user_theme'] == '0')
+				echo $lightTheme;
+			else
+				echo $darkTheme;
 			echo $stylesheet;
 			echo $favicon;
 		?>
