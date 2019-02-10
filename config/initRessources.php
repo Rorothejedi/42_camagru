@@ -38,6 +38,8 @@
 	$favicon = '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-32x32.png" sizes="32x32">' .
 			   		 '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-16x16.png" sizes="16x16">';
 
+	$animateCSS = '<link rel="stylesheet" href="./public/css/animate.css">';
+
 	/*---------------------------   CDN Calls ----------------------------------*/
 
 	$cdnBootstrap   = '<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">';
@@ -45,3 +47,5 @@
 	$cdnGoogleFont  = '<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600" rel="stylesheet">';
 
 	/*------------------------   JavaScript files  -----------------------------*/
+
+	$miniSlider = '<script src="./public/js/miniSlider.js" async></script>';

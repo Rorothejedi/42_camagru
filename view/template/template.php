@@ -39,10 +39,11 @@
 			else
 				echo $darkTheme;
 			echo $stylesheet;
+			echo $animateCSS;
 			echo $favicon;
+			if ($title == 'Studio')
+				echo $miniSlider;
 		?>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
 	</head>
 
 	<body>
@@ -86,7 +87,7 @@
 				<?php } ?>
 			</div>
 		</footer>
-
+		
 		<script src="./public/js/alert.js"></script>
 	</body>
 

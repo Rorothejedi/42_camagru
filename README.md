@@ -10,23 +10,17 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 
  - Se renseigner sur l'ajax en MVC
 
+ - Voir pour lazy load en JavaScript pur. 
+
  - Donner la posibilité de partager sur Facebook et Twitter une image
 https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 <hr>
 
-Samedi 09/09 :
-
- - Fonctionnement du light mode.
-
-Dimanche 10/09 :
-
- - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
- - Design page montage.
- - Choisir les stickers (png).
-
 Lundi 11/09 (gestion images):
 
+ - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
+ - Choisir plus de stickers (png).
  - Mettre en place la gestion de la webcam.
  - Mettre en place l'enregistrement du montage dans un dossier.
  - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
@@ -60,18 +54,20 @@ Jeudi 14/09 :
 
 <hr>
 
-<strong>Bonus :</strong>
+#<strong>Bonus :</strong>
 
  - Design Néon.
  - Light / dark theme.
+ - Mentions légales.
+
  - Préférences supplémentaires (mail like).
  - Boutons pour partager une photo sur Facebook et Twitter.
  - Balises Google, OpenGraph et Twitter Cards.
  - Site en ligne.
- - Mentions légales.
+
 
 <hr>
 
-<strong>Sujet :</strong>
+#<strong>Sujet :</strong>
 
-![camagru.pdf](https://github.com/Rorothejedi/camagru/blob/master/camagru.fr.pdf)
+<a href="https://github.com/Rorothejedi/camagru/blob/master/camagru.fr.pdf">PDF Camagru</a>
