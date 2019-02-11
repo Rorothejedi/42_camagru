@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace App\model;
 
 /**
@@ -7,7 +7,14 @@ namespace App\model;
 class Mail
 {
 	private $email;
-	private $from = 'no-reply@cabotiau.com';
+
+	/* -------- For XAMPP  --------*/
+	//private $from = 'no-reply@cabotiau.com';
+	//private $host = 'http://localhost';
+	/* -------- For MAMP  --------*/
+	private $from = 'rcabotia@student.le-101.fr';
+	private $host = 'http://localhost:8100';
+
 	//private $from_pass = 'RYd6GtzmWkEHmw';
 	//private $from_contact = 'ecrire@cabotiau.com';
 	//private $from_contact_pass = 'yDxE8kG4jTsS';
@@ -26,8 +33,8 @@ class Mail
 	public function send_register_mail($username, $key)
 	{
 		$subject = "Instagru | Confirmation d'inscription";
-		$link = "http://localhost/camagru/processValidation".
-				"&username=" . urlencode($username) . 
+		$link = $this->host . "/camagru/processValidation".
+				"&username=" . urlencode($username) .
 				"&key=". urlencode($key);
 		$message = "
 		<html>
@@ -54,8 +61,8 @@ class Mail
 	public function send_forgot_pass_mail($username, $key)
 	{
 		$subject = "Instagru | Réinitialisation du mot de passe";
-		$link = "http://localhost/camagru/nouveau_mot_de_passe".
-				"&username=" . urlencode($username) . 
+		$link = $this->host . "/camagru/nouveau_mot_de_passe".
+				"&username=" . urlencode($username) .
 				"&key=". urlencode($key);
 		$message = "
 		<html>
@@ -71,7 +78,7 @@ class Mail
 				</center>
 			</body>
 		</html>";
-		
+
 		$this->configurationMail($subject, $message);
 	}
 
@@ -86,4 +93,4 @@ class Mail
 
 		mail($this->email, $subject, $message, $header, '-f' . $this->from);
 	}
-} 
+}
