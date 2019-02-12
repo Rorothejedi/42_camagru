@@ -145,7 +145,6 @@ class ControllerPrivate extends Alert
 
 	public function processEditPreference()
 	{
-		$userData = $this->callUserData();
 		if (!empty($_POST))
 		{
 			if (isset($_POST['prefTheme']) && $_POST['prefTheme'] == '1')
@@ -175,6 +174,36 @@ class ControllerPrivate extends Alert
 		}
 		else
 			$this->alert_failure('Les données transmissent ne sont pas valides', 'parametres');
+	}
+
+	public function processSaveImage()
+	{
+		$userData = $this->callUserData();
+		$data     = explode(',', $_POST['imgHidden']);
+		$imgData  = base64_decode($data[1]);
+		$fileName = uniqid($userData->id() . '_', true) . '.png';
+		$file     = './files/img/' . $fileName;
+
+
+		// Gérer le montqge des deux (ou plusieurs ??) images entre elles
+		// Here
+
+		// Enregistrement de l'image dans files/img
+		file_put_contents($file, $imgData);
+		// Compression de l'image (facteur 9)
+		$img = imagecreatefrompng($file);
+		$success = imagepng($img, $file, 9);
+  		if ($success)
+  		{
+  			$this->alert_success('C\'est nice ! Que c\'est bo !');
+  			header('Location: ./studio');
+  		}
+  		else
+  			$this->alert_failure('Le montage de l\'image a échoué', 'studio');
+
+  		// Gérer l'enregistrement de l'image dans la bdd
+  		// Here
+
 	}
 
 }

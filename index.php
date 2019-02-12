@@ -54,6 +54,7 @@ $router->post('/processPassNew', "Public#processPassNew");
 
 $router->post('/processEditUser', "Private#processEditUser");
 $router->post('/processEditPreference', "Private#processEditPreference");
+$router->post('/processSaveImage', "Private#processSaveImage");
 
 //Route execution
 $router->run();

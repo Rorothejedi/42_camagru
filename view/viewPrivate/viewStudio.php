@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-xl-9">
 			<div class="longbar">
-				<form action="test" method="POST">
+				<form action="processSaveImage" method="POST">
 					<h2 class="longbar-title">Studio</h2>
 					<hr>
 					
@@ -57,17 +57,16 @@
 					</div>
 
 					<div class="fakeScreen">
-						<video id="videoElement"></video>		
-						<canvas id="canvas"></canvas>
+						<video id="videoElement" autoplay></video>		
+						<input id="imgHidden" name="imgHidden" type="hidden" value="">
 					</div>
-					
+
 					<div class="text-right takePhotoParent">
-						<button id="takePhoto" class="style-button button-color-photo"></button>
+						<button type='submit' id="takePhoto" class="style-button button-color-photo" onclick="instashot();"></button>
 					</div>
 
 					<div class="text-right mt-3">
 						<p class="small">Utilisez votre webcam ou <label class="font-italic label-file" for="loadImg"> chargez une image </label></p>
-
 						<input type="file" class="small input-file" id="loadImg" accept=".png, .jpg">
 					</div>
 				</form>
@@ -78,8 +77,8 @@
 
 		<div class="col-xl-3">
 			<div class="sidebar">
-				<h2 class="sidebar-title">Vos instashot</h2>
-				<div class="fakeImg"></div>
+				<h2 class="sidebar-title">Vos derniers instashots</h2>
+				<canvas class='fakeImg' id="canvas" width="1280" height="720"></canvas>
 				<div class="fakeImg"></div>
 				<div class="fakeImg"></div>
 				<div class="mt-4 mb-2">

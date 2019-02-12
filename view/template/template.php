@@ -49,7 +49,7 @@
 		?>
 	</head>
 
-	<body>
+	<body <?php if ($title == 'Studio') { echo 'onload="init();"';} ?>>
 		<header>
 			<nav class="navbar">
 				<div class="container">
