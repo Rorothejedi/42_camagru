@@ -297,16 +297,16 @@ footer {
 
 /*---------------  Checkbox studio  --------------------*/
 
-[type=checkbox] { 
+#slider1 input[type=checkbox] { 
 	position: absolute;
 	opacity: 0;
 	width: 0;
 	height: 0;
 }
-[type=checkbox] + .item img {
+#slider1 input[type=checkbox] + .item img {
 	cursor: pointer;
 }
-[type=checkbox]:checked + .item img {
+#slider1 input[type=checkbox]:checked + .item img {
 	border: 5px solid var(--pink-color);
 	transition: 0.3s all;
 }
@@ -322,6 +322,52 @@ footer {
     display: none;
 }
 
+/* ---------------------------  Camera  --------------------------*/
+
+#videoElement {
+	width: 100%;
+	height: 464px;
+	border-radius: 5px;
+	z-index: 0;
+}
+.fakeScreen {
+	width: 100%;
+	height: 464px;
+	background-color: black;
+	border-radius: 5px;
+}
+.button-color-photo {
+	border: 4px solid var(--cyan-color);
+	background-color: var(--second-color);
+	color: var(--cyan-color);
+	border-radius: 30px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	z-index: 10;
+	transition: 0.3s all;
+	transition-delay: 0.2s;
+}
+.button-color-photo:hover {
+	width: 200px;
+	transition: 0.3s all;
+}
+.button-color-photo:after {
+	content: 'Prendre instashot';
+	opacity: 0;
+	transition: 0.3s all;
+}
+.button-color-photo:hover:after {
+	opacity: 1;
+	transition-delay: 0.2s;
+}
+
+.takePhotoParent {
+	position: relative;
+	bottom: 60px;
+	right: 10px;
+	margin-bottom: -50px;
+}
 /*------  test -------*/
 
 .fakeImg {
@@ -330,11 +376,4 @@ footer {
 	background-color: white;
 	width: 100%;
 	height: 150px;
-}
-
-.fakeScreen {
-	width: 100%;
-	height: 430px;
-	background-color: black;
-	border-radius: 5px;
 }

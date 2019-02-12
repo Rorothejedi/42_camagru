@@ -8,13 +8,14 @@ class Mail
 {
 	private $email;
 
-	/* -------- For XAMPP  --------*/
-	//private $from = 'no-reply@cabotiau.com';
-	//private $host = 'http://localhost';
-	/* -------- For MAMP  --------*/
-	private $from = 'rcabotia@student.le-101.fr';
-	private $host = 'http://localhost:8100';
-
+	/* ------------------ For XAMPP  ------------------*/
+	private $from = 'no-reply@cabotiau.com';
+	private $host = 'http://localhost';
+	/* ------------------ For MAMP  -------------------*/
+	//private $from = 'rcabotia@student.le-101.fr';
+	//private $host = 'http://localhost:8100';
+	
+	/*---------------  For online mail  ---------------*/
 	//private $from_pass = 'RYd6GtzmWkEHmw';
 	//private $from_contact = 'ecrire@cabotiau.com';
 	//private $from_contact_pass = 'yDxE8kG4jTsS';

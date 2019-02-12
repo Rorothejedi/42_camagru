@@ -89,7 +89,7 @@
 			<div class="col-md-10 ml-4">
 				<input type="checkbox" name="prefComment" id="prefComment" class="form-check-input" <?php if ($userData->prefComment() == 1) { echo "checked"; } ?> value="1">
 				<label for="prefComment">
-					Etre informé par email qu'un nouveau commentaire viens d'être posté sur l'un de mes Instashot
+					Etre informé par email qu'un nouveau commentaire viens d'être posté sur l'un de mes instashot
 				</label>
 			</div>
 		</div>
@@ -98,7 +98,7 @@
 			<div class="col-md-10 ml-4">
 				<input type="checkbox" name="prefLike" id="prefLike" class="form-check-input" <?php if ($userData->prefLike() == 1) { echo "checked"; } ?> value="1">
 				<label for="prefLike">
-					Etre informé par email qu'un de mes Instashot viens d'être liké par un autre utilisateur
+					Etre informé par email qu'un de mes instashot viens d'être liké par un autre utilisateur
 				</label>
 			</div>
 		</div>

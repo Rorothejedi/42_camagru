@@ -42,7 +42,10 @@
 			echo $animateCSS;
 			echo $favicon;
 			if ($title == 'Studio')
+			{
 				echo $miniSlider;
+				echo $webcam;
+			}
 		?>
 	</head>
 

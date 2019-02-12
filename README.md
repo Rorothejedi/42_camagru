@@ -17,22 +17,22 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 <hr>
 
-Lundi 11/09 (gestion images):
+Mardi 12/09 :
 
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
  - Choisir plus de stickers (png).
- - Mettre en place la gestion de la webcam.
  - Mettre en place l'enregistrement du montage dans un dossier.
  - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
 
-Mardi 12/09 :
+
+Mercredi 13/09 :
 
  - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
  - Ajouter toutes les photos sur la galerie.
  - Ajouter les photos dans la sidebar de la page montage.
  - Pagination infini sur la page galerie.
 
-Mercredi 13/09 :
+Jeudi 14/09 :
 
  - Mettre en place la page photo unique.
  - Ajouter les likes sur la page galerie.
@@ -40,7 +40,7 @@ Mercredi 13/09 :
  - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
  - Mettre en place mails like et comment (préférences).
 
-Jeudi 14/09 :
+Later :
 
  - Vérification W3C de toutes les pages HTML.
  - Minimisation de toutes les scripts JS et les CSS.
@@ -54,7 +54,7 @@ Jeudi 14/09 :
 
 <hr>
 
-#<strong>Bonus :</strong>
+<strong>Bonus :</strong>
 
  - Design Néon.
  - Light / dark theme.
@@ -68,6 +68,6 @@ Jeudi 14/09 :
 
 <hr>
 
-#<strong>Sujet :</strong>
+<strong>Sujet :</strong>
 
 <a href="https://github.com/Rorothejedi/camagru/blob/master/camagru.fr.pdf">PDF Camagru</a>

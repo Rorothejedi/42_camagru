@@ -49,3 +49,4 @@
 	/*------------------------   JavaScript files  -----------------------------*/
 
 	$miniSlider = '<script src="./public/js/miniSlider.js" async></script>';
+	$webcam     = '<script src="./public/js/webcam.js"></script>';
