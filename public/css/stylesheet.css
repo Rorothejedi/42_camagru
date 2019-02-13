@@ -297,16 +297,16 @@ footer {
 
 /*---------------  Checkbox studio  --------------------*/
 
-#slider1 input[type=checkbox] { 
+#slider1 input[type=radio] { 
 	position: absolute;
 	opacity: 0;
 	width: 0;
 	height: 0;
 }
-#slider1 input[type=checkbox] + .item img {
+#slider1 input[type=radio] + .item img {
 	cursor: pointer;
 }
-#slider1 input[type=checkbox]:checked + .item img {
+#slider1 input[type=radio]:checked + .item img {
 	border: 5px solid var(--pink-color);
 	transition: 0.3s all;
 }
@@ -330,6 +330,13 @@ footer {
 	border-radius: 5px;
 	z-index: 0;
 }
+.layerPlayer {
+	width: 100%;
+	height: 464px;
+	position: relative;
+	bottom: 471px;
+}
+
 .fakeScreen {
 	width: 100%;
 	height: 464px;
@@ -369,12 +376,25 @@ footer {
 	transition-delay: 0.2s;
 }
 
+.button-color-photo:disabled {
+	background-color: var(--main-color);
+	color: var(--text-color);
+	border-color: var(--text-color);
+}
+.button-color-photo:disabled:after {
+	content: 'Verrouillé';
+}
+
+
 .takePhotoParent {
 	position: relative;
 	bottom: 60px;
 	right: 10px;
 	margin-bottom: -50px;
 }
+
+
+
 /*------  test -------*/
 
 .fakeImg {

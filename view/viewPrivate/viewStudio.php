@@ -14,55 +14,67 @@
 					
 					<div id="slider1" class="mb-4">
 						<label for="vador">
-						<input type="checkbox" name="vador" value="ok" id="vador">
+						<input type="radio" name="layer" value="vador" id="vador" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/vador.png" alt="Casque Dark Vador cartoon">
+								<img src="./files/filters/vador_mini.png" alt="Casque Dark Vador cartoon">
 							</div>
 						</label>
 
 						<label for="viking">
-						<input type="checkbox" name="viking" value="ok" id="viking">
+						<input type="radio" name="layer" value="viking" id="viking" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/viking.png" alt="Casque Viking cartoon">
+								<img src="./files/filters/viking_mini.png" alt="Casque Viking cartoon">
 							</div>
 						</label>
 
 						<label for="hipster">
-						<input type="checkbox" name="hipster" value="ok" id="hipster">
+						<input type="radio" name="layer" value="hipster" id="hipster" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/hipster.png" alt="Style hipster">
+								<img src="./files/filters/hipster_mini.png" alt="Style hipster">
 							</div>
 						</label>
 						
 						<label for="cocktail">
-						<input type="checkbox" name="cocktail" value="ok" id="cocktail">
+						<input type="radio" name="layer" value="cocktail" id="cocktail" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/cocktail.png" alt="Cocktail">
+								<img src="./files/filters/cocktail_mini.png" alt="Cocktail">
 							</div>
 						</label>
 						
 						<label for="hammer">
-						<input type="checkbox" name="hammer" value="ok" id="hammer">
+						<input type="radio" name="layer" value="hammer" id="hammer" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/hammer.png" alt="Marteau viking">
+								<img src="./files/filters/hammer_mini.png" alt="Marteau viking">
 							</div>
 						</label>
 
 						<label for="halo">
-						<input type="checkbox" name="halo" value="ok" id="halo">
+						<input type="radio" name="layer" value="halo" id="halo" onClick="replyClick(this.id)">
 							<div class="item">
-								<img src="./files/filters/halo.png" alt="Casque Halo">
+								<img src="./files/filters/halo_mini.png" alt="Casque Halo">
 							</div>
 						</label>
+
+						<!-- Ici d'autres minatures de layers -->
 					</div>
 
 					<div class="fakeScreen">
-						<video id="videoElement" autoplay></video>		
+						<video id="videoElement" autoplay></video>	
+						<div>
+							<img class="d-none layerPlayer" src="./files/filters/vador.png" id="vadorLayer">
+							<img class="d-none layerPlayer" src="./files/filters/viking.png" id="vikingLayer">
+							<img class="d-none layerPlayer" src="./files/filters/hipster.png" id="hipsterLayer">
+							<img class="d-none layerPlayer" src="./files/filters/cocktail.png" id="cocktailLayer">
+							<img class="d-none layerPlayer" src="./files/filters/hammer.png" id="hammerLayer">
+							<img class="d-none layerPlayer" src="./files/filters/halo.png" id="haloLayer">
+							<!-- Ici d'autres layers -->
+
+						</div>	
 						<input id="imgHidden" name="imgHidden" type="hidden" value="">
 					</div>
 
 					<div class="text-right takePhotoParent">
-						<button type='submit' id="takePhoto" class="style-button button-color-photo" onclick="instashot();"></button>
+						<button type='submit' id="takePhoto" class="style-button button-color-photo" onclick="instashot();" disabled></button>
 					</div>
 
 					<div class="text-right mt-3">

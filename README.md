@@ -20,7 +20,6 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 Mercredi 13/09 :
 
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
- - Choisir plus de stickers (png).
  - Faire le montage.
  - Mettre en place l'enregistrement du montage dans un dossier.
  - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
@@ -34,6 +33,7 @@ Jeudi 14/09 :
 
 Later :
 
+ - Choisir plus de stickers (png) et les ajuster correctement.
  - Mettre en place la page photo unique.
  - Ajouter les likes sur la page galerie.
  - Ajouter les commentaires sur la page galerie.
@@ -44,6 +44,7 @@ Later :
  - Vérification des erreurs de JS dans la console.
  - Ajouter fichier auteur.
  - Virer le fichier et le lien cdn d'animate CSS.
+ - Optimiser toutes les images et miniatures.
  - Affiner le responsive.
  - Vérification annexes.
  - Mise en ligne.

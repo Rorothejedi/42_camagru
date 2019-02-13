@@ -179,31 +179,44 @@ class ControllerPrivate extends Alert
 	public function processSaveImage()
 	{
 		$userData = $this->callUserData();
-		$data     = explode(',', $_POST['imgHidden']);
-		$imgData  = base64_decode($data[1]);
-		$fileName = uniqid($userData->id() . '_', true) . '.png';
-		$file     = './files/img/' . $fileName;
 
+		if (!empty($_POST) && isset($_POST['imgHidden']) && isset($_POST['layer']))
+		{
+			$data     = explode(',', $_POST['imgHidden']);
+			$imgData  = base64_decode($data[1]);
+			$fileName = uniqid($userData->id() . '_', true) . '.png';
+			$file     = './files/img/' . $fileName;
+			$layer	 =  './files/filters/' . $_POST['layer'] . '.png';
+			file_put_contents($file, $imgData);
+			//Fusion des deux images.
+			$dest = imagecreatefrompng($file);
+			$src  = imagecreatefrompng($layer);
+			$this->imagecopymerge_alpha($dest, $src, 0, 0, 0, 0, 1280, 720, 100);
+			// Compression de l'image (facteur 9) et libération de la mémoire
+			$success = imagepng($dest, $file, 9);
+			imagedestroy($dest);
+			imagedestroy($src);
+	  		if ($success)
+	  		{
+	  			$this->alert_success('C\'est nice ! Que c\'est bo !');
+	  			header('Location: ./studio');
+	  		}
+	  		else
+	  			$this->alert_failure('Le montage de l\'image a échoué', 'studio');
 
-		// Gérer le montqge des deux (ou plusieurs ??) images entre elles
-		// Here
-
-		// Enregistrement de l'image dans files/img
-		file_put_contents($file, $imgData);
-		// Compression de l'image (facteur 9)
-		$img = imagecreatefrompng($file);
-		$success = imagepng($img, $file, 9);
-  		if ($success)
-  		{
-  			$this->alert_success('C\'est nice ! Que c\'est bo !');
-  			header('Location: ./studio');
-  		}
-  		else
-  			$this->alert_failure('Le montage de l\'image a échoué', 'studio');
-
-  		// Gérer l'enregistrement de l'image dans la bdd
-  		// Here
-
+	  		// Gérer l'enregistrement de l'image dans la bdd
+	  		// Here
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', 'studio');
 	}
+
+	private function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
+	{ 
+        $cut = imagecreatetruecolor($src_w, $src_h);
+        imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h);
+        imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
+        imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct);
+    }
 
 }
