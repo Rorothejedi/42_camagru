@@ -19,9 +19,9 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Mercredi 13/09 :
 
+ - Enregistrement du montage dans la bdd.
+
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
- - Faire le montage.
- - Mettre en place l'enregistrement du montage dans un dossier.
  - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
 
 Jeudi 14/09 :

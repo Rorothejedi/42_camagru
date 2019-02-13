@@ -29,8 +29,9 @@ CREATE TABLE `user` (
 --
 CREATE TABLE `image` (
  `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+ `id_user` int(11) NOT NULL,
  `name` varchar(255) NOT NULL,
- `date` date NOT NULL
+ `date` datetime NOT NULL
 );
 
 --
@@ -47,10 +48,17 @@ CREATE TABLE `like` (
 CREATE TABLE `comment` (
  `id_user` int(11) NOT NULL,
  `id_image` int(11) NOT NULL,
- `content` text NOT NULL
+ `content` text NOT NULL,
+ `date` datetime NOT NULL
 );
 
 -- --------------------------------------------------------
+--
+-- Index pour la table `image`
+--
+ALTER TABLE `image`
+  ADD KEY `FK_id_user` (`id_user`);
+
 --
 -- Index pour la table `like`
 --
@@ -67,6 +75,12 @@ ALTER TABLE `comment`
 
 
 -- --------------------------------------------------------
+--
+-- Contraintes pour la table `image`
+--
+ALTER TABLE `image`
+  ADD CONSTRAINT `FK_id_user_image` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
 --
 -- Contraintes pour la table `like`
 --

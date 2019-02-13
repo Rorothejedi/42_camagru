@@ -179,7 +179,6 @@ class ControllerPrivate extends Alert
 	public function processSaveImage()
 	{
 		$userData = $this->callUserData();
-
 		if (!empty($_POST) && isset($_POST['imgHidden']) && isset($_POST['layer']))
 		{
 			$data     = explode(',', $_POST['imgHidden']);
@@ -198,14 +197,17 @@ class ControllerPrivate extends Alert
 			imagedestroy($src);
 	  		if ($success)
 	  		{
-	  			$this->alert_success('C\'est nice ! Que c\'est bo !');
+	  			$imageManager = new \App\model\ImageManager();
+	  			$image = new \App\model\Image([
+					'idUser'  => $_SESSION['user_id'],
+					'name'    => $fileName
+				]);
+	  			$imageManager->addImage($image);
+	  			$this->alert_success('Wow ! Que c\'est bo !');
 	  			header('Location: ./studio');
 	  		}
 	  		else
 	  			$this->alert_failure('Le montage de l\'image a échoué', 'studio');
-
-	  		// Gérer l'enregistrement de l'image dans la bdd
-	  		// Here
 		}
 		else
 			$this->alert_failure('Les données transmissent ne sont pas valides', 'studio');
