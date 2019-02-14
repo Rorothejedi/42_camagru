@@ -1,4 +1,4 @@
-<?php 
+<?php
 	$title = 'Studio';
 	ob_start();
 ?>
@@ -11,7 +11,7 @@
 				<form action="processSaveImage" method="POST">
 					<h2 class="longbar-title">Studio</h2>
 					<hr>
-					
+
 					<div id="slider1" class="mb-4">
 						<label for="vador">
 						<input type="radio" name="layer" value="vador" id="vador" onClick="replyClick(this.id)">
@@ -33,14 +33,14 @@
 								<img src="./files/filters/hipster_mini.png" alt="Style hipster">
 							</div>
 						</label>
-						
+
 						<label for="cocktail">
 						<input type="radio" name="layer" value="cocktail" id="cocktail" onClick="replyClick(this.id)">
 							<div class="item">
 								<img src="./files/filters/cocktail_mini.png" alt="Cocktail">
 							</div>
 						</label>
-						
+
 						<label for="hammer">
 						<input type="radio" name="layer" value="hammer" id="hammer" onClick="replyClick(this.id)">
 							<div class="item">
@@ -59,7 +59,8 @@
 					</div>
 
 					<div class="fakeScreen">
-						<video id="videoElement" autoplay></video>	
+						<canvas class='canvas d-none' id="canvas" width="1280" height="720"></canvas>
+						<video class="" id="videoElement" autoplay></video>
 						<div>
 							<img class="d-none layerPlayer" src="./files/filters/vador.png" id="vadorLayer">
 							<img class="d-none layerPlayer" src="./files/filters/viking.png" id="vikingLayer">
@@ -69,7 +70,7 @@
 							<img class="d-none layerPlayer" src="./files/filters/halo.png" id="haloLayer">
 							<!-- Ici d'autres layers -->
 
-						</div>	
+						</div>
 						<input id="imgHidden" name="imgHidden" type="hidden" value="">
 					</div>
 
@@ -90,7 +91,7 @@
 		<div class="col-xl-3">
 			<div class="sidebar">
 				<h2 class="sidebar-title">Vos derniers instashots</h2>
-				<canvas class='fakeImg' id="canvas" width="1280" height="720"></canvas>
+				<div class="fakeImg"></div>
 				<div class="fakeImg"></div>
 				<div class="fakeImg"></div>
 				<div class="mt-4 mb-2">
@@ -102,7 +103,7 @@
 </div>
 
 
-<?php 
+<?php
 	$content = ob_get_clean();
 	require('./view/template/template.php');
 ?>

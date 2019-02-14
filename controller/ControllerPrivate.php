@@ -1,9 +1,9 @@
-<?php 
+<?php
 namespace App\controller;
 
 /**
  * Class ControllerPrivate
- * Controller qui gère les views et les models de la partie privé du site (Profil utilisateurs, deconnexion, studio). 
+ * Controller qui gère les views et les models de la partie privé du site (Profil utilisateurs, deconnexion, studio).
  */
 class ControllerPrivate extends Alert
 {
@@ -12,8 +12,8 @@ class ControllerPrivate extends Alert
 	 */
 	public function __construct()
 	{
-		if (empty($_SESSION['user_id']) && empty($_SESSION['user_username'])) 
-		{ 
+		if (empty($_SESSION['user_id']) && empty($_SESSION['user_username']))
+		{
 			$this->alert_failure('Vous devez être connecté pour accèder à cette page', 'connexion');
 			exit;
 		}
@@ -55,7 +55,7 @@ class ControllerPrivate extends Alert
 	private function initUser()
 	{
 		$user = new \App\model\User([
-			'id'       => $_SESSION['user_id'], 
+			'id'       => $_SESSION['user_id'],
 			'username' => $_SESSION['user_username']
 		]);
 		return $user;
@@ -86,12 +86,12 @@ class ControllerPrivate extends Alert
 			$username = htmlspecialchars($_POST['username']);
 			$email    = htmlspecialchars($_POST['email']);
 			// Si on modifie le mot de passe
-			if (isset($_POST['pass']) && !empty($_POST['pass']) 
-				&& isset($_POST['passconfirm']) && !empty($_POST['passconfirm'])) 
+			if (isset($_POST['pass']) && !empty($_POST['pass'])
+				&& isset($_POST['passconfirm']) && !empty($_POST['passconfirm']))
 			{
 				$passinit    = htmlspecialchars($_POST['pass']);
 				$passconfirm = htmlspecialchars($_POST['passconfirm']);
-				if (strlen($passinit) >= 8 && preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passinit)) 
+				if (strlen($passinit) >= 8 && preg_match('/[A-Za-z].*[0-9]|[0-9].*[A-Za-z]/', $passinit))
 	    		{
 					if ($passinit == $passconfirm)
 						$pass = password_hash($passinit, PASSWORD_DEFAULT);
@@ -110,13 +110,13 @@ class ControllerPrivate extends Alert
 			}
 			else
 				$pass = $userData->password();
-			if (strlen($username) >= 2 && strlen($username) <= 25)  
+			if (strlen($username) >= 2 && strlen($username) <= 25)
 			{
 				if (filter_var($email, FILTER_VALIDATE_EMAIL))
 	   			{
 					$userManager   = new \App\model\UserManager();
 					$countUserData = $userManager->existUser($username, $email);
-	   				if ($countUserData <= 1) 
+	   				if ($countUserData <= 1)
 	   				{
 	   					$editUser = new \App\model\User([
 							'id'       => $_SESSION['user_id'],
@@ -187,7 +187,7 @@ class ControllerPrivate extends Alert
 			$file     = './files/img/' . $fileName;
 			$layer	 =  './files/filters/' . $_POST['layer'] . '.png';
 			file_put_contents($file, $imgData);
-			//Fusion des deux images.
+			// Fusion des deux images.
 			$dest = imagecreatefrompng($file);
 			$src  = imagecreatefrompng($layer);
 			$this->imagecopymerge_alpha($dest, $src, 0, 0, 0, 0, 1280, 720, 100);
@@ -214,7 +214,7 @@ class ControllerPrivate extends Alert
 	}
 
 	private function imagecopymerge_alpha($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, $pct)
-	{ 
+	{
         $cut = imagecreatetruecolor($src_w, $src_h);
         imagecopy($cut, $dst_im, 0, 0, $dst_x, $dst_y, $src_w, $src_h);
         imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
