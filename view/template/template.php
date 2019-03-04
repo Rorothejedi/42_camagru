@@ -45,6 +45,7 @@
 			{
 				echo $miniSlider;
 				echo $webcam;
+				echo $uploadImage;
 			}
 		?>
 	</head>
@@ -90,7 +91,7 @@
 				<?php } ?>
 			</div>
 		</footer>
-		
+
 		<script src="./public/js/alert.js"></script>
 	</body>
 

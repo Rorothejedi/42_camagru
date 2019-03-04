@@ -12,14 +12,13 @@
 
   if (navigator.getUserMedia)
   {
-    navigator.getUserMedia({ 
-      audio: false, 
+    navigator.getUserMedia({
+      audio: false,
       video: {
-        width: 1280, 
-        height: 720 } 
+        width: 1280,
+        height: 720 }
       },
       function(stream) {
-        //loadLayer();
         video = document.querySelector('#videoElement');
         video.srcObject = stream;
         webcamStream = stream;
@@ -28,7 +27,7 @@
         console.log(error.name);
       }
     );
-  } 
+  }
   else
     console.log("getUserMedia not supported");
 
@@ -39,7 +38,7 @@
     context = canvas.getContext('2d');
   }
 
-  
+
   function loadLayer()
   {
     let val;
@@ -79,11 +78,37 @@
   {
     loadLayer();
     //context.globalAplha = 1.0;
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    if (document.getElementById('videoElement').className !== 'd-none')
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
     //context.globalAplha = 0.5;
     //context.drawImage(layer, 0, 0, canvas.width, canvas.height);
 
     let data = canvas.toDataURL("image/png");
     //let output = data.replace(/^data:image\/(png|jpg);base64,/, "");
     document.getElementById('imgHidden').value = data;
+  }
+
+
+  let imageLoader = document.getElementById('loadImg');
+  imageLoader.addEventListener('change', handleImage, false);
+
+
+  function handleImage(e)
+  {
+    document.getElementById('videoElement').classList.add('d-none');
+    canvas.classList.remove('d-none');
+    let reader = new FileReader();
+    reader.onload = function(event)
+    {
+        let img = new Image();
+        img.onload = function()
+        {
+            canvas.width = img.width;
+            canvas.height = img.height;
+            context.drawImage(img, 0, 0);
+        }
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(e.target.files[0]);
   }

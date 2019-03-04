@@ -17,14 +17,9 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 <hr>
 
-Jeudi 14/09 :
-
- - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
- - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
-
 Later :
 
-
+ - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
  - Ajouter toutes les photos sur la galerie.
  - Ajouter les photos dans la sidebar de la page montage.
  - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
