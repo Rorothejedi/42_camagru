@@ -19,9 +19,6 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Ajouter toutes les photos sur la galerie.
-
- - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
  - Pagination infini sur la page galerie.
  - Choisir plus de stickers (png) et les ajuster correctement.
 

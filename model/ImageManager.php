@@ -35,6 +35,46 @@ class ImageManager
 	}
 
 	/**
+	 * Permet de récupérer le nom de l'image a partir de son id.
+	 */
+	public function getImageName(Image $image)
+	{
+		$data = App::getDb()->prepare('
+			SELECT name
+			FROM image
+			WHERE id = :id',
+			['id' => $image->id()],
+		true, true, false);
+		return $data;
+	}
+
+	/**
+	 * Récupérer les 20 derniers photos pour l'affichage de la galerie.
+	 */
+	public function getImages()
+	{
+		$data = App::getDb()->query('
+			SELECT *
+			FROM image i
+			ORDER BY i.date DESC
+			LIMIT 20',
+		true, false);
+		return $data;
+	}
+
+	public function getImagesById(User $user)
+	{
+		$data = App::getDb()->prepare('
+			SELECT *
+			FROM image i
+			WHERE i.id_user = :id_user
+			ORDER BY i.date DESC',
+			['id_user' => $user->id()],
+		true, false);
+		return $data;
+	}
+
+	/**
 	 * Permet de vérifier si un utilisateur peux accéder à une photo en particulier.
 	 */
 	public function checkImage(Image $image)

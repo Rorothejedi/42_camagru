@@ -43,6 +43,7 @@ $router->get('/mentions_legales', "Public#displayLegal");
 $router->get('/processValidation', "Public#processValidation");
 
 $router->get('/studio', "Private#displayStudio");
+$router->get('/mes_instashots', "Private#displayShots");
 $router->get('/parametres', "Private#displaySettings");
 $router->get('/disconnect', "Private#disconnect");
 

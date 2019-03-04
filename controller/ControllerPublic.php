@@ -12,6 +12,8 @@ class ControllerPublic extends Alert
 	 */
 	public function displayGallery()
 	{
+		$imageManager = new \App\model\ImageManager();
+		$allImages    = $imageManager->getImages();
 		require('./view/viewPublic/viewGallery.php');
 	}
 

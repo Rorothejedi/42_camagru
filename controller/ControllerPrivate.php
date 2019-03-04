@@ -31,6 +31,17 @@ class ControllerPrivate extends Alert
 	}
 
 	/**
+	 * Méthode d'affichage de la page 'Mes instashots'.
+	 */
+	public function displayShots()
+	{
+		$userData     = $this->callUserData();
+		$imageManager = new \App\model\ImageManager();
+		$allMyImages  = $imageManager->getImagesById($userData);
+		require('./view/viewPrivate/viewShots.php');
+	}
+
+	/**
 	 * Méthode d'affichage de la page de gestion des paramètres et des préférences.
 	 */
 	public function displaySettings()
@@ -238,9 +249,15 @@ class ControllerPrivate extends Alert
 			$imageCheck = $imageManager->checkImage($image);
 			if ($imageCheck == 1)
 			{
-				$imageDelete = $imageManager->deleteImage($image);
-				$this->alert_success('L\'instashot a bien été supprimé');
-	  			header('Location: ./studio');
+				$imageName = $imageManager->getImageName($image);
+				if (unlink('./files/img/' . $imageName->name))
+				{
+					$imageDelete = $imageManager->deleteImage($image);
+					$this->alert_success('L\'instashot a bien été supprimé');
+		  			header('Location: ./studio');
+				}
+				else
+					$this->alert_failure('L\'image n\'a pas pu être effacé', 'studio');
 			}
 			else
 				$this->alert_failure('Cette image n\'existe pas ou vous n\'avez pas les droits pour y accéder', 'studio');

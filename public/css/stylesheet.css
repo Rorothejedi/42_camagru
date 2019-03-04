@@ -135,7 +135,10 @@ footer {
 .title {
 	font-weight: 200;
 	font-size: 2rem;
-	margin: 40px auto 40px auto;
+	margin: 40px 0px 40px 0px;
+}
+.shotsLink {
+	margin: 50px -20px 30px 0px;
 }
 
 /* ------------------------------- Register page -----------------------------*/
@@ -230,7 +233,7 @@ footer {
 
 .item img {
 	margin-top: 5px;
-	background-color: var(--text-color);
+	background-color: white;
 	width: 100px;
 	height: auto;
 	border-radius: 100%;
@@ -244,6 +247,10 @@ footer {
 .button-color-sidebar:hover {
 	color: var(--main-color);
 	background-color: var(--cyan-color);
+}
+
+.alertStudio {
+	height: 66px !important;
 }
 
 /* -----  Slider ------*/
@@ -404,8 +411,6 @@ footer {
 
 /* ---------------------------  Sidebar  --------------------------*/
 
-
-
 .fa-times {
 	padding-top: 5px;
 	padding-bottom: 5px;
@@ -414,7 +419,7 @@ footer {
 }
 .fakeImg {
 	color: var(--text-color);
-	padding: 0;
+	padding: 0 !important;
 	border: none;
 	border-radius: 7px;
 	background-color: var(--main-color);
@@ -443,4 +448,49 @@ footer {
 .fakeImg:hover img {
 	opacity: 0.7;
 	transition: opacity 0.2s;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+	#videoElement, .layerPlayer, .fakeScreen {
+		height: 523px;
+	}
+	.allLayers {
+		bottom: 530px;
+	}
+}
+/*Desactivation des layers sur les petites tailles d'écran*/
+@media (max-width: 991px) {
+	.allLayers {
+		display: none;
+	}
+}
+/*-----------------------  Gallery  ------------------------------*/
+
+.bigPicture {
+	margin-bottom: 50px;
+	border-radius: 6px;
+}
+.picture {
+	border-radius: 6px;
+	margin-bottom: 18px;
+}
+.imgGallery, .imgGalleryBig {
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+	transition: opacity 0.2s;
+
+}
+.picture, .bigPicture {
+	background-color: var(--cyan-color);
+}
+.imgGallery:hover, .imgGalleryBig:hover {
+	opacity: 0.7;
+	transition: opacity 0.2s;
+}
+
+@media (max-width: 991px) {
+	.bigPicture {
+		margin-bottom: 18px;
+	}
 }

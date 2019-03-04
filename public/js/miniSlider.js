@@ -108,11 +108,18 @@ document.addEventListener('DOMContentLoaded', function ()
 			slidesVisible: 4
 		});
 	}
-	else
+	else if (width <= 766 && width > 420)
 	{
 		new Slider(document.querySelector('#slider1'), {
 			slidesToScroll: 1,
 			slidesVisible: 3
+		});
+	}
+	else
+	{
+		new Slider(document.querySelector('#slider1'), {
+			slidesToScroll: 1,
+			slidesVisible: 2
 		});
 	}
 });

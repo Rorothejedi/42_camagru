@@ -4,8 +4,8 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
-	<div class="row">
+	<div id="alertNone" class="alertStudio"></div>
+	<div class="row" >
 		<div class="col-xl-9">
 			<div class="longbar">
 				<form action="processSaveImage" method="POST">
@@ -95,7 +95,7 @@
 					<?php 
 						foreach ($lastImages as $key => $lastImage):
 					?>
-					<button type="submit" class="fakeImg" name="img" value="<?= $lastImage->id ?>">
+					<button type="submit" class="fakeImg col-sm-5 col-xl-12 pr-sm-3 pl-sm-3" name="img" value="<?= $lastImage->id ?>">
 						<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
 						<i class="fas fa-times"></i>
 					</button>	
