@@ -23,6 +23,35 @@ class ImageManager
 	}
 
 	/**
+	 * Permet de supprimer une image.
+	 */
+	public function deleteImage(Image $image)
+	{
+		$data = App::getDb()->prepare('
+			DELETE FROM image
+			WHERE id = :id',
+			['id' => $image->id()],
+		false);
+	}
+
+	/**
+	 * Permet de vérifier si un utilisateur peux accéder à une photo en particulier.
+	 */
+	public function checkImage(Image $image)
+	{
+		$data = App::getDb()->prepare('
+			SELECT *
+			FROM image i
+			WHERE 
+				i.id = :id
+				AND i.id_user = :id_user',
+			['id' => $image->id(),
+			'id_user' => $image->idUser()],
+		true, false, true);
+		return $data;
+	}
+
+	/**
 	 * Permet de retourner les 4 dernières images prises par l'utilisateur en cours.
 	 */
 	public function lastImages(User $user)

@@ -90,26 +90,26 @@
 
 		<div class="col-xl-3">
 			<div class="sidebar">
-				<h2 class="sidebar-title">Vos derniers instashots</h2>
-
-				<?php 
-					foreach ($lastImages as $key => $lastImage):
-				?>
-				<div class="fakeImg">
-					<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
-				</div>	
-				<?php 
-					endforeach;
-				?>
-				
-				<div class="mt-4 mb-2">
-					<a href="./" class="style-button button-color-sidebar">Voir tous...</a>
-				</div>
+				<form action="processDeleteImage" method="POST">
+					<h2 class="sidebar-title">Vos derniers instashots</h2>
+					<?php 
+						foreach ($lastImages as $key => $lastImage):
+					?>
+					<button type="submit" class="fakeImg" name="img" value="<?= $lastImage->id ?>">
+						<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
+						<i class="fas fa-times"></i>
+					</button>	
+					<?php 
+						endforeach;
+					?>
+					<div class="mt-4 mb-2">
+						<a href="./" class="style-button button-color-sidebar">Voir tous...</a>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
-
 
 <?php
 	$content = ob_get_clean();

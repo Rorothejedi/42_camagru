@@ -224,6 +224,31 @@ class ControllerPrivate extends Alert
         imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct);
     }
 
+    public function processDeleteImage()
+    {
+		if (!empty($_POST) 
+			&& isset($_POST['img']) && !empty($_POST['img']))
+		{
+			$imgId = htmlspecialchars($_POST['img']);
+			$imageManager = new \App\model\ImageManager();
+  			$image = new \App\model\Image([
+				'id'     => $imgId,
+				'idUser' => $_SESSION['user_id']
+			]);
+			$imageCheck = $imageManager->checkImage($image);
+			if ($imageCheck == 1)
+			{
+				$imageDelete = $imageManager->deleteImage($image);
+				$this->alert_success('L\'instashot a bien été supprimé');
+	  			header('Location: ./studio');
+			}
+			else
+				$this->alert_failure('Cette image n\'existe pas ou vous n\'avez pas les droits pour y accéder', 'studio');
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', 'studio');
+    }
+
 
 
 }

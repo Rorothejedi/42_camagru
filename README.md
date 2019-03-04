@@ -19,7 +19,6 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Suppression des photos dans la sidebar.
  - Ajouter toutes les photos sur la galerie.
 
  - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
