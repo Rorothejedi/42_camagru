@@ -24,6 +24,9 @@ class ControllerPrivate extends Alert
 	 */
 	public function displayStudio()
 	{
+		$userData = $this->callUserData();
+		$imageManager = new \App\model\ImageManager();
+		$lastImages   = $imageManager->lastImages($userData);
 		require('./view/viewPrivate/viewStudio.php');
 	}
 
@@ -220,5 +223,7 @@ class ControllerPrivate extends Alert
         imagecopy($cut, $src_im, 0, 0, $src_x, $src_y, $src_w, $src_h);
         imagecopymerge($dst_im, $cut, $dst_x, $dst_y, 0, 0, $src_w, $src_h, $pct);
     }
+
+
 
 }

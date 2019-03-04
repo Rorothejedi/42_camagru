@@ -21,4 +21,20 @@ class ImageManager
 			'name' => $image->name()],
 		false);
 	}
+
+	/**
+	 * Permet de retourner les 4 dernières images prises par l'utilisateur en cours.
+	 */
+	public function lastImages(User $user)
+	{
+		$data = App::getDb()->prepare('
+			SELECT *
+			FROM image i
+			WHERE i.id_user = :id_user
+			ORDER BY i.date DESC
+			LIMIT 4',
+			['id_user' => $user->id()],
+		true, false, false);
+		return $data;
+	}
 }

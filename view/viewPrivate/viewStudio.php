@@ -60,8 +60,8 @@
 
 					<div class="fakeScreen">
 						<canvas class='canvas d-none' id="canvas" width="1280" height="720"></canvas>
-						<video class="" id="videoElement" autoplay></video>
-						<div>
+						<video id="videoElement" autoplay></video>
+						<div class="allLayers">
 							<img class="d-none layerPlayer" src="./files/filters/vador.png" id="vadorLayer">
 							<img class="d-none layerPlayer" src="./files/filters/viking.png" id="vikingLayer">
 							<img class="d-none layerPlayer" src="./files/filters/hipster.png" id="hipsterLayer">
@@ -91,9 +91,17 @@
 		<div class="col-xl-3">
 			<div class="sidebar">
 				<h2 class="sidebar-title">Vos derniers instashots</h2>
-				<div class="fakeImg"></div>
-				<div class="fakeImg"></div>
-				<div class="fakeImg"></div>
+
+				<?php 
+					foreach ($lastImages as $key => $lastImage):
+				?>
+				<div class="fakeImg">
+					<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
+				</div>	
+				<?php 
+					endforeach;
+				?>
+				
 				<div class="mt-4 mb-2">
 					<a href="./" class="style-button button-color-sidebar">Voir tous...</a>
 				</div>

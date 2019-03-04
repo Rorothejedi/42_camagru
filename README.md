@@ -19,17 +19,22 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
+ - Suppression des photos dans la sidebar.
  - Ajouter toutes les photos sur la galerie.
- - Ajouter les photos dans la sidebar de la page montage.
+
  - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
  - Pagination infini sur la page galerie.
  - Choisir plus de stickers (png) et les ajuster correctement.
+
  - Mettre en place la page photo unique.
  - Ajouter les likes sur la page galerie.
  - Ajouter les commentaires sur la page galerie.
+
  - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
  - Mettre en place mails like et comment (préférences).
+
+ - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
+
  - Vérification W3C de toutes les pages HTML.
  - Minimisation de toutes les scripts JS et les CSS.
  - Vérification des erreurs de JS dans la console.

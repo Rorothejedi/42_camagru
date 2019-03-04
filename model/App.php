@@ -8,16 +8,16 @@ namespace App\model;
 class App
 {
 	/* -----------  For XAMPP  ---------*/
-	//const DB_NAME = 'instagru';
-	//const DB_USER = 'root';
-	//const DB_PASS = '';
-	//const DB_HOST = 'localhost';
+	const DB_NAME = 'instagru';
+	const DB_USER = 'root';
+	const DB_PASS = '';
+	const DB_HOST = 'localhost';
 
 	/*---------  For Custom MAMP -------*/
-	const DB_NAME = 'instagru';
- 	const DB_USER = 'root';
- 	const DB_PASS = 'rootpass';
-	const DB_HOST = 'mysql';
+	// const DB_NAME = 'instagru';
+ 	// const DB_USER = 'root';
+ 	// const DB_PASS = 'rootpass';
+	// const DB_HOST = 'mysql';
 
 	const DOMAIN_NAME = '/camagru';
 	private static $database;
