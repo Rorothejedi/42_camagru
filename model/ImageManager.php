@@ -21,5 +21,4 @@ class ImageManager
 			'name' => $image->name()],
 		false);
 	}
-
 }

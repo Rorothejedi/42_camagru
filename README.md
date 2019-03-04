@@ -17,22 +17,18 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 <hr>
 
-Mercredi 13/09 :
-
- - Enregistrement du montage dans la bdd.
+Jeudi 14/09 :
 
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
  - Mettre en place l'upload de photo, si l'user n'a pas de webcam.
 
-Jeudi 14/09 :
+Later :
+
 
  - Ajouter toutes les photos sur la galerie.
  - Ajouter les photos dans la sidebar de la page montage.
  - Mettre en place filtre pour la page galerie, pour voir uniquement les photos de l'utilisateur.
  - Pagination infini sur la page galerie.
-
-Later :
-
  - Choisir plus de stickers (png) et les ajuster correctement.
  - Mettre en place la page photo unique.
  - Ajouter les likes sur la page galerie.
