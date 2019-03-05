@@ -67,8 +67,8 @@
 						</div>
 					<?php } else { ?>
 						<div>
-							<a href="connexion" class="style-button button-color-first">Connexion</a>
-							<a href="inscription" class="style-button button-color-second">Inscription</a>
+							<a href="<?= \App\model\App::getDomainPath() ?>/connexion" class="style-button button-color-first">Connexion</a>
+							<a href="<?= \App\model\App::getDomainPath() ?>/inscription" class="style-button button-color-second">Inscription</a>
 						</div>
 					<?php } ?>
 				</div>

@@ -19,7 +19,7 @@ class ControllerPublic extends Alert
 		if (isset($slug) && !empty($slug) && $slug > 0 && $slug <= $totalPages)
 			$currentPage = intval($slug);
 		else
-			$currentPage = 1;
+			$this->alert_failure('Cette page n\'existe pas.', \App\model\App::getDomainPath());
 		$start = ($currentPage - 1) * $imageByPage;
 		$allImages = $imageManager->getImages($imageByPage, $start);
 		require('./view/viewPublic/viewGallery.php');
@@ -73,9 +73,22 @@ class ControllerPublic extends Alert
 	/**
 	 * Méthode d'affichage de la page présentant une photo.
 	 */
-	public function displayShot()
+	public function displayShot($slug)
 	{
-
+		if (isset($slug) && !empty($slug) && $slug > 0)
+		{
+			$imageManager = new \App\model\ImageManager();
+			$imageId = htmlspecialchars(intval($slug));
+			$imageCheck = $imageManager->checkImageExist($imageId);
+			if ($imageCheck >= 1)
+			{
+				$image = $imageManager->getImage($slug);
+			}
+			else
+				$this->alert_failure('Cet instashot n\'existe pas.', \App\model\App::getDomainPath());
+		}
+		else
+			$this->alert_failure('Ce n\'est même pas un nombre ! Faites un effort !', \App\model\App::getDomainPath());
 		require('./view/viewPublic/viewShot.php');
 	}
 

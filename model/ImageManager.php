@@ -48,6 +48,21 @@ class ImageManager
 		return $data;
 	}
 
+	public function getImage($id)
+	{
+		$data = App::getDb()->prepare('
+			SELECT i.id, i.id_user, u.username, i.name, DATE_FORMAT(i.date, "%e %M %Y à %Hh%i") AS comment_date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
+			FROM image i
+			LEFT JOIN `like` l ON i.id = l.id_image
+			LEFT JOIN comment c ON i.id = c.id_image
+			LEFT JOIN user u ON i.id_user = u.id
+			WHERE i.id = :id
+			GROUP BY i.name',
+			['id' => $id],
+		true, true, false);
+		return $data;
+	}
+
 	/**
 	 * Récupérer les 20 derniers photos pour l'affichage de la galerie.
 	 */
@@ -73,9 +88,12 @@ class ImageManager
 	public function getImagesById(User $user, $imageByPage, $start)
 	{
 		$data = App::getDb()->prepare('
-			SELECT *
+			SELECT i.id, i.id_user, i.name, i.date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
 			FROM image i
+			LEFT JOIN `like` l ON i.id = l.id_image
+			LEFT JOIN comment c ON i.id = c.id_image
 			WHERE i.id_user = :id_user
+			GROUP BY i.name
 			ORDER BY i.date DESC
 			LIMIT ' . $start . ',' . $imageByPage,
 			['id_user' => $user->id()],
@@ -124,6 +142,18 @@ class ImageManager
 				AND i.id_user = :id_user',
 			['id' => $image->id(),
 			'id_user' => $image->idUser()],
+		true, false, true);
+		return $data;
+	}
+
+	public function checkImageExist($id)
+	{
+		$data = App::getDb()->prepare('
+			SELECT *
+			FROM image i
+			WHERE 
+				i.id = :id',
+			['id' => $id],
 		true, false, true);
 		return $data;
 	}

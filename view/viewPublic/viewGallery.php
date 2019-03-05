@@ -9,10 +9,10 @@
 			if ($size == 'big')
 			{
 				return '<div class="bigPicture text-right">
-					<a href="shot/' . $object[$num]->id . '">
+					<a href="' . \App\model\App::getDomainPath() . '/shot/' . $object[$num]->id . '">
 					<img class="imgGalleryBig img-fluid" 
 					id="' . $object[$num]->id . '"
-					src="./files/img/' . $object[$num]->name . '">
+					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
 					<em class="icon-author">By ' . $object[$num]->username . '</em>
 					<span class="fa-stack icons icon-heart">
 						<i class="far fa-heart fa-stack-2x"></i>
@@ -28,10 +28,10 @@
 			elseif ($size == 'small')
 			{
 				return '<div class="picture">
-					<a href="shot/' . $object[$num]->id . '">
+					<a href="' . \App\model\App::getDomainPath() . '/shot/' . $object[$num]->id . '">
 					<img class="imgGallery img-fluid" 
 					id="' . $object[$num]->id . '" 
-					src="./files/img/' . $object[$num]->name . '">
+					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
 					<em class="icon-author">By ' . $object[$num]->username . '</em>
 					<span class="fa-stack icons icon-heart">
 						<i class="far fa-heart fa-stack-2x"></i>
@@ -49,7 +49,7 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<div class="row d-flex justify-content-between col-sm-12">
 		<h1 class="title">Derniers instashots</h1>
 		<a href="mes_instashots" class="shotsLink">Mes shots</a>

@@ -1,18 +1,6 @@
 <?php 
 	$title = 'Mes instashots';
 	ob_start();
-
-	function echoPicture($num, $object)
-	{
-		if (isset($object[$num]))
-		{
-			return '<div class=" bigPicture">
-				<img class="imgGalleryBig img-fluid" 
-				id="' . $object[$num]->id . '"
-				src="./files/img/' . $object[$num]->name . '">
-				</div>';
-		}
-	}
 ?>
 
 <div class="container">
@@ -28,9 +16,19 @@
 		?>
 		<div class="col-lg-4 col-sm-6">
 			<div class="picture">
-				<img class="imgGalleryBig img-fluid" 
-				id="<?= $image->id ?>"
-				src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
+				<a href="<?= \App\model\App::getDomainPath() ?>/shot/<?= $image->id ?>">
+					<img class="imgGalleryBig img-fluid" 
+					id="<?= $image->id ?>"
+					src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
+					<span class="fa-stack icons icon-heart">
+						<i class="far fa-heart fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text heart-text"><?= $image->nbLike ?></strong>
+					</span>
+					<span class="fa-stack icons">
+						<i class="far fa-comment-alt fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text comment-text"><?= $image->nbComment ?></strong>
+					</span>
+				</a>
 			</div>
 		</div>
 		<?php 

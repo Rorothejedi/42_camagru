@@ -548,3 +548,37 @@ footer {
 	margin-right: 10px;
 	margin-top: 5px;
 }
+
+/*------------------------  Shot  -----------------------------*/
+
+.shot {
+	width: 100%;
+	border-radius: 5px;
+}
+.oneLikeMore {
+	font-size: 1.3em;
+	padding: 0px !important;
+	border: none;
+	background-color: unset;
+	cursor: pointer;
+}
+.heart-button-text:hover, .oneLikeMore:hover .buttonLike {
+	color: var(--cyan-color);
+	transition: color 0.2s;
+}
+.heart-button-text, .buttonLike {
+	transition: color 0.2s;
+}
+
+.comment-title {
+	font-size: 1.4rem;
+	font-weight: 300;
+}
+.no-comment {
+	font-size: 0.8rem;
+	font-weight: 200;
+}
+.connect-comment {
+	font-size: 1rem;
+	font-weight: 200;
+}
