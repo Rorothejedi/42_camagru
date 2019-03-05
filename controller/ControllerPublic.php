@@ -11,9 +11,19 @@ class ControllerPublic extends Alert
 	 * Méthode d'affichage de la page d'accueil (galerie).
 	 */
 	public function displayGallery()
-	{
+	{	
 		$imageManager = new \App\model\ImageManager();
-		$allImages    = $imageManager->getImages();
+
+		$imageByPage = 18;
+		$countImages = $imageManager->getNbrImages();
+		$totalPages = ceil($countImages / $imageByPage);
+		if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $totalPages)
+			$currentPage = intval($_GET['page']);
+		else
+			$currentPage = 1;
+		$start = ($currentPage - 1) * $imageByPage;
+		$allImages = $imageManager->getImages($imageByPage, $start);
+
 		require('./view/viewPublic/viewGallery.php');
 	}
 

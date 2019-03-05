@@ -34,8 +34,7 @@
 	</div>
 	<hr>
 	<div class="row">
-
-		<!-- Petites photos -->
+		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(0, 'small', $allImages) ?>
 			<?= echoPicture(2, 'small', $allImages) ?>
@@ -45,7 +44,7 @@
 			<?= echoPicture(3, 'small', $allImages) ?>
 		</div>
 
-		<!-- Grosses photos -->
+		<!-- Big photos -->
 		<div class="col-lg-6 col-sm-12">
 			<?= echoPicture(4, 'big', $allImages) ?>
 		</div>
@@ -53,7 +52,7 @@
 			<?= echoPicture(5, 'big', $allImages) ?>
 		</div>
 
-		<!-- Petites photos -->
+		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(6, 'small', $allImages) ?>
 			<?= echoPicture(10, 'small', $allImages) ?>
@@ -63,28 +62,42 @@
 			<?= echoPicture(11, 'small', $allImages) ?>
 		</div>
 
-		<!-- Petites photos -->
+		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(12, 'small', $allImages) ?>
-			<?= echoPicture(16, 'small', $allImages) ?>
 		</div>
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(13, 'small', $allImages) ?>
-			<?= echoPicture(17, 'small', $allImages) ?>
 		</div>
 
-		<!-- Petites photos -->
+		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(14, 'small', $allImages) ?>
-			<?= echoPicture(18, 'small', $allImages) ?>
 		</div>
 		<div class="col-lg-3 col-sm-6">
 			<?= echoPicture(15, 'small', $allImages) ?>
-			<?= echoPicture(19, 'small', $allImages) ?>
+		</div>
+
+		<!-- Big photos -->
+		<div class="col-lg-6 col-sm-12">
+			<?= echoPicture(16, 'big', $allImages) ?>
+		</div>
+		<div class="col-lg-6 col-sm-12">
+			<?= echoPicture(17, 'big', $allImages) ?>
 		</div>
 	</div>
+	<div class="row d-flex justify-content-center pageCounter">
+		<?php 
+			for ($i = 1; $i <= $totalPages; $i++)
+			{ 
+				if ($i == $currentPage)
+					echo '<span class="currentPage">' . $i . '</span>';
+				else
+					echo '<a class="otherPages" href="./?page=' . $i . '">' . $i . '</a>';
+			}
+		?>
+	</div>
 </div>
-
 
 <?php 
 	$content = ob_get_clean();

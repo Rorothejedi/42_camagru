@@ -19,7 +19,8 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Pagination infini sur la page galerie.
+ - Ajouter les icones de like et commentaire sur les photos de la page galerie.
+
  - Choisir plus de stickers (png) et les ajuster correctement.
 
  - Mettre en place la page photo unique.

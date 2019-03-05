@@ -51,14 +51,23 @@ class ImageManager
 	/**
 	 * Récupérer les 20 derniers photos pour l'affichage de la galerie.
 	 */
-	public function getImages()
+	public function getImages($imageByPage, $start)
 	{
 		$data = App::getDb()->query('
 			SELECT *
 			FROM image i
 			ORDER BY i.date DESC
-			LIMIT 20',
+			LIMIT ' . $start . ',' . $imageByPage,
 		true, false);
+		return $data;
+	}
+
+	public function getNbrImages()
+	{
+		$data = App::getDb()->query('
+			SELECT *
+			FROM image',
+		true, false, true);
 		return $data;
 	}
 

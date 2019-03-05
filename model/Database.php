@@ -52,19 +52,17 @@ class Database
 	 * @param  boolean $one    Bolléen indiquant si la requête doit utiliser fetchAll (false par défaut donc fetch simple).
 	 * @return array           Tableau contenant les résultats de la requête.
 	 */
-	public function query($request, $fetch = false, $one = false)
+	public function query($request, $fetch = false, $one = false, $count = false)
 	{
 		$req = $this->getPDO()->query($request);
 		if($fetch)
 		{
-			if ($one) 
-			{
+			if ($count)
+				$data = $req->rowCount();
+			elseif ($one) 
 				$data = $req->fetch(PDO::FETCH_OBJ);
-			}
 			else
-			{
 				$data = $req->fetchAll(PDO::FETCH_OBJ);
-			}
 			$req->closeCursor(); 
 			return $data;
 		}
@@ -83,21 +81,14 @@ class Database
 	{
 		$req = $this->getPDO()->prepare($request);
 		$req->execute($attributes);
-
 		if($fetch)
 		{
 			if ($count)
-			{
 				$data = $req->rowCount();
-			}
 			elseif ($one) 
-			{
 				$data = $req->fetch(PDO::FETCH_OBJ);
-			}
 			else
-			{
 				$data = $req->fetchAll(PDO::FETCH_OBJ);
-			}
 			$req->closeCursor();
 			return $data;
 		}
