@@ -34,13 +34,14 @@ Later :
  - Vérification W3C de toutes les pages HTML.
  - Minimisation de toutes les scripts JS et les CSS.
  - Vérification des erreurs de JS dans la console.
- - Ajouter fichier auteur.
  - Virer le fichier et le lien cdn d'animate CSS.
  - Optimiser toutes les images et miniatures.
  - Affiner le responsive.
  - Vérification annexes.
  - Mise en ligne.
-( - Si possible valider le projet).
+
+ - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
+ - Vérifier aussi que le dossier img est bien présent en git clone.
 
 <hr>
 

@@ -1,1 +1,2 @@
-/files/img/*
+files/img/*
+!files/img/emptyFile
