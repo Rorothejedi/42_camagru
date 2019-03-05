@@ -10,21 +10,24 @@ class ControllerPublic extends Alert
 	/**
 	 * Méthode d'affichage de la page d'accueil (galerie).
 	 */
-	public function displayGallery()
+	public function displayGallery($slug)
 	{	
 		$imageManager = new \App\model\ImageManager();
-
 		$imageByPage = 18;
 		$countImages = $imageManager->getNbrImages();
 		$totalPages = ceil($countImages / $imageByPage);
-		if (isset($_GET['page']) && !empty($_GET['page']) && $_GET['page'] > 0 && $_GET['page'] <= $totalPages)
-			$currentPage = intval($_GET['page']);
+		if (isset($slug) && !empty($slug) && $slug > 0 && $slug <= $totalPages)
+			$currentPage = intval($slug);
 		else
 			$currentPage = 1;
 		$start = ($currentPage - 1) * $imageByPage;
 		$allImages = $imageManager->getImages($imageByPage, $start);
-
 		require('./view/viewPublic/viewGallery.php');
+	}
+
+	public function displayGalleryRedirection()
+	{
+		$this->displayGallery(1);
 	}
 
 	/**
@@ -65,6 +68,15 @@ class ControllerPublic extends Alert
 	public function displayLegal()
 	{
 		require('./view/viewPublic/viewLegal.php');
+	}
+
+	/**
+	 * Méthode d'affichage de la page présentant une photo.
+	 */
+	public function displayShot()
+	{
+
+		require('./view/viewPublic/viewShot.php');
 	}
 
 	/**

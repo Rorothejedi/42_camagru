@@ -103,7 +103,7 @@
 						endforeach;
 					?>
 					<div class="mt-4 mb-2">
-						<a href="./" class="style-button button-color-sidebar">Voir tous...</a>
+						<a href="mes_instashots" class="style-button button-color-sidebar">Voir tous...</a>
 					</div>
 				</form>
 			</div>

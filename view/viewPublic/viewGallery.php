@@ -8,19 +8,41 @@
 		{
 			if ($size == 'big')
 			{
-				return '<div class=" bigPicture">
+				return '<div class="bigPicture text-right">
+					<a href="shot/' . $object[$num]->id . '">
 					<img class="imgGalleryBig img-fluid" 
 					id="' . $object[$num]->id . '"
 					src="./files/img/' . $object[$num]->name . '">
+					<em class="icon-author">By ' . $object[$num]->username . '</em>
+					<span class="fa-stack icons icon-heart">
+						<i class="far fa-heart fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
+					</span>
+					<span class="fa-stack icons">
+						<i class="far fa-comment-alt fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
+					</span>
+					</a>
 					</div>';
 			}
 			elseif ($size == 'small')
 			{
 				return '<div class="picture">
-				<img class="imgGallery img-fluid" 
-				id="' . $object[$num]->id . '" 
-				src="./files/img/' . $object[$num]->name . '">
-				</div>';
+					<a href="shot/' . $object[$num]->id . '">
+					<img class="imgGallery img-fluid" 
+					id="' . $object[$num]->id . '" 
+					src="./files/img/' . $object[$num]->name . '">
+					<em class="icon-author">By ' . $object[$num]->username . '</em>
+					<span class="fa-stack icons icon-heart">
+						<i class="far fa-heart fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
+					</span>
+					<span class="fa-stack icons">
+						<i class="far fa-comment-alt fa-stack-2x"></i>
+						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
+					</span>
+					</a>
+					</div>';
 			}
 		}
 	}
@@ -93,7 +115,7 @@
 				if ($i == $currentPage)
 					echo '<span class="currentPage">' . $i . '</span>';
 				else
-					echo '<a class="otherPages" href="./?page=' . $i . '">' . $i . '</a>';
+					echo '<a class="otherPages" href="./' . $i . '">' . $i . '</a>';
 			}
 		?>
 	</div>

@@ -33,7 +33,7 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['user_id']))
 }
 
 // -----------------------  Router get -------------------------
-$router->get('/', "Public#displayGallery");
+$router->get('/', "Public#displayGalleryRedirection");
 $router->get('/inscription', "Public#displayRegister");
 $router->get('/confirmation_inscription', "Public#displayRegisterConfirm");
 $router->get('/connexion', "Public#displayConnection");
@@ -43,9 +43,13 @@ $router->get('/mentions_legales', "Public#displayLegal");
 $router->get('/processValidation', "Public#processValidation");
 
 $router->get('/studio', "Private#displayStudio");
-$router->get('/mes_instashots', "Private#displayShots");
+$router->get('/mes_instashots', "Private#displayShotsRedirection");
 $router->get('/parametres', "Private#displaySettings");
 $router->get('/disconnect', "Private#disconnect");
+
+$router->get('/:slug', "Public#displayGallery");
+$router->get('/shot/:slug', "Public#displayShot");
+$router->get('/mes_instashots/:slug', "Private#displayShots");
 
 // -----------------------  Router post -------------------------
 $router->post('/processRegistration', "Public#processRegistration");

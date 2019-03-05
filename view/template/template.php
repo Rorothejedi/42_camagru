@@ -54,14 +54,14 @@
 		<header>
 			<nav class="navbar">
 				<div class="container">
-					<a class="navbar-brand" href="./" title="Instagru">Instagru</a>
+					<a class="navbar-brand" href="<?= \App\model\App::getDomainPath() ?>/" title="Instagru">Instagru</a>
 					<?php if (isset($_SESSION['user_username'])) { ?>
 						<div>
-							<a href="studio" title="Studio" class="style-button studio-button">
+							<a href="<?= \App\model\App::getDomainPath() ?>/studio" title="Studio" class="style-button studio-button">
 							Studio</a>
-							<a href="parametres" title="Paramètres">
+							<a href="<?= \App\model\App::getDomainPath() ?>/parametres" title="Paramètres">
 								<i class="fas fa-user-alt"></i></a>
-							<a href="disconnect" title="Déconnexion">
+							<a href="<?= \App\model\App::getDomainPath() ?>/disconnect" title="Déconnexion">
 								<i class="fas fa-power-off"></i>
 							</a>
 						</div>
@@ -85,9 +85,9 @@
 		<footer class="d-flex align-items-center">
 			<div class="container d-flex justify-content-center">
 				<?php if ($title != "Mentions légales") { ?>
-					<a href="mentions_legales" class="small">Mentions légales</a>
+					<a href="<?= \App\model\App::getDomainPath() ?>/mentions_legales" class="small">Mentions légales</a>
 				<?php } else { ?>
-					<a href="./" class="small">Retour à la galerie</a>
+					<a href="<?= \App\model\App::getDomainPath() ?>/" class="small">Retour à la galerie</a>
 				<?php } ?>
 			</div>
 		</footer>

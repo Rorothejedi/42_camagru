@@ -54,14 +54,38 @@ class ImageManager
 	public function getImages($imageByPage, $start)
 	{
 		$data = App::getDb()->query('
-			SELECT *
+			SELECT i.id, i.id_user, u.username, i.name, i.date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
 			FROM image i
+			LEFT JOIN `like` l ON i.id = l.id_image
+			LEFT JOIN comment c ON i.id = c.id_image
+			LEFT JOIN user u ON i.id_user = u.id
+			GROUP BY i.name
 			ORDER BY i.date DESC
 			LIMIT ' . $start . ',' . $imageByPage,
 		true, false);
 		return $data;
 	}
 
+	/**
+	 * Permet d'obtenir une photo par son id. 
+	 * @param User $user Prends l'objet User en paramètre.
+	 */
+	public function getImagesById(User $user, $imageByPage, $start)
+	{
+		$data = App::getDb()->prepare('
+			SELECT *
+			FROM image i
+			WHERE i.id_user = :id_user
+			ORDER BY i.date DESC
+			LIMIT ' . $start . ',' . $imageByPage,
+			['id_user' => $user->id()],
+		true, false, false);
+		return $data;
+	}
+
+	/**
+	 * Permet de connaitre le nombre total de photo pour effectuer la pagination.
+	 */
 	public function getNbrImages()
 	{
 		$data = App::getDb()->query('
@@ -71,20 +95,24 @@ class ImageManager
 		return $data;
 	}
 
-	public function getImagesById(User $user)
+	/**
+	 * Permet de connaitre le nombre total de photo pour effectuer la pagination.
+	 */
+	public function getNbrImagesById(User $user)
 	{
 		$data = App::getDb()->prepare('
 			SELECT *
 			FROM image i
-			WHERE i.id_user = :id_user
-			ORDER BY i.date DESC',
+			WHERE i.id_user = :id_user',
 			['id_user' => $user->id()],
-		true, false);
+		true, false, true);
 		return $data;
 	}
 
+
 	/**
 	 * Permet de vérifier si un utilisateur peux accéder à une photo en particulier.
+	 * @param Image $image Prends l'objet Image en paramètre.
 	 */
 	public function checkImage(Image $image)
 	{
@@ -102,6 +130,7 @@ class ImageManager
 
 	/**
 	 * Permet de retourner les 4 dernières images prises par l'utilisateur en cours.
+	 * @param User $user Prends l'objet User en paramètre.
 	 */
 	public function lastImages(User $user)
 	{

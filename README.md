@@ -19,13 +19,12 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Ajouter les icones de like et commentaire sur les photos de la page galerie.
-
+ - Ajouter les icones de like et commentaire sur les photos de la page mes instashots.
  - Choisir plus de stickers (png) et les ajuster correctement.
 
  - Mettre en place la page photo unique.
- - Ajouter les likes sur la page galerie.
- - Ajouter les commentaires sur la page galerie.
+ - Ajouter les likes sur la page photo unique.
+ - Ajouter les commentaires sur la page photo unique.
 
  - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
  - Mettre en place mails like et comment (préférences).

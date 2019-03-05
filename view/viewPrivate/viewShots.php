@@ -19,7 +19,7 @@
 	<div id="alertNone"></div>
 	<div class="row d-flex justify-content-between col-sm-12">
 		<h1 class="title">Mes instashots</h1>
-		<a href="./" class="shotsLink">Tous les shots</a>
+		<a href="<?= \App\model\App::getDomainPath() ?>/" class="shotsLink">Tous les shots</a>
 	</div>
 	<hr>
 	<div class="row">
@@ -30,11 +30,22 @@
 			<div class="picture">
 				<img class="imgGalleryBig img-fluid" 
 				id="<?= $image->id ?>"
-				src="./files/img/<?= $image->name ?>">
+				src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
 			</div>
 		</div>
 		<?php 
 			endforeach; 
+		?>
+	</div>
+	<div class="row d-flex justify-content-center pageCounter">
+		<?php 
+			for ($i = 1; $i <= $totalPages; $i++)
+			{ 
+				if ($i == $currentPage)
+					echo '<span class="currentPage">' . $i . '</span>';
+				else
+					echo '<a class="otherPages" href="' . \App\model\App::getDomainPath() .'/mes_instashots/' . $i . '">' . $i . '</a>';
+			}
 		?>
 	</div>
 </div>

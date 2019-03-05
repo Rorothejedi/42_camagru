@@ -33,12 +33,25 @@ class ControllerPrivate extends Alert
 	/**
 	 * Méthode d'affichage de la page 'Mes instashots'.
 	 */
-	public function displayShots()
+	public function displayShots($slug)
 	{
 		$userData     = $this->callUserData();
 		$imageManager = new \App\model\ImageManager();
-		$allMyImages  = $imageManager->getImagesById($userData);
+		$imageByPage = 12;
+		$countImages = $imageManager->getNbrImagesById($userData);
+		$totalPages = ceil($countImages / $imageByPage);
+		if (isset($slug) && !empty($slug) && $slug > 0 && $slug <= $totalPages)
+			$currentPage = intval($slug);
+		else
+			$currentPage = 1;
+		$start = ($currentPage - 1) * $imageByPage;
+		$allMyImages  = $imageManager->getImagesById($userData, $imageByPage, $start);
 		require('./view/viewPrivate/viewShots.php');
+	}
+
+	public function displayShotsRedirection()
+	{
+		$this->displayShots(1);
 	}
 
 	/**
