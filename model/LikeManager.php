@@ -29,6 +29,22 @@ class LikeManager
 		true, false, true);
 		return $data;
 	}
+
+	public function getLikesById(User $user, $imageByPage, $start)
+	{
+		$data = App::getDb()->prepare('
+			SELECT COUNT(l.id_image) AS nb
+			FROM image i
+			LEFT JOIN `like` l ON i.id = l.id_image
+            WHERE i.id_user = :id_user
+			GROUP BY i.id
+			ORDER BY i.date DESC
+			LIMIT ' . $start . ',' . $imageByPage,
+			['id_user' => $user->id()],
+		true, false, false);
+		return $data;
+	}
+
 	/**
 	 * Permet d'ajouter un like à une image.
 	 * @param int $id_user  Id de l'utilisateur en cours.

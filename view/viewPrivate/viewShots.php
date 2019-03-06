@@ -23,16 +23,16 @@
 						<img class="imgGalleryBig img-fluid" 
 						id="<?= $image->id ?>"
 						src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
-						<button type="submit" name="img" value="<?= $image->id ?>" class="icon-delete">
+						<button onclick="return confirm('Etes-vous sûr de vouloir supprimer ce shot ?')" type="submit" name="img" value="<?= $image->id ?>" class="icon-delete">
 							<i class="fas fa-times  fa-lg" title="Supprimer ce shot"></i>
 						</button>
 						<span class="fa-stack icons icon-heart" title="<?= $image->nbLike ?> likes">
 							<i class="far fa-heart fa-stack-2x"></i>
-							<strong class="fa-stack-1x fa-stack-text heart-text"><?= $image->nbLike ?></strong>
+							<strong class="fa-stack-1x fa-stack-text heart-text"><?= $allMyLikes[$key]->nb ?></strong>
 						</span>
 						<span class="fa-stack icons" title="<?= $image->nbComment ?> commentaires">
 							<i class="far fa-comment-alt fa-stack-2x"></i>
-							<strong class="fa-stack-1x fa-stack-text comment-text"><?= $image->nbComment ?></strong>
+							<strong class="fa-stack-1x fa-stack-text comment-text"><?= $allMyComments[$key]->nb ?></strong>
 						</span>
 					</a>
 				</div>

@@ -36,7 +36,9 @@ class ControllerPrivate extends Alert
 	public function displayShots($slug)
 	{
 		$userData     = $this->callUserData();
-		$imageManager = new \App\model\ImageManager();
+		$imageManager   = new \App\model\ImageManager();
+		$likeManager    = new \App\model\LikeManager();
+		$commentManager = new \App\model\CommentManager();
 		$imageByPage = 12;
 		$countImages = $imageManager->getNbrImagesById($userData);
 		$totalPages = ceil($countImages / $imageByPage);
@@ -45,7 +47,9 @@ class ControllerPrivate extends Alert
 		else
 			$currentPage = 1;
 		$start = ($currentPage - 1) * $imageByPage;
-		$allMyImages  = $imageManager->getImagesById($userData, $imageByPage, $start);
+		$allMyImages = $imageManager->getImagesById($userData, $imageByPage, $start);
+		$allMyLikes = $likeManager->getLikesById($userData, $imageByPage, $start);
+		$allMyComments = $commentManager->getCommentsById($userData, $imageByPage, $start);
 		require('./view/viewPrivate/viewShots.php');
 	}
 

@@ -95,7 +95,7 @@
 					<?php 
 						foreach ($lastImages as $key => $lastImage):
 					?>
-					<button type="submit" class="fakeImg col-sm-5 col-xl-12 mr-sm-1 ml-sm-1 mb-3" name="img" value="<?= $lastImage->id ?>" title='Supprimer ce shot'>
+					<button onclick="return confirm('Etes-vous sûr de vouloir supprimer ce shot ?')" type="submit" class="fakeImg col-sm-5 col-xl-12 mr-sm-1 ml-sm-1 mb-3" name="img" value="<?= $lastImage->id ?>" title='Supprimer ce shot'>
 						<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
 						<i class="fas fa-times icon-delete-studio"></i>
 					</button>

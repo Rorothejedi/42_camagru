@@ -19,6 +19,21 @@ class CommentManager
 		return $data;
 	}
 
+	public function getCommentsById(User $user, $imageByPage, $start)
+	{
+		$data = App::getDb()->prepare('
+			SELECT COUNT(c.id_image) AS nb
+			FROM image i
+			LEFT JOIN comment c ON i.id = c.id_image
+            WHERE i.id_user = :id_user
+			GROUP BY i.id
+			ORDER BY i.date DESC
+			LIMIT ' . $start . ',' . $imageByPage,
+			['id_user' => $user->id()],
+		true, false, false);
+		return $data;
+	}
+
 	public function getNbrComment($id_image)
 	{
 		$data = App::getDb()->prepare('

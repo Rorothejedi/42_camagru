@@ -22,7 +22,6 @@ Later :
  - Gérer le redimentionnement pour les images uploadées.
  - N'accepter que les fichiers png/jpg.
 
- - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
  - Mettre en place mails like et comment (préférences).
 
  - Choisir plus de stickers (png) et les ajuster correctement.
@@ -37,6 +36,8 @@ Later :
  - Affiner le responsive.
  - Vérification annexes.
  - Mise en ligne.
+
+ - Configurer les boutons de partage lors de la mise en ligne.
 
  - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
  - Vérifier aussi que le dossier img est bien présent en git clone (normalement ok).

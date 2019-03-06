@@ -1,13 +1,24 @@
 <?php 
 	$title = 'Shot';
 	ob_start();
+	//$pageUrl = \App\model\App::getDomainPath() . '/files/img/' . $image->name;
+	$pageUrl = 'https://rodolphe.cabotiau.com/projet_1_openclassrooms/img/portfolio/02.jpg';
 ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+var js, fjs = d.getElementsByTagName(s)[0];
+if (d.getElementById(id)) return;
+js = d.createElement(s); js.id = id;
+js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2";
+fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 
 <div class="container">
 	<div id="alertNone" class="alertStudio"></div>
 	<div class="row d-flex justify-content-between col-sm-12">
 		<h1 class="title">Shot</h1>
-		<a href="<?= \App\model\App::getDomainPath() ?>/" class="shotsLink" >Retour</a>
+		<a href="javascript:history.go(-1)" class="shotsLink" >Retour</a>
 	</div>
 	<hr>
 	<form action="<?= \App\model\App::getDomainPath() ?>/processLike" method="POST">
@@ -31,8 +42,13 @@
 			<div class="col-lg-12">
 				<img class='shot' src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>" alt="<?= $image->name ?>">
 			</div>
-			<div class="col-lg-12">
+			<div class="col-lg-12 ">
 				<p class="mt-2 pb-2 small">Publié le <em><?= $image->comment_date ?></em></p>
+				<div class="d-flex align-items-center">
+					<div class="fb-share-button mr-1" data-href="<?= $pageUrl ?>" data-layout="button" data-size="large" data-mobile-iframe="true"></div>
+					<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="<?= $pageUrl ?>" data-lang="fr" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+					
+				</div>
 			</div>
 		</div>
 	</form>
