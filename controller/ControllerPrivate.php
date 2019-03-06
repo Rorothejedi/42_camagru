@@ -14,7 +14,7 @@ class ControllerPrivate extends Alert
 	{
 		if (empty($_SESSION['user_id']) && empty($_SESSION['user_username']))
 		{
-			$this->alert_failure('Vous devez être connecté pour accèder à cette page', 'connexion');
+			$this->alert_failure('Vous devez être connecté pour accéder à cette page', \App\model\App::getDomainPath() . '/connexion');
 			exit;
 		}
 	}
@@ -251,9 +251,11 @@ class ControllerPrivate extends Alert
     public function processDeleteImage()
     {
 		if (!empty($_POST) 
-			&& isset($_POST['img']) && !empty($_POST['img']))
+			&& isset($_POST['img']) && !empty($_POST['img'])
+			&& isset($_POST['page']) && ($_POST['page'] == 'mes_instashots' || $_POST['page'] == 'studio'))
 		{
 			$imgId = htmlspecialchars($_POST['img']);
+			$page = htmlspecialchars($_POST['page']);
 			$imageManager = new \App\model\ImageManager();
   			$image = new \App\model\Image([
 				'id'     => $imgId,
@@ -267,16 +269,16 @@ class ControllerPrivate extends Alert
 				{
 					$imageDelete = $imageManager->deleteImage($image);
 					$this->alert_success('L\'instashot a bien été supprimé');
-		  			header('Location: ./studio');
+		  			header('Location: ./' . $page);
 				}
 				else
-					$this->alert_failure('L\'image n\'a pas pu être effacé', 'studio');
+					$this->alert_failure('L\'image n\'a pas pu être effacé', $page);
 			}
 			else
-				$this->alert_failure('Cette image n\'existe pas ou vous n\'avez pas les droits pour y accéder', 'studio');
+				$this->alert_failure('Cette image n\'existe pas ou vous n\'avez pas les droits pour y accéder', $page);
 		}
 		else
-			$this->alert_failure('Les données transmissent ne sont pas valides', 'studio');
+			$this->alert_failure('Les données transmissent ne sont pas valides', './');
     }
 
 

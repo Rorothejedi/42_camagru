@@ -4,7 +4,7 @@ USE instagru;
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
-SET time_zone = "Europe/Paris";
+SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
@@ -86,11 +86,11 @@ ALTER TABLE `image`
 --
 ALTER TABLE `like`
   ADD CONSTRAINT `FK_id_user_like` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_id_image_like` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`);
+  ADD CONSTRAINT `FK_id_image_like` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`) ON DELETE CASCADE;
 
 --
 -- Contraintes pour la table `comment`
 --
 ALTER TABLE `comment`
   ADD CONSTRAINT `FK_id_user_comment` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `FK_id_image_comment` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`);
+  ADD CONSTRAINT `FK_id_image_comment` FOREIGN KEY (`id_image`) REFERENCES `image` (`id`) ON DELETE CASCADE;

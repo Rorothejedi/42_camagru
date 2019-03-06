@@ -411,19 +411,13 @@ footer {
 
 /* ---------------------------  Sidebar  --------------------------*/
 
-.fa-times {
-	padding-top: 5px;
-	padding-bottom: 5px;
-	opacity: 0;
-	transition: opacity 0.3s;
-}
 .fakeImg {
 	color: var(--text-color);
 	padding: 0 !important;
 	border: none;
 	border-radius: 7px;
 	background-color: var(--main-color);
-	transition: 0.2s background-color, 0.2s margin-bottom;
+	transition: 0.2s background-color;
 	width: 100%;
 }
 .fakeImg img {
@@ -442,8 +436,7 @@ footer {
 .fakeImg:hover {
 	cursor: pointer;
 	background-color: var(--cyan-color);
-	transition: 0.2s background-color, 0.2s margin-bottom;
-	margin-bottom: 24px;
+	transition: 0.2s background-color;
 }
 .fakeImg:hover img {
 	opacity: 0.7;
@@ -527,6 +520,28 @@ footer {
 	left: 25px;
 	margin-top: -25px;
 	font-size: 0.8em;
+}
+
+.icon-delete {
+	color: var(--cyan-color);
+	transition: color 0.3s;
+	position: absolute;
+	top: 10px;
+	right: 30px;
+	padding: 0 !important;
+	background-color: unset;
+	border: none;
+	cursor: pointer;
+}
+.icon-delete-studio {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: var(--cyan-color);
+}
+.icon-delete:hover {
+	color: var(--pink-color);
+	transition: color 0.3s;
 }
 
 

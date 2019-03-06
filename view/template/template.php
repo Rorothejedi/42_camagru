@@ -59,7 +59,7 @@
 						<div>
 							<a href="<?= \App\model\App::getDomainPath() ?>/studio" title="Studio" class="style-button studio-button">
 							Studio</a>
-							<a href="<?= \App\model\App::getDomainPath() ?>/parametres" title="Paramètres">
+							<a href="<?= \App\model\App::getDomainPath() ?>/parametres" title="Paramètres (<?= $_SESSION['user_username'] ?>)">
 								<i class="fas fa-user-alt"></i></a>
 							<a href="<?= \App\model\App::getDomainPath() ?>/disconnect" title="Déconnexion">
 								<i class="fas fa-power-off"></i>

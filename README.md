@@ -41,7 +41,7 @@ Later :
  - Mise en ligne.
 
  - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
- - Vérifier aussi que le dossier img est bien présent en git clone.
+ - Vérifier aussi que le dossier img est bien présent en git clone (normalement ok).
 
 <hr>
 

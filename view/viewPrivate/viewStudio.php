@@ -79,7 +79,7 @@
 					</div>
 
 					<div class="text-right mt-3">
-						<p class="small">Utilisez votre webcam ou <label class="font-italic label-file" for="loadImg"> chargez une image </label></p>
+						<p class="small">Utilisez votre webcam ou <label class="font-italic label-file" for="loadImg" title="Taille conseillé: 1280x720px (png/jpg)"> chargez une image </label></p>
 						<input type="file" class="small input-file" id="loadImg" accept=".png, .jpg">
 					</div>
 				</form>
@@ -95,16 +95,17 @@
 					<?php 
 						foreach ($lastImages as $key => $lastImage):
 					?>
-					<button type="submit" class="fakeImg col-sm-5 col-xl-12 pr-sm-3 pl-sm-3" name="img" value="<?= $lastImage->id ?>">
+					<button type="submit" class="fakeImg col-sm-5 col-xl-12 mr-sm-1 ml-sm-1 mb-3" name="img" value="<?= $lastImage->id ?>" title='Supprimer ce shot'>
 						<img src="./files/img/<?= $lastImage->name ?>" alt="<?= $lastImage->name ?>">
-						<i class="fas fa-times"></i>
-					</button>	
+						<i class="fas fa-times icon-delete-studio"></i>
+					</button>
 					<?php 
 						endforeach;
 					?>
 					<div class="mt-4 mb-2">
 						<a href="mes_instashots" class="style-button button-color-sidebar">Voir tous...</a>
 					</div>
+					<input type="hidden" name="page" value="studio">
 				</form>
 			</div>
 		</div>

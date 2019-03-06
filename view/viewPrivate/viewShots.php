@@ -4,37 +4,45 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<div class="row d-flex justify-content-between col-sm-12">
 		<h1 class="title">Mes instashots</h1>
 		<a href="<?= \App\model\App::getDomainPath() ?>/" class="shotsLink">Tous les shots</a>
 	</div>
 	<hr>
-	<div class="row">
-		<?php 
-			foreach ($allMyImages as $key => $image):
-		?>
-		<div class="col-lg-4 col-sm-6">
-			<div class="picture">
-				<a href="<?= \App\model\App::getDomainPath() ?>/shot/<?= $image->id ?>">
-					<img class="imgGalleryBig img-fluid" 
-					id="<?= $image->id ?>"
-					src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
-					<span class="fa-stack icons icon-heart">
-						<i class="far fa-heart fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text heart-text"><?= $image->nbLike ?></strong>
-					</span>
-					<span class="fa-stack icons">
-						<i class="far fa-comment-alt fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text comment-text"><?= $image->nbComment ?></strong>
-					</span>
-				</a>
+	<form action="processDeleteImage" method="POST">
+		<div class="row">
+			<?php 
+				if (!isset($allMyImages[0]))
+					echo "<div class='col-lg-12'><em>C'est tout vide ici !</em></div>";
+				foreach ($allMyImages as $key => $image):
+			?>
+			<div class="col-lg-4 col-sm-6">
+				<div class="picture">
+					<a href="<?= \App\model\App::getDomainPath() ?>/shot/<?= $image->id ?>">
+						<img class="imgGalleryBig img-fluid" 
+						id="<?= $image->id ?>"
+						src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
+						<button type="submit" name="img" value="<?= $image->id ?>" class="icon-delete">
+							<i class="fas fa-times  fa-lg" title="Supprimer ce shot"></i>
+						</button>
+						<span class="fa-stack icons icon-heart" title="<?= $image->nbLike ?> likes">
+							<i class="far fa-heart fa-stack-2x"></i>
+							<strong class="fa-stack-1x fa-stack-text heart-text"><?= $image->nbLike ?></strong>
+						</span>
+						<span class="fa-stack icons" title="<?= $image->nbComment ?> commentaires">
+							<i class="far fa-comment-alt fa-stack-2x"></i>
+							<strong class="fa-stack-1x fa-stack-text comment-text"><?= $image->nbComment ?></strong>
+						</span>
+					</a>
+				</div>
 			</div>
+			<?php 
+				endforeach; 
+			?>
 		</div>
-		<?php 
-			endforeach; 
-		?>
-	</div>
+		<input type="hidden" name="page" value="mes_instashots">
+	</form>
 	<div class="row d-flex justify-content-center pageCounter">
 		<?php 
 			for ($i = 1; $i <= $totalPages; $i++)

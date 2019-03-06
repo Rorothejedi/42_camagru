@@ -27,7 +27,12 @@ class ControllerPublic extends Alert
 
 	public function displayGalleryRedirection()
 	{
-		$this->displayGallery(1);
+		$imageManager = new \App\model\ImageManager();
+		$countImages = $imageManager->getNbrImages();
+		if ($countImages > 0)
+			$this->displayGallery(1);
+		else
+			require('./view/viewPublic/viewGallery.php');
 	}
 
 	/**
