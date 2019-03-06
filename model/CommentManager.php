@@ -6,6 +6,30 @@ namespace App\model;
  */
 class CommentManager 
 {
+	public function getAllComment($imageByPage, $start)
+	{
+		$data = App::getDb()->query('
+			SELECT count(c.id_image) AS nb
+			FROM image i
+			LEFT JOIN comment c ON i.id = c.id_image
+			GROUP BY i.id
+			ORDER BY i.date DESC
+			LIMIT ' . $start . ',' . $imageByPage,
+		true, false);
+		return $data;
+	}
+
+	public function getNbrComment($id_image)
+	{
+		$data = App::getDb()->prepare('
+			SELECT c.id_image
+			FROM comment c
+			WHERE c.id_image = :id_image',
+		['id_image' => $id_image],
+		true, false, true);
+		return $data;
+	}
+
 	/**
 	 * Permet d'ajouter un nouveau commentaire.
 	 * @param int $id_user Id de l'utilisateur qui poste le commentaire.

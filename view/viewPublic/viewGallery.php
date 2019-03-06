@@ -2,7 +2,7 @@
 	$title = 'Galerie';
 	ob_start();
 
-	function echoPicture($num, $size, $object)
+	function echoPicture($num, $size, $object, $likes, $comments)
 	{
 		if (isset($object[$num]))
 		{
@@ -14,13 +14,13 @@
 					id="' . $object[$num]->id . '"
 					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
 					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
-					<span class="fa-stack icons icon-heart" title="' . $object[$num]->nbLike . ' likes">
+					<span class="fa-stack icons icon-heart" title="' . $likes[$num]->nb . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
+						<strong class="fa-stack-1x fa-stack-text heart-text">' . $likes[$num]->nb . '</strong>
 					</span>
-					<span class="fa-stack icons" title="' . $object[$num]->nbComment . ' commentaires">
+					<span class="fa-stack icons" title="' . $comments[$num]->nb . ' commentaires">
 						<i class="far fa-comment-alt fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
+						<strong class="fa-stack-1x fa-stack-text comment-text">' . $comments[$num]->nb . '</strong>
 					</span>
 					</a>
 					</div>';
@@ -33,13 +33,13 @@
 					id="' . $object[$num]->id . '" 
 					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
 					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
-					<span class="fa-stack icons icon-heart" title="' . $object[$num]->nbLike . ' likes">
+					<span class="fa-stack icons icon-heart" title="' . $likes[$num]->nb . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
+						<strong class="fa-stack-1x fa-stack-text heart-text">' . $likes[$num]->nb . '</strong>
 					</span>
-					<span class="fa-stack icons" title="' . $object[$num]->nbComment . ' commentaires">
+					<span class="fa-stack icons" title="' . $comments[$num]->nb . ' commentaires">
 						<i class="far fa-comment-alt fa-stack-2x"></i>
-						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
+						<strong class="fa-stack-1x fa-stack-text comment-text">' . $comments[$num]->nb . '</strong>
 					</span>
 					</a>
 					</div>';
@@ -66,54 +66,54 @@
 		?>
 		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)) echoPicture(0, 'small', $allImages); ?>
-			<?php if(isset($allImages)) echoPicture(2, 'small', $allImages); ?>
+			<?php if(isset($allImages)) echoPicture(0, 'small', $allImages, $allLikes, $allComments); ?>
+			<?php if(isset($allImages)) echoPicture(2, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(1, 'small', $allImages);} ?>
-			<?php if(isset($allImages)){ echoPicture(3, 'small', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(1, 'small', $allImages, $allLikes, $allComments); ?>
+			<?php if(isset($allImages)) echoPicture(3, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 
 		<!-- Big photos -->
 		<div class="col-lg-6 col-sm-12">
-			<?php if(isset($allImages)){ echoPicture(4, 'big', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(4, 'big', $allImages, $allLikes, $allComments); ?>
 		</div>
 		<div class="col-lg-6 col-sm-12">
-			<?php if(isset($allImages)){ echoPicture(5, 'big', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(5, 'big', $allImages, $allLikes, $allComments); ?>
 		</div>
 
 		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(6, 'small', $allImages);} ?>
-			<?php if(isset($allImages)){ echoPicture(10, 'small', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(6, 'small', $allImages, $allLikes, $allComments); ?>
+			<?php if(isset($allImages)) echoPicture(10, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(9, 'small', $allImages);} ?>
-			<?php if(isset($allImages)){ echoPicture(11, 'small', $allImages);} ?>
-		</div>
-
-		<!-- Small photos -->
-		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(12, 'small', $allImages);} ?>
-		</div>
-		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(13, 'small', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(9, 'small', $allImages, $allLikes, $allComments); ?>
+			<?php if(isset($allImages)) echoPicture(11, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 
 		<!-- Small photos -->
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(14, 'small', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(12, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 		<div class="col-lg-3 col-sm-6">
-			<?php if(isset($allImages)){ echoPicture(15, 'small', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(13, 'small', $allImages, $allLikes, $allComments); ?>
+		</div>
+
+		<!-- Small photos -->
+		<div class="col-lg-3 col-sm-6">
+			<?php if(isset($allImages)) echoPicture(14, 'small', $allImages, $allLikes, $allComments); ?>
+		</div>
+		<div class="col-lg-3 col-sm-6">
+			<?php if(isset($allImages)) echoPicture(15, 'small', $allImages, $allLikes, $allComments); ?>
 		</div>
 
 		<!-- Big photos -->
 		<div class="col-lg-6 col-sm-12">
-			<?php if(isset($allImages)){ echoPicture(16, 'big', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(16, 'big', $allImages, $allLikes, $allComments); ?>
 		</div>
 		<div class="col-lg-6 col-sm-12">
-			<?php if(isset($allImages)){ echoPicture(17, 'big', $allImages);} ?>
+			<?php if(isset($allImages)) echoPicture(17, 'big', $allImages, $allLikes, $allComments); ?>
 		</div>
 	</div>
 	<div class="row d-flex justify-content-center pageCounter">

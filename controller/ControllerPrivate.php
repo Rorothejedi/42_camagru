@@ -14,7 +14,7 @@ class ControllerPrivate extends Alert
 	{
 		if (empty($_SESSION['user_id']) && empty($_SESSION['user_username']))
 		{
-			$this->alert_failure('Vous devez être connecté pour accéder à cette page', \App\model\App::getDomainPath() . '/connexion');
+			$this->alert_failure('Vous devez être connecté pour accéder à cette page ou à cette fonctionnalité !', \App\model\App::getDomainPath() . '/connexion');
 			exit;
 		}
 	}
@@ -301,10 +301,42 @@ class ControllerPrivate extends Alert
 		  			header('Location: ' . \App\model\App::getDomainPath() . '/shot/' . $imageId);
 				}
 				else
-					$this->alert_failure('Cette image n\'existe pas.', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);	
+					$this->alert_failure('Cette image n\'existe pas.', \App\model\App::getDomainPath() . '/shot/' . $imageId);
 			}
 			else
 				$this->alert_failure('Vous ne pouvez pas poster un commentaire vide.', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);
+	}
+
+	public function processLike()
+	{
+		$userData = $this->callUserData();
+		if (!empty($_POST)
+			&& isset($_POST['img']) && !empty($_POST['img']))
+		{
+			$imageId = htmlspecialchars(intval($_POST['img']));
+			$imageManager = new \App\model\ImageManager();
+			$imageCheck = $imageManager->checkImageExist($imageId);
+			if ($imageCheck == 1)
+			{
+				$likeManager = new \App\model\LikeManager();
+				$likeCheck = $likeManager->checkLike($userData->id(), $imageId);
+				if ($likeCheck == 0)
+				{
+					$likeManager->addLike($userData->id(), $imageId);
+					$this->alert_success('+1');
+				}
+				elseif ($likeCheck == 1)
+				{
+					$likeManager->removeLike($userData->id(), $imageId);
+					$this->alert_success('-1');
+				}
+				header('Location: ' . \App\model\App::getDomainPath() . '/shot/' . $imageId);
+			}
+			else
+				$this->alert_failure('Cette image n\'existe pas.', \App\model\App::getDomainPath() . '/shot/' . $imageId);
 		}
 		else
 			$this->alert_failure('Les données transmissent ne sont pas valides', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);

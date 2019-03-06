@@ -10,16 +10,23 @@
 		<a href="<?= \App\model\App::getDomainPath() ?>/" class="shotsLink" >Retour</a>
 	</div>
 	<hr>
-	<form action="processLike" method="POST">
+	<form action="<?= \App\model\App::getDomainPath() ?>/processLike" method="POST">
 		<div class="row">
 			<div class="d-flex justify-content-between col-lg-12">
 				<p>By <em><?= $image->username ?></em></p>
-				<button type="submit" value="oneLikeMore" class="oneLikeMore" title="<?= $image->nbLike ?> likes">
+				<?php if (isset($likeCheck)) { ?>
+					<button type="submit" name="img" value="<?= $image->id ?>" class="oneLikeMore" title="<?= $nbLikes ?> likes">
+						<span class="fa-stack">
+							<i class="far fa-heart buttonLike <?php if ($likeCheck == 1) echo 'checked' ?>"></i>
+							<strong class="fa-stack-1x fa-stack-text heart-button-text heart-text <?php if ($likeCheck == 1) echo 'checked' ?>"><?= $nbLikes ?></strong>
+						</span>
+					</button>
+				<?php } else { ?>
 					<span class="fa-stack">
 						<i class="far fa-heart buttonLike"></i>
-						<strong class="fa-stack-1x fa-stack-text heart-button-text heart-text"><?= $image->nbLike ?></strong>
+						<strong class="fa-stack-1x fa-stack-text heart-button-text heart-text"><?= $nbLikes ?></strong>
 					</span>
-				</button>
+				<?php } ?>
 			</div>
 			<div class="col-lg-12">
 				<img class='shot' src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>" alt="<?= $image->name ?>">
@@ -52,7 +59,7 @@
 
 			<?php 
 				}
-				if ($image->nbComment == 0)
+				if ($nbComments == 0)
 					echo '<div class="col-lg-12">
 							<div class="col-lg-12 comment mt-3 mb-3 pt-3 pb-3">
 								<em class="no-comment">Il n\'y a pas encore de commentaires.</em>

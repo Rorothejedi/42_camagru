@@ -19,11 +19,6 @@ https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
 Later :
 
- - Ajouter les likes sur la page photo unique.
- - Ajouter les commentaires sur la page photo unique.
-
- - Faire ne sorte que chaque utilisateur ne puisse liker une photo qu'une fois.
-
  - Gérer le redimentionnement pour les images uploadées.
  - N'accepter que les fichiers png/jpg.
 

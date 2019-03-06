@@ -51,10 +51,8 @@ class ImageManager
 	public function getImage($id)
 	{
 		$data = App::getDb()->prepare('
-			SELECT i.id, i.id_user, u.username, i.name, DATE_FORMAT(i.date, "%e %M %Y à %Hh%i") AS comment_date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
+			SELECT i.id, i.id_user, u.username, i.name, DATE_FORMAT(i.date, "%e %M %Y à %Hh%i") AS comment_date
 			FROM image i
-			LEFT JOIN `like` l ON i.id = l.id_image
-			LEFT JOIN comment c ON i.id = c.id_image
 			LEFT JOIN user u ON i.id_user = u.id
 			WHERE i.id = :id
 			GROUP BY i.name',
@@ -69,10 +67,8 @@ class ImageManager
 	public function getImages($imageByPage, $start)
 	{
 		$data = App::getDb()->query('
-			SELECT i.id, i.id_user, u.username, i.name, i.date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
+			SELECT i.id, i.id_user, u.username, i.name, i.date
 			FROM image i
-			LEFT JOIN `like` l ON i.id = l.id_image
-			LEFT JOIN comment c ON i.id = c.id_image
 			LEFT JOIN user u ON i.id_user = u.id
 			GROUP BY i.name
 			ORDER BY i.date DESC
@@ -88,10 +84,8 @@ class ImageManager
 	public function getImagesById(User $user, $imageByPage, $start)
 	{
 		$data = App::getDb()->prepare('
-			SELECT i.id, i.id_user, i.name, i.date, count(l.id_user) AS nbLike, count(c.content) AS nbComment
+			SELECT i.id, i.id_user, i.name, i.date
 			FROM image i
-			LEFT JOIN `like` l ON i.id = l.id_image
-			LEFT JOIN comment c ON i.id = c.id_image
 			WHERE i.id_user = :id_user
 			GROUP BY i.name
 			ORDER BY i.date DESC

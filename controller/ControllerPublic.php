@@ -12,16 +12,20 @@ class ControllerPublic extends Alert
 	 */
 	public function displayGallery($slug)
 	{	
-		$imageManager = new \App\model\ImageManager();
+		$imageManager   = new \App\model\ImageManager();
+		$likeManager    = new \App\model\LikeManager();
+		$commentManager = new \App\model\CommentManager();
 		$imageByPage = 18;
 		$countImages = $imageManager->getNbrImages();
-		$totalPages = ceil($countImages / $imageByPage);
+		$totalPages  = ceil($countImages / $imageByPage);
 		if (isset($slug) && !empty($slug) && $slug > 0 && $slug <= $totalPages)
 			$currentPage = intval($slug);
 		else
 			$this->alert_failure('Cette page n\'existe pas.', \App\model\App::getDomainPath());
 		$start = ($currentPage - 1) * $imageByPage;
-		$allImages = $imageManager->getImages($imageByPage, $start);
+		$allImages   = $imageManager->getImages($imageByPage, $start);
+		$allLikes    = $likeManager->getAllLike($imageByPage, $start);
+		$allComments = $commentManager->getAllComment($imageByPage, $start);
 		require('./view/viewPublic/viewGallery.php');
 	}
 
@@ -84,12 +88,17 @@ class ControllerPublic extends Alert
 		{
 			$imageManager   = new \App\model\ImageManager();
 			$commentManager = new \App\model\CommentManager();
+			$likeManager    = new \App\model\LikeManager();
 			$imageId = htmlspecialchars(intval($slug));
 			$imageCheck = $imageManager->checkImageExist($imageId);
 			if ($imageCheck >= 1)
 			{
-				$comments = $commentManager->getComments($imageId);
-				$image    = $imageManager->getImage($imageId);
+				$comments   = $commentManager->getComments($imageId);
+				$nbComments = $commentManager->getNbrComment($imageId);
+				$nbLikes    = $likeManager->getLike($imageId);
+				$image      = $imageManager->getImage($imageId);
+				if (!empty($_SESSION['user_id']))
+					$likeCheck  = $likeManager->checkLike($_SESSION['user_id'], $imageId);
 			}
 			else
 				$this->alert_failure('Cet instashot n\'existe pas.', \App\model\App::getDomainPath());

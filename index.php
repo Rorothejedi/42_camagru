@@ -61,8 +61,8 @@ $router->post('/processEditUser', "Private#processEditUser");
 $router->post('/processEditPreference', "Private#processEditPreference");
 $router->post('/processSaveImage', "Private#processSaveImage");
 $router->post('/processDeleteImage', "Private#processDeleteImage");
-
 $router->post('/processNewComment', "Private#processNewComment");
+
 $router->post('/processLike', "Private#processLike");
 
 //Route execution
