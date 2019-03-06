@@ -597,3 +597,17 @@ footer {
 	font-size: 1rem;
 	font-weight: 200;
 }
+.textarea-comment {
+	resize:none;
+}
+.comment {
+	background-color: var(--second-color);
+	border-radius: 5px;
+}
+.comment-text-content {
+ 	overflow: hidden;
+  	text-overflow: ellipsis; 
+}
+.my-comment {
+	border: 3px solid var(--gold-color);
+}

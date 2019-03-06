@@ -38,7 +38,7 @@
 	$favicon = '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-32x32.png" sizes="32x32">' .
 			   		 '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-16x16.png" sizes="16x16">';
 
-	$animateCSS = '<link rel="stylesheet" href="./public/css/animate.css">';
+	$animateCSS = '<link rel="stylesheet" href="' . \App\model\App::getDomainPath() . '/public/css/animate.css">';
 
 	/*---------------------------   CDN Calls ----------------------------------*/
 

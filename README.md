@@ -24,6 +24,9 @@ Later :
 
  - Faire ne sorte que chaque utilisateur ne puisse liker une photo qu'une fois.
 
+ - Gérer le redimentionnement pour les images uploadées.
+ - N'accepter que les fichiers png/jpg.
+
  - Ajouter la possibilité de partager les photos (Instashot) sur Facebook et Twitter.
  - Mettre en place mails like et comment (préférences).
 

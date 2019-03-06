@@ -82,12 +82,14 @@ class ControllerPublic extends Alert
 	{
 		if (isset($slug) && !empty($slug) && $slug > 0)
 		{
-			$imageManager = new \App\model\ImageManager();
+			$imageManager   = new \App\model\ImageManager();
+			$commentManager = new \App\model\CommentManager();
 			$imageId = htmlspecialchars(intval($slug));
 			$imageCheck = $imageManager->checkImageExist($imageId);
 			if ($imageCheck >= 1)
 			{
-				$image = $imageManager->getImage($slug);
+				$comments = $commentManager->getComments($imageId);
+				$image    = $imageManager->getImage($imageId);
 			}
 			else
 				$this->alert_failure('Cet instashot n\'existe pas.', \App\model\App::getDomainPath());
@@ -366,4 +368,5 @@ class ControllerPublic extends Alert
 		else
 			$this->alert_failure('Les données transmissent ne sont pas valides', 'nouveau_mot_de_passe&username=' . $_GET['username'] . '&key=' . $_GET['key']);
 	}
+
 }

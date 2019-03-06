@@ -281,6 +281,35 @@ class ControllerPrivate extends Alert
 			$this->alert_failure('Les données transmissent ne sont pas valides', './');
     }
 
+    public function processNewComment()
+	{
+		$userData = $this->callUserData();
+		if (!empty($_POST) && isset($_POST['comment'])
+			&& isset($_POST['img']) && !empty($_POST['img']))
+		{
+			if (!empty($_POST['comment']))
+			{
+				$imageId = htmlspecialchars(intval($_POST['img']));
+				$comment = htmlspecialchars($_POST['comment']);
+				$imageManager = new \App\model\ImageManager();
+				$imageCheck = $imageManager->checkImageExist($imageId);
+				if ($imageCheck == 1)
+				{
+					$commentManager = new \App\model\CommentManager();
+					$commentManager->addComment($userData->id(), $imageId, $comment);
+					$this->alert_success('Votre commentaire a bien été posté !');
+		  			header('Location: ' . \App\model\App::getDomainPath() . '/shot/' . $imageId);
+				}
+				else
+					$this->alert_failure('Cette image n\'existe pas.', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);	
+			}
+			else
+				$this->alert_failure('Vous ne pouvez pas poster un commentaire vide.', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);
+		}
+		else
+			$this->alert_failure('Les données transmissent ne sont pas valides', \App\model\App::getDomainPath() . '/shot/' . $_POST['img']);
+	}
+
 
 
 }

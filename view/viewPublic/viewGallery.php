@@ -13,12 +13,12 @@
 					<img class="imgGalleryBig img-fluid" 
 					id="' . $object[$num]->id . '"
 					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
-					<em class="icon-author">By ' . $object[$num]->username . '</em>
-					<span class="fa-stack icons icon-heart">
+					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					<span class="fa-stack icons icon-heart" title="' . $object[$num]->nbLike . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
 					</span>
-					<span class="fa-stack icons">
+					<span class="fa-stack icons" title="' . $object[$num]->nbComment . ' commentaires">
 						<i class="far fa-comment-alt fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
 					</span>
@@ -32,12 +32,12 @@
 					<img class="imgGallery img-fluid" 
 					id="' . $object[$num]->id . '" 
 					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
-					<em class="icon-author">By ' . $object[$num]->username . '</em>
-					<span class="fa-stack icons icon-heart">
+					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					<span class="fa-stack icons icon-heart" title="' . $object[$num]->nbLike . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text heart-text">' . $object[$num]->nbLike . '</strong>
 					</span>
-					<span class="fa-stack icons">
+					<span class="fa-stack icons" title="' . $object[$num]->nbComment . ' commentaires">
 						<i class="far fa-comment-alt fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text comment-text">' . $object[$num]->nbComment . '</strong>
 					</span>

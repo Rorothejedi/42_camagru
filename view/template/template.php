@@ -92,7 +92,7 @@
 			</div>
 		</footer>
 
-		<script src="./public/js/alert.js"></script>
+		<script src="<?= \App\model\App::getDomainPath() ?>/public/js/alert.js"></script>
 	</body>
 
 </html>
