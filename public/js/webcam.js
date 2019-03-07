@@ -31,13 +31,11 @@
   else
     console.log("getUserMedia not supported");
 
-
   function init()
   {
     canvas = document.getElementById("canvas");
     context = canvas.getContext('2d');
   }
-
 
   function loadLayer()
   {
@@ -77,25 +75,24 @@
   function instashot()
   {
     loadLayer();
-    //context.globalAplha = 1.0;
     if (document.getElementById('videoElement').className !== 'd-none')
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-    //context.globalAplha = 0.5;
-    //context.drawImage(layer, 0, 0, canvas.width, canvas.height);
-
     let data = canvas.toDataURL("image/png");
-    //let output = data.replace(/^data:image\/(png|jpg);base64,/, "");
     document.getElementById('imgHidden').value = data;
   }
-
 
   let imageLoader = document.getElementById('loadImg');
   imageLoader.addEventListener('change', handleImage, false);
 
-
   function handleImage(e)
   {
+    let imageLoaderExtension = getExtension(imageLoader.value).toLowerCase();
+    if (imageLoaderExtension != 'jpg' && imageLoaderExtension != 'png')
+    {
+      alert('Attention ! Le format de l\'image n\'est pas correct. Seuls les formats .jpg et .png sont acceptés.');
+      window.location.reload();
+      return;
+    }
     document.getElementById('videoElement').classList.add('d-none');
     canvas.classList.remove('d-none');
     let reader = new FileReader();
@@ -104,11 +101,53 @@
         let img = new Image();
         img.onload = function()
         {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            context.drawImage(img, 0, 0);
+            let imageWidth  = img.width;
+            let imageHeight = img.height;
+            let ratio = imageHeight / imageWidth;
+            let maxWidth  = 1280;
+            let maxHeight = 720;
+            if (imageWidth < maxWidth || imageHeight < maxHeight)
+            {
+              alert('Attention ! La taille de l\'image n\'est pas correcte. Elle doit être d\'au moins 1280x720px');
+              window.location.reload();
+              return;
+            }
+            if (ratio > 1)
+            {
+              alert('Attention ! L\'image utilisée doit être au format paysage.' );
+              window.location.reload();
+              return;
+            }
+            if (imageWidth > imageHeight)
+            {
+              if (imageWidth > maxWidth)
+              {
+                imageHeight *= maxWidth / imageWidth;
+                imageWidth = maxWidth;
+              }
+            } 
+            else 
+            {
+              if (imageHeight > maxHeight) 
+              {
+                imageWidth *= maxHeight / imageHeight;
+                imageHeight = maxHeight;
+              }
+            }
+            canvas.width = maxWidth;
+            canvas.height = maxHeight;
+            img.width = imageWidth;
+            img.height = imageHeight;
+            context.drawImage(img, 0, 0, imageWidth, imageHeight);
         }
         img.src = event.target.result;
     }
     reader.readAsDataURL(e.target.files[0]);
   }
+
+  function getExtension(path)
+{
+   let regex = /[^.]*$/i;
+   let results = path.match(regex);
+   return results[0];
+}

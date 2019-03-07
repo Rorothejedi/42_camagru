@@ -215,8 +215,8 @@ class ControllerPrivate extends Alert
 			$data     = explode(',', $_POST['imgHidden']);
 			$imgData  = base64_decode($data[1]);
 			$fileName = uniqid($userData->id() . '_', true) . '.png';
-			$file     = './files/img/' . $fileName;
-			$layer	 =  './files/filters/' . $_POST['layer'] . '.png';
+			$file  = './files/img/' . $fileName;
+			$layer =  './files/filters/' . $_POST['layer'] . '.png';
 			file_put_contents($file, $imgData);
 			// Fusion des deux images.
 			$dest = imagecreatefrompng($file);
@@ -230,8 +230,8 @@ class ControllerPrivate extends Alert
 	  		{
 	  			$imageManager = new \App\model\ImageManager();
 	  			$image = new \App\model\Image([
-					'idUser'  => $_SESSION['user_id'],
-					'name'    => $fileName
+					'idUser' => $_SESSION['user_id'],
+					'name'   => $fileName
 				]);
 	  			$imageManager->addImage($image);
 	  			$this->alert_success('Wow ! Que c\'est bo !');

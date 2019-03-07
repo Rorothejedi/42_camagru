@@ -7,20 +7,12 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 
  - Mettre images open graph et twitter cards
  - Voir pour mettre un header Location sur les alertes success.
- - Donner la posibilité de partager sur Facebook et Twitter une image
-https://developers.facebook.com/docs/plugins/share-button/?locale=fr_FR
 
- - Essayer de mettre en place des filtres CSS pour les photos
-
- - Se renseigner sur l'ajax en MVC
- - Voir pour lazy load en JavaScript pur.
+ - Essayer de mettre en place des filtres CSS pour les photos.
 
 <hr>
 
 Later :
-
- - Gérer le redimentionnement pour les images uploadées.
- - N'accepter que les fichiers png/jpg.
 
  - Mettre en place mails like et comment (préférences).
 
@@ -40,7 +32,6 @@ Later :
  - Configurer les boutons de partage lors de la mise en ligne.
 
  - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
- - Vérifier aussi que le dossier img est bien présent en git clone (normalement ok).
 
 <hr>
 

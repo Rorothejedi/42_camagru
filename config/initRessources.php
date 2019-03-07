@@ -50,4 +50,3 @@
 
 	$miniSlider  = '<script src="./public/js/miniSlider.js" async></script>';
 	$webcam      = '<script src="./public/js/webcam.js" async></script>';
-	$uploadImage = '<script src="./public/js/uploadImage.js" async></script>';

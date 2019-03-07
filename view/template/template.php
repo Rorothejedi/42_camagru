@@ -45,7 +45,6 @@
 			{
 				echo $miniSlider;
 				echo $webcam;
-				echo $uploadImage;
 			}
 		?>
 	</head>

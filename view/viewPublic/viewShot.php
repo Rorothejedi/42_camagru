@@ -18,7 +18,6 @@ fjs.parentNode.insertBefore(js, fjs);
 	<div id="alertNone" class="alertStudio"></div>
 	<div class="row d-flex justify-content-between col-sm-12">
 		<h1 class="title">Shot</h1>
-		<a href="javascript:history.go(-1)" class="shotsLink" >Retour</a>
 	</div>
 	<hr>
 	<form action="<?= \App\model\App::getDomainPath() ?>/processLike" method="POST">

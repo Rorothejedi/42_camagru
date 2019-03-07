@@ -1,14 +1,14 @@
-if (alert = document.getElementById('alert'))
+if (alerts = document.getElementById('alert'))
 {
 	document.getElementById('alertNone').style.display = 'none';
 	var interval = setInterval(function ()
 	{ 
-		animateOut(alert, 4); 
+		animateOut(alerts, 4); 
 	}, 1000);
-	alert.onclick = function()
+	alerts.onclick = function()
 	{
 		clearInterval(interval);
-		animateOut(alert, 0);
+		animateOut(alerts, 0);
 	};
 }
 
