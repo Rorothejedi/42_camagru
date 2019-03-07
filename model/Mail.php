@@ -10,7 +10,7 @@ class Mail
 
 	/* ------------------ For XAMPP  ------------------*/
 	private $from = 'no-reply@cabotiau.com';
-	private $host = 'http://localhost';
+	private $host = 'http://localhost/camagru/';
 	/* ------------------ For MAMP  -------------------*/
 	//private $from = 'rcabotia@student.le-101.fr';
 	//private $host = 'http://localhost:8100';
@@ -34,7 +34,7 @@ class Mail
 	public function send_register_mail($username, $key)
 	{
 		$subject = "Instagru | Confirmation d'inscription";
-		$link = $this->host . "/camagru/processValidation".
+		$link = $this->host . "processValidation".
 				"&username=" . urlencode($username) .
 				"&key=". urlencode($key);
 		$message = "
@@ -62,7 +62,7 @@ class Mail
 	public function send_forgot_pass_mail($username, $key)
 	{
 		$subject = "Instagru | Réinitialisation du mot de passe";
-		$link = $this->host . "/camagru/nouveau_mot_de_passe".
+		$link = $this->host . "nouveau_mot_de_passe".
 				"&username=" . urlencode($username) .
 				"&key=". urlencode($key);
 		$message = "
@@ -74,6 +74,28 @@ class Mail
 					<p>Cliquez sur le bouton ci-dessous pour accèder à la page vous permettant de réinitialiser votre mot de passe.</p>
 					<br>
 					<a href='" . $link . "' style='background-color:white; padding: 5px 10px; border: 3px solid #66DDB3; border-radius: 20px; color:#66DDB3; text-decoration:none;margin-top:30px'>Réinitialiser mot de passe</a>
+					<br><br>
+					<small>Cet email est automatique, merci de ne pas y répondre.</small>
+				</center>
+			</body>
+		</html>";
+
+		$this->configurationMail($subject, $message);
+	}
+
+	public function send_comment_mail($currentUsername, $username, $id_image, $comment)
+	{
+		$subject = "Instagru | " . $currentUsername . " a commenté un de vos shot !";
+		$link = $this->host . "shot/" . $id_image;
+		$message = "
+		<html>
+			<body>
+				<center>
+					<h1 style='color:#66DDB3;padding-bottom:30px'>Instagru</h1>
+					<p>Un de vos instashot vient d'être commenté par <strong style='color:#66DDB3'>" . $currentUsername . "</strong> ! Voici son commentaire :</p>
+					<p><em>" . $comment . "</em></p>
+					<br>
+					<a href='" . $link . "' style='background-color:white; padding: 5px 10px; border: 3px solid #66DDB3; border-radius: 20px; color:#66DDB3; text-decoration:none;margin-top:30px'>Votre instashot</a>
 					<br><br>
 					<small>Cet email est automatique, merci de ne pas y répondre.</small>
 				</center>

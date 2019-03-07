@@ -296,11 +296,22 @@ class ControllerPrivate extends Alert
 				$imageId = htmlspecialchars(intval($_POST['img']));
 				$comment = htmlspecialchars($_POST['comment']);
 				$imageManager = new \App\model\ImageManager();
+				$userManager  = new \App\model\UserManager();
 				$imageCheck = $imageManager->checkImageExist($imageId);
 				if ($imageCheck == 1)
 				{
 					$commentManager = new \App\model\CommentManager();
 					$commentManager->addComment($userData->id(), $imageId, $comment);
+					$imageUsername = $imageManager->getImage($imageId)->username;
+					$imageUser = new \App\model\User(['username' => $imageUsername]);
+					$infosUser = $userManager->getUser($imageUser);
+					$email          = $infosUser->email();
+					$prefCommentUser = $infosUser->prefComment();
+					if ($prefCommentUser == 1)
+					{
+						$new_mail = new \App\model\Mail($email);
+						$new_mail->send_comment_mail($userData->username(), $imageUsername, $imageId, $comment);
+					}
 					$this->alert_success('Votre commentaire a bien été posté !');
 		  			header('Location: ' . \App\model\App::getDomainPath() . '/shot/' . $imageId);
 				}
