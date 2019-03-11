@@ -8,7 +8,7 @@
 	<div class="row" >
 		<div class="col-xl-9">
 			<div class="longbar">
-				<form action="processSaveImage" method="POST">
+				<form action="processSaveImage" method="POST" name="saveImg">
 					<h2 class="longbar-title">Studio</h2>
 					<hr>
 

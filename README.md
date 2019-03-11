@@ -5,14 +5,14 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 
 <strong>A faire :</strong>
 
- - Mettre en place mails like (préférences).
+ - Check boutons partage en local
+
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
 
  - Choisir plus de stickers (png) et les ajuster correctement.
  - Affiner le responsive.
  - Optimiser toutes les images et miniatures.
  - Vérification des erreurs de JS dans la console.
- - Virer le fichier et le lien cdn d'animate CSS.
 
  - Vérification W3C de toutes les pages HTML.
  - Minimisation de toutes les scripts JS et les CSS.

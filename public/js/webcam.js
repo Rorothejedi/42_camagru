@@ -3,8 +3,8 @@
   let webcamStream;
   let canvas;
   let context;
-
   let lastId;
+  let isActive = false;
 
   navigator.getUserMedia = navigator.getUserMedia ||
                            navigator.webkitGetUserMedia ||
@@ -22,6 +22,7 @@
         video = document.querySelector('#videoElement');
         video.srcObject = stream;
         webcamStream = stream;
+        isActive = true;
       },
       function(error) {
         console.log(error.name);
@@ -65,8 +66,11 @@
     }
     else
     {
-      let button = document.getElementById('takePhoto');
-      button.disabled = false;
+      if (isActive == true)
+      {
+        let button = document.getElementById('takePhoto');
+        button.disabled = false;
+      }
       element.classList.remove("d-none");
     }
     lastId = id + 'Layer';
@@ -84,8 +88,24 @@
   let imageLoader = document.getElementById('loadImg');
   imageLoader.addEventListener('change', handleImage, false);
 
+  function verifLayerCheck()
+  {
+    isActive = true;
+    for (var i = 0; i < document.saveImg.layer.length; i++)
+    {
+      if (document.saveImg.layer[i].checked)
+      {
+        document.saveImg.layer[i].checked = false;
+        let elementId = document.saveImg.layer[i].value;
+        let element = document.getElementById(elementId + 'Layer');
+        element.classList.add("d-none");
+      }
+    }
+  }
+
   function handleImage(e)
   {
+    verifLayerCheck();
     let imageLoaderExtension = getExtension(imageLoader.value).toLowerCase();
     if (imageLoaderExtension != 'jpg' && imageLoaderExtension != 'png')
     {

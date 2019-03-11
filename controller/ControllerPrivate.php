@@ -305,9 +305,9 @@ class ControllerPrivate extends Alert
 					$imageUsername = $imageManager->getImage($imageId)->username;
 					$imageUser = new \App\model\User(['username' => $imageUsername]);
 					$infosUser = $userManager->getUser($imageUser);
-					$email          = $infosUser->email();
+					$email = $infosUser->email();
 					$prefCommentUser = $infosUser->prefComment();
-					if ($prefCommentUser == 1)
+					if ($prefCommentUser == 1 && $userData->username() != $imageUsername)
 					{
 						$new_mail = new \App\model\Mail($email);
 						$new_mail->send_comment_mail($userData->username(), $imageUsername, $imageId, $comment);
@@ -333,6 +333,7 @@ class ControllerPrivate extends Alert
 		{
 			$imageId = htmlspecialchars(intval($_POST['img']));
 			$imageManager = new \App\model\ImageManager();
+			$userManager  = new \App\model\UserManager();
 			$imageCheck = $imageManager->checkImageExist($imageId);
 			if ($imageCheck == 1)
 			{
@@ -340,6 +341,16 @@ class ControllerPrivate extends Alert
 				$likeCheck = $likeManager->checkLike($userData->id(), $imageId);
 				if ($likeCheck == 0)
 				{
+					$imageUsername = $imageManager->getImage($imageId)->username;
+					$imageUser = new \App\model\User(['username' => $imageUsername]);
+					$infosUser = $userManager->getUser($imageUser);
+					$email = $infosUser->email();
+					$prefLikeUser = $infosUser->prefLike();
+					if ($prefLikeUser == 1 && $userData->username() != $imageUsername)
+					{
+						$new_mail = new \App\model\Mail($email);
+						$new_mail->send_like_mail($userData->username(), $imageUsername, $imageId);
+					}
 					$likeManager->addLike($userData->id(), $imageId);
 					$this->alert_success('+1');
 				}

@@ -1,17 +1,18 @@
 <?php 
 	$title = 'Shot';
 	ob_start();
-	//$pageUrl = \App\model\App::getDomainPath() . '/files/img/' . $image->name;
-	$pageUrl = 'https://rodolphe.cabotiau.com/projet_1_openclassrooms/img/portfolio/02.jpg';
+	$pageUrl = \App\model\App::getDomainPath() . '/files/img/' . $image->name;
 ?>
+
 <div id="fb-root"></div>
-<script>(function(d, s, id) {
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) return;
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2";
-fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+<script>
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
 </script>
 
 <div class="container">
@@ -46,7 +47,6 @@ fjs.parentNode.insertBefore(js, fjs);
 				<div class="d-flex align-items-center">
 					<div class="fb-share-button mr-1" data-href="<?= $pageUrl ?>" data-layout="button" data-size="large" data-mobile-iframe="true"></div>
 					<a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-url="<?= $pageUrl ?>" data-lang="fr" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-					
 				</div>
 			</div>
 		</div>
@@ -66,7 +66,7 @@ fjs.parentNode.insertBefore(js, fjs);
 			<?php } else { ?>
 		
 			<div class="form-group col-lg-12">
-  				<textarea class="form-control textarea-comment" rows="7" id="comment-area" placeholder="Merci de respecter les règles de courtoisie élémentaires ainsi que les autres utilisateurs. Tout message ne respectant pas ces règles, pourra être supprimé et son auteur sanctionné." name="comment"></textarea>
+  				<textarea class="form-control textarea-comment" rows="7" id="comment-area" placeholder="Merci de respecter les règles de courtoisie élémentaires ainsi que les autres utilisateurs. Tout message ne respectant pas ces règles pourra être supprimé." name="comment"></textarea>
 			</div>
 			<div class="col-lg-12 mb-4">
 				<button type="submit" name="img" value="<?= $image->id ?>" class="style-button button-color-settings mb-4">Poster mon commentaire</button>

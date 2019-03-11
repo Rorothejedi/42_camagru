@@ -1,44 +1,43 @@
 <?php
 
 	/**
-	 * initRessources.php contient les variables à intégrer aux templates. Celui-ci a pour but de centraliser tous les changements potentiels aux niveau des ressources visuels (css, favicon, etc), des CDN ou des appels aux scripts par exemple.
+	 * initRessources.php contient les variables à intégrer aux templates. Celui-ci a pour but de centraliser tous les changements potentiels aux niveau des ressources visuels (css, favicon, etc), des CDN ou des appels aux scripts.
 	 */
+	
+	$domainPath = \App\model\App::getDomainPath();
 
 	/*-------------------   Medias and social networks -------------------------*/
 
 	$catchword  = "";
-	$urlAdress  = "https://rodolphe.cabotiau.com" . \App\model\App::getDomainPath();
+	$urlAdress  = "https://rodolphe.cabotiau.com" . $domainPath;
 	$keywords   = "photos images montage";
 	$twitterTag = "@RCabotiau";
 
 	/*--------------------------   Common meta  --------------------------------*/
 
 	$meta = '<meta charset="UTF-8">'.
-					'<meta http-equiv="X-UA-Compatible" content="IE=edge">'.
-					'<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">'.
-					'<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->'.
-    			'<!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->'.
-		    	'<!--[if lt IE 9]>
-		    		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js%22%3E</script>
-		    		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js%22%3E</script>
-		    	<![endif]-->';
+			'<meta http-equiv="X-UA-Compatible" content="IE=edge">'.
+			'<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">'.
+			'<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->'.
+			'<!-- WARNING: Respond.js doesn\'t work if you view the page via file:// -->'.
+    		'<!--[if lt IE 9]>
+    			<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js%22%3E</script>
+    			<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js%22%3E</script>
+    		<![endif]-->';
 
 	/*---------------------------   Head link   --------------------------------*/
 
-	// Development stylesheet and minify version
-	$stylesheet = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.css" rel="stylesheet">'.
-				'<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.min.css" rel="stylesheet">-->';
+	// Development stylesheet and production minify version
+	$stylesheet = '<link href="' . $domainPath . '/public/css/stylesheet.css" rel="stylesheet">'.
+				  '<!--<link href="' . $domainPath . '/public/css/stylesheet.min.css" rel="stylesheet">-->';
 
-	$darkTheme = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.dark.css" rel="stylesheet">'.
-				'<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.dark.min.css" rel="stylesheet">-->';
+	$darkTheme  = '<link href="' . $domainPath . '/public/css/stylesheet.dark.css" rel="stylesheet">';
+	$lightTheme = '<link href="' . $domainPath . '/public/css/stylesheet.light.css" rel="stylesheet">';
 
-	$lightTheme = '<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.light.css" rel="stylesheet">'.
-				  '<!--<link href="' . \App\model\App::getDomainPath() . '/public/css/stylesheet.light.min.css" rel="stylesheet">-->';
+	$favicon = '<link rel="icon" type="image/png" href="' . $domainPath . '/public/favicon/favicon-32x32.png" sizes="32x32">' .
+			   	'<link rel="icon" type="image/png" href="' . $domainPath . '/public/favicon/favicon-16x16.png" sizes="16x16">';
 
-	$favicon = '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-32x32.png" sizes="32x32">' .
-			   		 '<link rel="icon" type="image/png" href="' . \App\model\App::getDomainPath() . '/public/favicon/favicon-16x16.png" sizes="16x16">';
-
-	$animateCSS = '<link rel="stylesheet" href="' . \App\model\App::getDomainPath() . '/public/css/animate.css">';
+	$animateCSS = '<link rel="stylesheet" href="' . $domainPath . '/public/css/animate.css">';
 
 	/*---------------------------   CDN Calls ----------------------------------*/
 
@@ -48,5 +47,5 @@
 
 	/*------------------------   JavaScript files  -----------------------------*/
 
-	$miniSlider  = '<script src="./public/js/miniSlider.js" async></script>';
-	$webcam      = '<script src="./public/js/webcam.js" async></script>';
+	$miniSlider  = '<script src="' . $domainPath . '/public/js/miniSlider.js" async></script>';
+	$webcam      = '<script src="' . $domainPath . '/public/js/webcam.js" async></script>';

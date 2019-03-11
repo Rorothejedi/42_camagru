@@ -105,6 +105,27 @@ class Mail
 		$this->configurationMail($subject, $message);
 	}
 
+	public function send_like_mail($currentUsername, $username, $id_image)
+	{
+		$subject = "Instagru | " . $currentUsername . " a liké un de vos shot !";
+		$link = $this->host . "shot/" . $id_image;
+		$message = "
+		<html>
+			<body>
+				<center>
+					<h1 style='color:#66DDB3;padding-bottom:30px'>Instagru</h1>
+					<p>Un de vos instashot vient d'être liké par <strong style='color:#66DDB3'>" . $currentUsername . "</strong> !</p>
+					<br>
+					<a href='" . $link . "' style='background-color:white; padding: 5px 10px; border: 3px solid #66DDB3; border-radius: 20px; color:#66DDB3; text-decoration:none;margin-top:30px'>Votre instashot</a>
+					<br><br>
+					<small>Cet email est automatique, merci de ne pas y répondre.</small>
+				</center>
+			</body>
+		</html>";
+
+		$this->configurationMail($subject, $message);
+	}
+
 	private function configurationMail($subject, $message)
 	{
 		$header = "From: Instagru <" . $this->from . ">\r\n";
