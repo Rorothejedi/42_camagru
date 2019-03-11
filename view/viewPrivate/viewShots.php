@@ -22,7 +22,8 @@
 					<a href="<?= \App\model\App::getDomainPath() ?>/shot/<?= $image->id ?>">
 						<img class="imgGalleryBig img-fluid" 
 						id="<?= $image->id ?>"
-						src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>">
+						src="<?= \App\model\App::getDomainPath() ?>/files/img/<?= $image->name ?>"
+						alt="Shot numéro <?= $image->id ?>">
 						<button onclick="return confirm('Etes-vous sûr de vouloir supprimer ce shot ?')" type="submit" name="img" value="<?= $image->id ?>" class="icon-delete">
 							<i class="fas fa-times  fa-lg" title="Supprimer ce shot"></i>
 						</button>

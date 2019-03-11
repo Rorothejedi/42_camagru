@@ -6,7 +6,7 @@
 
 <!-- Legal notice generate with Subdelirium.com -->
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<h1 class="title">Mentions légales</h1>
 	<hr>
 	<div class="row pt-3 pb-5">

@@ -29,11 +29,11 @@
 				</a>
 			</div>
 			<hr>
-			<div class="pt-5">
-				<h2 class="pt-3 pb-5 d-flex justify-content-center">Erreur 404 - Page introuvable</h2>
-				<p class="d-flex justify-content-center">Vous allez être redirigé vers la galerie dans <span id="countdown">8</span> secondes</p>
+			<div class="pt-5 d-flex flex-column">
+				<h2 class="pt-3 pb-5 text-center">Erreur 404 - Page introuvable</h2>
+				<p class="text-center">Vous allez être redirigé vers la galerie dans <span id="countdown">8</span> secondes</p>
 			</div>
 		</div>
-		<script src="./public/js/countdown.js"></script>
+		<script src="<?= \App\model\App::getDomainPath() ?>/public/js/countdown.js"></script>
 	</body>
 </html>

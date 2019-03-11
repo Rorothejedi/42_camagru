@@ -4,7 +4,7 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<h1 class="title">Confirmez votre inscription pour accéder à votre compte</h1>
 	<hr>
 	<div class="row">

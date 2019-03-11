@@ -67,10 +67,14 @@ footer {
 	border: 3px solid;
 	padding: 5px 10px;
 	border-radius: 20px;
+	-webkit-transition: 0.2s color, 0.2s background-color, 0.2s border-color;
+	-o-transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 	transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 .style-button:hover {
 	text-decoration: none;
+	-webkit-transition: 0.2s color, 0.2s background-color, 0.2s border-color;
+	-o-transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 	transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 
@@ -80,12 +84,16 @@ footer {
 	color: var(--cyan-color) !important;
 	font-family: Quick, sans-serif;
 	font-size: 2.6rem;
+	-webkit-transition: 0.2s color;
+	-o-transition: 0.2s color;
 	transition: 0.2s color;
 	padding-top: 0px;
 	padding-bottom: 0px;
 }
 .navbar-brand:hover {
 	color: var(--pink-color) !important;
+	-webkit-transition: 0.2s color;
+	-o-transition: 0.2s color;
 	transition: 0.2s color;
 }
 .navbar {
@@ -113,11 +121,15 @@ footer {
 	border-radius: 100%;
 	padding: 7px;
 	border: 3px solid var(--cyan-color);
+	-webkit-transition: 0.2s color, 0.2s background-color;
+	-o-transition: 0.2s color, 0.2s background-color;
 	transition: 0.2s color, 0.2s background-color;
 }
 .fa-power-off:hover, .fa-user-alt:hover {
 	color: var(--second-color);
 	background-color: var(--cyan-color);
+	-webkit-transition: 0.2s color, 0.2s background-color;
+	-o-transition: 0.2s color, 0.2s background-color;
 	transition: 0.2s color, 0.2s background-color;
 }
 .studio-button {
@@ -130,15 +142,31 @@ footer {
 	background-color: var(--pink-color);
 }
 
+@media (max-width: 441px) {
+	.mainButtons {
+		font-size: 0.8em;
+	}
+}
+@media (max-width: 389px) {
+	.mainButtons {
+		font-size: 0.6em;
+	}
+}
+@media (max-width: 354px) {
+	.mainButtons {
+		font-size: 0.4em;
+	}
+}
+
 /* ------------------------------  Gallery page ----------------------------- */
 
 .title {
 	font-weight: 200;
 	font-size: 2rem;
-	margin: 0px 0px 40px 0px;
+	margin: 0px 0px 0px 0px;
 }
 .shotsLink {
-	margin: 50px -20px 30px 0px;
+	margin: 10px -20px 10px 0px;
 }
 
 /* ------------------------------- Register page -----------------------------*/
@@ -146,9 +174,8 @@ footer {
 .details {
 	font-style: italic;
 	font-size: 0.8rem;
-	margin-top: -30px;
 	padding-left: 25px;
-	color: white;
+	color: var(--text-color);
 }
 
 .button-color-submit {
@@ -237,6 +264,7 @@ footer {
 	width: 100px;
 	height: auto;
 	border-radius: 100%;
+	cursor: pointer;
 }
 
 .button-color-sidebar {
@@ -262,8 +290,13 @@ footer {
 .slider-container {
 	padding-right: 30px;
 	padding-left: 30px;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: -webkit-transform 0.3s;
+	-o-transition: transform 0.3s;
 	transition: transform 0.3s;
-	transform: translate3d(0, 0, 0);
+	transition: transform 0.3s, -webkit-transform 0.3s;
+	-webkit-transform: translate3d(0, 0, 0);
+	        transform: translate3d(0, 0, 0);
 }
 .slider-container::after {
 	content: '';
@@ -310,11 +343,13 @@ footer {
 	width: 0;
 	height: 0;
 }
-#slider1 input[type=radio] + .item img {
+#slider1 input[type=radio] + .imgSlider {
 	cursor: pointer;
 }
-#slider1 input[type=radio]:checked + .item img {
+#slider1 input[type=radio]:checked + .imgSlider {
 	border: 5px solid var(--pink-color);
+	-webkit-transition: 0.3s all;
+	-o-transition: 0.3s all;
 	transition: 0.3s all;
 }
 
@@ -362,8 +397,12 @@ footer {
 	height: 50px;
 	cursor: pointer;
 	z-index: 10;
+	-webkit-transition: 0.3s all;
+	-o-transition: 0.3s all;
 	transition: 0.3s all;
-	transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+	     -o-transition-delay: 0.2s;
+	        transition-delay: 0.2s;
 }
 .button-color-photo:focus {
 	outline: none;
@@ -374,16 +413,22 @@ footer {
 }
 .button-color-photo:hover {
 	width: 200px;
+	-webkit-transition: 0.3s all;
+	-o-transition: 0.3s all;
 	transition: 0.3s all;
 }
 .button-color-photo:after {
 	content: 'Prendre instashot';
 	opacity: 0;
+	-webkit-transition: 0.3s all;
+	-o-transition: 0.3s all;
 	transition: 0.3s all;
 }
 .button-color-photo:hover:after {
 	opacity: 1;
-	transition-delay: 0.2s;
+	-webkit-transition-delay: 0.2s;
+	     -o-transition-delay: 0.2s;
+	        transition-delay: 0.2s;
 }
 
 .button-color-photo:disabled {
@@ -417,29 +462,41 @@ footer {
 	border: none;
 	border-radius: 7px;
 	background-color: var(--main-color);
+	-webkit-transition: 0.2s background-color;
+	-o-transition: 0.2s background-color;
 	transition: 0.2s background-color;
 	width: 100%;
 }
 .fakeImg img {
 	width: 100%;
 	border-radius: 5px;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 .fakeImg img:hover {
 	opacity: 0.7;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 .fakeImg:hover .fa-times {
 	opacity: 1;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 .fakeImg:hover {
 	cursor: pointer;
 	background-color: var(--cyan-color);
+	-webkit-transition: 0.2s background-color;
+	-o-transition: 0.2s background-color;
 	transition: 0.2s background-color;
 }
 .fakeImg:hover img {
 	opacity: 0.7;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 
@@ -471,6 +528,8 @@ footer {
 	max-width: 100%;
 	height: auto;
 	border-radius: 5px;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 .picture, .bigPicture {
@@ -478,6 +537,8 @@ footer {
 }
 .imgGallery:hover, .imgGalleryBig:hover {
 	opacity: 0.7;
+	-webkit-transition: opacity 0.2s;
+	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
 }
 
@@ -521,9 +582,14 @@ footer {
 	margin-top: -25px;
 	font-size: 0.8em;
 }
+.arroundIconAuthor {
+	position: relative;
+}
 
 .icon-delete {
 	color: var(--cyan-color);
+	-webkit-transition: color 0.3s;
+	-o-transition: color 0.3s;
 	transition: color 0.3s;
 	position: absolute;
 	top: 10px;
@@ -541,6 +607,8 @@ footer {
 }
 .icon-delete:hover {
 	color: var(--pink-color);
+	-webkit-transition: color 0.3s;
+	-o-transition: color 0.3s;
 	transition: color 0.3s;
 }
 
@@ -577,11 +645,18 @@ footer {
 	background-color: unset;
 	cursor: pointer;
 }
+.noLike {
+	cursor: not-allowed;
+}
 .heart-button-text:hover, .oneLikeMore:hover .buttonLike {
 	color: var(--cyan-color);
+	-webkit-transition: color 0.2s;
+	-o-transition: color 0.2s;
 	transition: color 0.2s;
 }
 .heart-button-text, .buttonLike {
+	-webkit-transition: color 0.2s;
+	-o-transition: color 0.2s;
 	transition: color 0.2s;
 }
 
@@ -606,7 +681,8 @@ footer {
 }
 .comment-text-content {
  	overflow: hidden;
-  	text-overflow: ellipsis; 
+  	-o-text-overflow: ellipsis;
+  	   text-overflow: ellipsis; 
 }
 .my-comment {
 	border: 3px solid var(--gold-color);

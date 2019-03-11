@@ -4,7 +4,7 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<h1 class="title">Réinitialiser votre mot de passe</h1>
 	<p class="details">Indiquez votre adresse mail et nous vous enverrons un lien pour réinitialiser votre mot de passe. Pensez à vérifier les spam de votre boite de reception.</p>
 	<hr>

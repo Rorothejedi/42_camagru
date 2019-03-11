@@ -4,7 +4,7 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<h1 class="title">Connectez-vous</h1>
 	<hr>
 	<form class="form-horizontal pt-5 pb-5" action="processConnection" method="POST">

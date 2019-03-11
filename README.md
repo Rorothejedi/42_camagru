@@ -5,21 +5,13 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 
 <strong>A faire :</strong>
 
- - Check boutons partage en local
-
  - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
 
- - Choisir plus de stickers (png) et les ajuster correctement.
- - Affiner le responsive.
- - Optimiser toutes les images et miniatures.
- - Vérification des erreurs de JS dans la console.
+ - Vérification des erreurs de JS dans la console sur les macs du 101.
+(erreur bouton partage twitter).
 
- - Vérification W3C de toutes les pages HTML.
- - Minimisation de toutes les scripts JS et les CSS.
 
- - Vérification annexes.
  - Mise en ligne.
-
  - Configurer les boutons de partage lors de la mise en ligne.
 
  - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
@@ -29,7 +21,6 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 <strong>Essais :</strong>
 
  - Mettre images open graph et twitter cards.
- - Essayer de mettre en place des filtres CSS pour les photos.
 
 <hr>
 

@@ -4,8 +4,8 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
-	<h2 class="title">Informations du compte</h1>
+	<div id="alertNone" class="alertStudio"></div>
+	<h1 class="title">Informations du compte</h1>
 	<hr>
 	<form class="form-horizontal pt-5 pb-5" action="processEditUser" method="POST">
 		<div class="row">
@@ -71,7 +71,7 @@
 		</div>
 	</form>
 
-	<h2 class="title" id="preference">Préférences</h1>
+	<h2 class="title mt-5" id="preference">Préférences</h2>
 	<hr>
 	<form class="form-horizontal pt-5 pb-5" action="processEditPreference" method="POST">
 		<div class="row">
@@ -107,7 +107,7 @@
 		
 		<div class="row">
 			<div class="col-md-5">
-				<button type="submit" class="style-button button-color-settings">Modifier mes préférences</button>
+				<button type="submit" name="editPref" class="style-button button-color-settings">Modifier mes préférences</button>
 			</div>
 		</div>
 	</form>

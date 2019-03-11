@@ -12,8 +12,11 @@
 					<a href="' . \App\model\App::getDomainPath() . '/shot/' . $object[$num]->id . '">
 					<img class="imgGalleryBig img-fluid" 
 					id="' . $object[$num]->id . '"
-					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
-					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '"
+					alt="shot numéro ' . $object[$num]->id . '">
+					<div class="arroundIconAuthor">
+						<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					</div>
 					<span class="fa-stack icons icon-heart" title="' . $likes[$num]->nb . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text heart-text">' . $likes[$num]->nb . '</strong>
@@ -31,8 +34,11 @@
 					<a href="' . \App\model\App::getDomainPath() . '/shot/' . $object[$num]->id . '">
 					<img class="imgGallery img-fluid" 
 					id="' . $object[$num]->id . '" 
-					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '">
-					<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					src="' . \App\model\App::getDomainPath() . '/files/img/' . $object[$num]->name . '"
+					alt="shot numéro ' . $object[$num]->id . '">
+					<div class="arroundIconAuthor">
+						<em class="icon-author" title="By ' . $object[$num]->username . '">By ' . $object[$num]->username . '</em>
+					</div>
 					<span class="fa-stack icons icon-heart" title="' . $likes[$num]->nb . ' likes">
 						<i class="far fa-heart fa-stack-2x"></i>
 						<strong class="fa-stack-1x fa-stack-text heart-text">' . $likes[$num]->nb . '</strong>

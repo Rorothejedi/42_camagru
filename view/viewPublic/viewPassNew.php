@@ -4,7 +4,7 @@
 ?>
 
 <div class="container">
-	<div id="alertNone"></div>
+	<div id="alertNone" class="alertStudio"></div>
 	<h1 class="title">Réinitialiser votre mot de passe</h1>
 	<p class="details">Votre nouveau mot de passe doit contenir au moins 8 caractères, être composé de chiffres et de lettres minuscules et majuscules.</p>
 	<hr>

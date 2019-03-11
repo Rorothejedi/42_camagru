@@ -28,8 +28,8 @@
 	/*---------------------------   Head link   --------------------------------*/
 
 	// Development stylesheet and production minify version
-	$stylesheet = '<link href="' . $domainPath . '/public/css/stylesheet.css" rel="stylesheet">'.
-				  '<!--<link href="' . $domainPath . '/public/css/stylesheet.min.css" rel="stylesheet">-->';
+	$stylesheet = '<!--<link href="' . $domainPath . '/public/css/stylesheet.css" rel="stylesheet">-->'.
+				  '<link href="' . $domainPath . '/public/css/stylesheet.min.css" rel="stylesheet">';
 
 	$darkTheme  = '<link href="' . $domainPath . '/public/css/stylesheet.dark.css" rel="stylesheet">';
 	$lightTheme = '<link href="' . $domainPath . '/public/css/stylesheet.light.css" rel="stylesheet">';
@@ -49,3 +49,4 @@
 
 	$miniSlider  = '<script src="' . $domainPath . '/public/js/miniSlider.js" async></script>';
 	$webcam      = '<script src="' . $domainPath . '/public/js/webcam.js" async></script>';
+	$alertJs     = '<script src="' . $domainPath . '/public/js/alert.js"></script>';

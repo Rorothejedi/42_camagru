@@ -66,8 +66,8 @@
 						</div>
 					<?php } else { ?>
 						<div>
-							<a href="<?= \App\model\App::getDomainPath() ?>/connexion" class="style-button button-color-first">Connexion</a>
-							<a href="<?= \App\model\App::getDomainPath() ?>/inscription" class="style-button button-color-second">Inscription</a>
+							<a href="<?= \App\model\App::getDomainPath() ?>/connexion" class="style-button button-color-first mainButtons">Connexion</a>
+							<a href="<?= \App\model\App::getDomainPath() ?>/inscription" class="style-button button-color-second mainButtons">Inscription</a>
 						</div>
 					<?php } ?>
 				</div>
@@ -91,7 +91,9 @@
 			</div>
 		</footer>
 
-		<script src="<?= \App\model\App::getDomainPath() ?>/public/js/alert.js"></script>
+		<?php 
+			echo $alertJs;
+		?>
 	</body>
 
 </html>

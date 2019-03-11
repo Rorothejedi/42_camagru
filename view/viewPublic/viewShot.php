@@ -33,10 +33,12 @@
 						</span>
 					</button>
 				<?php } else { ?>
-					<span class="fa-stack">
-						<i class="far fa-heart buttonLike"></i>
-						<strong class="fa-stack-1x fa-stack-text heart-button-text heart-text"><?= $nbLikes ?></strong>
-					</span>
+					<button class="oneLikeMore noLike" type="button" disabled title="Vous devez être connecté pour liker ce shot">
+						<span class="fa-stack">
+							<i class="far fa-heart buttonLike"></i>
+							<strong class="fa-stack-1x fa-stack-text heart-button-text heart-text"><?= $nbLikes ?></strong>
+						</span>
+					</button>
 				<?php } ?>
 			</div>
 			<div class="col-lg-12">
