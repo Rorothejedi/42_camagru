@@ -100,7 +100,7 @@ class ControllerPrivate extends Alert
 	{
 		$user = $this->initUser();
 		$userManager = new \App\model\UserManager();
-		$userData    = $userManager->getUser($user);
+		$userData = $userManager->getUser($user);
 		return $userData;
 	}
 

@@ -22,16 +22,10 @@ class Autoloader
         $class = str_replace('App\\', '', $class);
         $class = str_replace('\\', '/', $class);
     	if ($class == 'model/router/Route' || $class == 'model/router/Router')
-    	{
         	require $class . '.php';
-    	}
         elseif (preg_match("#controller#i", $class)) 
-        {
             require $class . '.php';
-        }
     	else
-    	{
         	require $class . '.php';
-    	}
     }
 }

@@ -1,5 +1,10 @@
 <?php
 namespace App\model;
+require('./config/database.php');
+
+define('DB_DSN', $DB_DSN);
+define('DB_USER', $DB_USER);
+define('DB_PASS', $DB_PASSWORD);
 
 /**
  * Class App
@@ -7,18 +12,6 @@ namespace App\model;
  */
 class App
 {
-	/* -----------  For XAMPP  ---------*/
-	const DB_NAME = 'instagru';
-	const DB_USER = 'root';
-	const DB_PASS = '';
-	const DB_HOST = 'localhost';
-
-	/*---------  For Custom MAMP -------*/
-	// const DB_NAME = 'instagru';
- 	// const DB_USER = 'root';
- 	// const DB_PASS = 'rootpass';
-	// const DB_HOST = 'mysql';
-
 	const DOMAIN_NAME = '/camagru';
 	private static $database;
 
@@ -31,10 +24,9 @@ class App
 		if (self::$database === null)
 		{
 			self::$database = new Database(
-				self::DB_NAME,
-				self::DB_USER,
-				self::DB_PASS,
-				self::DB_HOST);
+				DB_DSN,
+				DB_USER,
+				DB_PASS);
 		}
 		return self::$database;
 	}

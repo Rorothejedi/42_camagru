@@ -8,6 +8,14 @@ namespace App\controller;
 class ControllerPublic extends Alert
 {
 	/**
+	 * Méthode permettant d'activer le fichier config/setup.php
+	 */
+	public function createDatabase()
+	{
+		require('./config/setup.php');
+	}
+
+	/**
 	 * Méthode d'affichage de la page d'accueil (galerie).
 	 */
 	public function displayGallery($slug)

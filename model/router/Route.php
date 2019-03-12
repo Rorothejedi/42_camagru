@@ -26,21 +26,17 @@ class Route
 		$regex = "#^$path$#i";
 
 	    if(!preg_match($regex, $url, $matches))
-	    {
 	        return false;
-	    }
 	    array_shift($matches);
 	    $this->matches = $matches;
-	    
+
 	    return true;
 	}
 
 	private function paramMatch($match)
 	{
 	    if(isset($this->params[$match[1]]))
-	    {
 	        return '(' . $this->params[$match[1]] . ')';
-	    }
 	    return '([^/]+)';
 	}
 
@@ -69,9 +65,7 @@ class Route
 	        $controller = new $controller();
 	        return call_user_func_array([$controller, $params[1]], $this->matches);
 	    } 
-	    else 
-	    {
+	    else
 	        return call_user_func_array($this->callable, $this->matches);
-	    }
 	}
 }

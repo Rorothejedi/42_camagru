@@ -5,22 +5,16 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
 
 <strong>A faire :</strong>
 
- - Réalisation des fichiers setup et database (dans config) pour une execution locale sous macOs.
-
- - Vérification des erreurs de JS dans la console sur les macs du 101.
-(erreur bouton partage twitter).
-
-
  - Mise en ligne.
+ - Configurer les images open graph et twitter cards lors de la mise en ligne.
  - Configurer les boutons de partage lors de la mise en ligne.
 
+<strong>A faire au 101 :</strong>
+ - Correction de bugs éventuels.
+ - Tout check.
+ - Vérification des erreurs de JS dans la console sur les macs.
+(erreur bouton partage twitter).
  - Avant le push final vérifier que la taille du projet soit inférieur à 5mo.
-
-<hr>
-
-<strong>Essais :</strong>
-
- - Mettre images open graph et twitter cards.
 
 <hr>
 
@@ -34,7 +28,6 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
  - Boutons pour partager une photo sur Facebook et Twitter.
  - Balises Google, OpenGraph et Twitter Cards.
  - Site en ligne.
-
 
 <hr>
 

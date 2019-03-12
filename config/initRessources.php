@@ -47,6 +47,6 @@
 
 	/*------------------------   JavaScript files  -----------------------------*/
 
-	$miniSlider  = '<script src="' . $domainPath . '/public/js/miniSlider.js" async></script>';
-	$webcam      = '<script src="' . $domainPath . '/public/js/webcam.js" async></script>';
+	$miniSlider  = '<script src="' . $domainPath . '/public/js/miniSlider.js"></script>';
+	$webcam      = '<script src="' . $domainPath . '/public/js/webcam.js"></script>';
 	$alertJs     = '<script src="' . $domainPath . '/public/js/alert.js"></script>';

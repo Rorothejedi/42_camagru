@@ -41,11 +41,7 @@
 			echo $stylesheet;
 			echo $animateCSS;
 			echo $favicon;
-			if ($title == 'Studio')
-			{
-				echo $miniSlider;
-				echo $webcam;
-			}
+			
 		?>
 	</head>
 
@@ -92,6 +88,11 @@
 		</footer>
 
 		<?php 
+			if ($title == 'Studio')
+			{
+				echo $miniSlider;
+				echo $webcam;
+			}
 			echo $alertJs;
 		?>
 	</body>

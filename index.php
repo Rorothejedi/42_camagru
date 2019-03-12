@@ -33,6 +33,9 @@ if(isset($_COOKIE['auth']) && !isset($_SESSION['user_id']))
 }
 
 // -----------------------  Router get -------------------------
+// Créer ou recréer le schéma de la base de données
+// $router->get('/setup', "Public#createDatabase");
+
 $router->get('/', "Public#displayGalleryRedirection");
 $router->get('/inscription', "Public#displayRegister");
 $router->get('/confirmation_inscription', "Public#displayRegisterConfirm");
@@ -62,7 +65,6 @@ $router->post('/processEditPreference', "Private#processEditPreference");
 $router->post('/processSaveImage', "Private#processSaveImage");
 $router->post('/processDeleteImage', "Private#processDeleteImage");
 $router->post('/processNewComment', "Private#processNewComment");
-
 $router->post('/processLike', "Private#processLike");
 
 //Route execution

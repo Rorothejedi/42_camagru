@@ -7,10 +7,9 @@ use PDO;
  */
 class Database
 {
-	private $db_name;
+	private $db_dsn;
 	private $db_user;
 	private $db_pass;
-	private $db_host;
 	private $pdo;
 
 	/**
@@ -20,12 +19,11 @@ class Database
 	 * @param string $db_pass Mot de passe de la base de données
 	 * @param string $db_host Hôte de connexion
 	 */
-	public function __construct($db_name, $db_user, $db_pass, $db_host)
+	public function __construct($db_dsn, $db_user, $db_pass)
 	{
-		$this->db_name = $db_name;
+		$this->db_dsn  = $db_dsn;
 		$this->db_user = $db_user;
 		$this->db_pass = $db_pass;
-		$this->db_host = $db_host;
 	}
 
 	/**
@@ -37,7 +35,7 @@ class Database
 	{
 		if($this->pdo === null)
 		{
-			$pdo = new \PDO('mysql:dbname=' . $this->db_name . ';host=' . $this->db_host . ';charset=utf8', $this->db_user, $this->db_pass);
+			$pdo = new \PDO($this->db_dsn, $this->db_user, $this->db_pass);
 			$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$pdo->query("SET lc_time_names = 'fr_FR'");
 			$this->pdo = $pdo;
