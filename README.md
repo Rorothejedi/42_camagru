@@ -1,13 +1,9 @@
 ﻿# Instagru (Projet Camagru | le 101)
 Réalisation d'un petit site Instagram-like permettant à des utilisateurs de réaliser et partager des photo-montages.
 
+https://rodolphe.cabotiau.com/instagru/
+
 <hr>
-
-<strong>A faire :</strong>
-
- - Mise en ligne.
- - Configurer les images open graph et twitter cards lors de la mise en ligne.
- - Configurer les boutons de partage lors de la mise en ligne.
 
 <strong>A faire au 101 :</strong>
  - Correction de bugs éventuels.
@@ -23,7 +19,6 @@ Réalisation d'un petit site Instagram-like permettant à des utilisateurs de r�
  - Design Néon.
  - Light / dark theme.
  - Mentions légales.
-
  - Préférences supplémentaires (mail like).
  - Boutons pour partager une photo sur Facebook et Twitter.
  - Balises Google, OpenGraph et Twitter Cards.
