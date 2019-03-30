@@ -20,6 +20,6 @@ https://rodolphe.cabotiau.com/instagru/
 
  - HTML 5 / CSS 3.
  - PHP 7 avec une structure MVC.
+ - Base de données relationnelle MySQL.
  - JavaScript vanilla.
  - Bootstrap 4
- 
