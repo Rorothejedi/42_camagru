@@ -15,3 +15,11 @@ https://rodolphe.cabotiau.com/instagru/
  - Boutons pour partager une photo sur Facebook et Twitter.
  - Balises Google, OpenGraph et Twitter Cards.
  - Site en ligne.
+
+## Technologies utilisées
+
+ - HTML 5 / CSS 3.
+ - PHP 7 avec une structure MVC.
+ - JavaScript vanilla.
+ - Bootstrap 4
+ 
